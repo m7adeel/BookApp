@@ -2,7 +2,7 @@ import { Image as RNImage, StyleSheet, View, Dimensions } from 'react-native'
 import React from 'react'
 
 type ImageProps = {
-  source: string
+  source: object
   style?: object
 }
 
@@ -17,7 +17,7 @@ export default function Image({ source, style }: ImageProps) {
   return (
     <View style={styles.container}>
       <RNImage
-        source={{ uri: path }}
+        source={source}
         style={[
           styles.image,
           { width: defaultWidth, height: defaultWidth * 0.75 }, // 4:3 aspect ratio

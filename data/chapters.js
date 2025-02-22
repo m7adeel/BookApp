@@ -279,7 +279,7 @@ const chapter2Data = {
     },
     {
       type: blockTypes.CONVERSATION_WITH_IMAGE,
-      imageSource: "/lesson2/l2-1.png",
+      imageSource: require("../assets/images/lesson2/l2-1.png"),
       imagePosition: positions.RIGHT,
       dialogues: [
         { "speaker": "Babul", "text": "Hello, Dad!" },
@@ -503,7 +503,7 @@ const chapter3Data = {
     },
     {
       type: blockTypes.IMAGE,
-      value: ""
+      value: require('../assets/images/lesson3/l3-1.png')
     },
     {
       type: blockTypes.FREE_ANSWER,
@@ -551,7 +551,9 @@ const chapter4Data = {
       value: "Listen to and then practise the conversations below with your class friends."
     },
     {
-      type: blockTypes.CONVERSATION,
+      type: blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson4/p1.png'),
       dialogues: [
         { "speaker": "Mamun", "text": "Akash, I'd like you to meet..." },
         { "speaker": "Akash", "text": "Hello! My name is Akash. I'm sorry, I couldn't catch your name." },
@@ -573,7 +575,9 @@ const chapter4Data = {
       value: "ii) Sometimes the same questions can be asked in a different way. Here is a conversation between an Immigration officer and a passenger at the Shahjalal International  Airport, Dhaka. Listen to the conversation first and then practise it with a partner."
     },
     {
-      type: blockTypes.CONVERSATION,
+      type: blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson4/p2.png'),
       dialogues: [
         { "speaker": "Officer", "text": "Your name, Sir?" },
         { "speaker": "Passenger", "text": "Robert Smith." },
@@ -598,7 +602,9 @@ const chapter4Data = {
       value: "It's the first day in the new class after the annual exam. The boy sitting next to Joy is a new student. Listen to and practise the conversation below."
     },
     {
-      type: blockTypes.CONVERSATION,
+      type: blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson4/p3.png'),
       dialogues: [
         { "speaker": "Joy", "text": "Hello! I'm Joy. I'm the class captain." },
         { "speaker": "New student", "text": "Hi! My name is Sajed." },
@@ -622,7 +628,9 @@ const chapter4Data = {
       value: "iv) Mamun and Akash are talking about Mamun's cousin Ruma. Listen to and practise the conversation in pairs." 
     },
     {
-      type: blockTypes.CONVERSATION,
+      type: blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson4/p4.png'),
       dialogues: [
         { "speaker": "Akash", "text": "What does your cousin do, Mamun?" },
         { "speaker": "Mamun", "text": "She is an architect. She mostly designs offices and shopping complexes." },
@@ -635,7 +643,9 @@ const chapter4Data = {
       value: "v) Mary and her mother are sitting in their living room. Mary's mother Rabeya Begum is watching TV and Mary is reading a story book. Their neighbour's little boy is crying at the top of his voice."
     },
     {
-      type: blockTypes.CONVERSATION,
+      type: blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson4/p5.png'),
       dialogues: [
         { "speaker": "Rabeya", "text": "I just don't understand! That boy is screaming so much! What's his mother doing?" },
         { "speaker": "Mary", "text": "I don't think she is at home. May be she is issuing out books to someone at the moment." },
@@ -682,7 +692,7 @@ const chapter4Data = {
     },
     {
       type: blockTypes.IMAGE,
-      source: ""
+      value: require('../assets/images/lesson4/p9.png')
     },
     {
       type: blockTypes.FILL_IN_BLANKS,
@@ -708,7 +718,7 @@ const chapter4Data = {
     },
     {
       type: blockTypes.IMAGE,
-      source: ""
+      value: require('../assets/images/lesson4/p6.png')
     },
     {
       type: blockTypes.FILL_IN_BLANKS,
@@ -734,7 +744,7 @@ const chapter4Data = {
     },
     {
       type: blockTypes.IMAGE,
-      source: ""
+      value: require('../assets/images/lesson4/p8.png')
     },
     {
       type: blockTypes.FILL_IN_BLANKS,
@@ -760,7 +770,7 @@ const chapter4Data = {
     },
     {
       type: blockTypes.IMAGE,
-      source: ""
+      value: require('../assets/images/lesson4/p7.png')
     },
     {
       type: blockTypes.FILL_IN_BLANKS,
@@ -812,12 +822,12 @@ const chapter5Data = {
         "postman"
       ],
       "images": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        require('../assets/images/lesson5/p1.png'),
+        require('../assets/images/lesson5/p2.png'),
+        require('../assets/images/lesson5/p3.png'),
+        require('../assets/images/lesson5/p4.png'),
+        require('../assets/images/lesson5/p5.png'),
+        require('../assets/images/lesson5/p6.png')
       ]
     },
     {
@@ -856,7 +866,9 @@ const chapter5Data = {
       "value": "B Read the text about Bulbul and answer the questions below."
     },
     {
-      "type": "paragraph",
+      "type": blockTypes.PARAGRAPH_WITH_IMAGE,
+      imageSource: require('../assets/images/lesson5/p7.png'),
+      imagePosition: positions.RIGHT,
       "value": "Bulbul collects rubbish from the Sankar area in Dhaka. Every morning, he wakes up at 5 o\u2019clock and walks along the streets of Sankar to collect rubbish. People of Sankar put their rubbish in plastic bins and leave them in front of their houses. Bulbul walks from door to door to collect them. Sometimes the bins are very dirty and they smell bad. But Bulbul does not mind. He takes out everything from the bins and puts them in his van. He believes that all jobs are important. He works hard every day to keep this area clean."
     },
     {
@@ -1101,6 +1113,10 @@ const chapter7Data = {
       ]
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson7/p1.png')
+    },
+    {
       "type": "short_answer",
       "value": "A1. Recite the poem in groups, in pairs and then individually."
     },
@@ -1113,10 +1129,22 @@ const chapter7Data = {
       "value": "Each word has more than one meaning. The meaning in which a word has been used in the poem is given. Can you think of any other meaning or meanings?"
     },
     {
-      "type": "list",
-      "values": [
-        "Trunk: The long nose of an elephant",
-        "Ring: A round confined area in which animals or people perform or compete. There are seats around the outside of the ring for the audience. For example: a circus ring or a boxing ring."
+      "type": blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson7/p2.png'),
+      dialogues: [
+        {
+          "speaker": "Trunk",
+          "text": "The long nose of an elephant"
+        },
+        {
+          "speaker": "Ring",
+          "text": "A round confined area in which animals or people perform or compete. There are seats around the outside of the ring for the audience"
+        },
+        {
+          "speaker": "For example",
+          "text": "a circus ring or a boxing ring."
+        }
       ]
     },
     {
@@ -1144,7 +1172,9 @@ const chapter8Data = {
       "value": "A Some guests will visit Imran's house tonight. So Imran's mother will cook dinner for them. She asks Imran to go to the local market. He often forgets to buy the necessary items. So his mother is making a shopping list for him. He is helping his mother make the list."
     },
     {
-      "type": blockTypes.CONVERSATION,
+      "type": blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../assets/images/lesson8/p1.png'),
       dialogues: [
         {
           "speaker": "Imran",
@@ -1298,7 +1328,9 @@ const chapter8Data = {
       "value": "B. Listen to and read the dialogues below."
     },
     {
-      "type": "conversation",
+      "type": blockTypes.CONVERSATION_WITH_IMAGE,
+      imagePosition: positions.RIGHT,
+      imageSource: require('../asets/images/lesson8/p2.png'),
       dialogues: [
         {
           speaker: "Salesperson",
@@ -1390,6 +1422,10 @@ const chapter8Data = {
     {
       "type": blockTypes.QUESTION_TEXT,
       "value": "B2 Read the sentences/phrases in the eight speech bubbles. Put them in the right order (1 to 8) to write down the conversation in your notebook."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson8/p3.png')
     },
     {
       "type": "numbered_list",
@@ -1501,7 +1537,11 @@ const chapter8Data = {
       ]
     },
     {
-      "type": "listed_items",
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson8/p4.png')
+    },
+    {
+      "type": blockTypes.QUESTION_TEXT,
       "value": "Prices of items:"
     },
     {
@@ -1562,44 +1602,21 @@ const chapter8Data = {
 }
 
 const chapter9Data = {
-  title: "",
+  title: "Lesson 9: Health is wealth",
   learningObjectives: [
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "participate in dialogues and conversations on familiar topics",
+    "read and understand written instructions",
+    "read and understand texts"
   ],
   content: [
     {
-      "type": "container",
-      "value": "Lesson 9"
+      "type": blockTypes.QUESTION_TEXT,
+      "value": "A Choose a health problem from the box and write next to the appropriate picture. There are names of more problems in the box than are necessary."
     },
     {
-      "type": "paragraph",
-      "value": "Health is wealth"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to"
-    },
-    {
-      "type": "numbered_list",
-      "values": [
-        "ask and answer questions",
-        "participate in dialogues and conversations on familiar topics",
-        "read and understand written instructions",
-        "read and understand texts"
-      ]
-    },
-    {
-      "type": "question_text",
-      "value": "A"
-    },
-    {
-      "type": "paragraph",
-      "value": "Choose a health problem from the box and write next to the appropriate picture. There are names of more problems in the box than are necessary."
-    },
-    {
-      "type": "list",
-      "values": [
+      type: blockTypes.IMAGE_WITH_SELECT_OPTIONS,
+      values: [
         "a fever",
         "a backache",
         "a cough",
@@ -1609,54 +1626,32 @@ const chapter9Data = {
         "a stomachache",
         "a cold",
         "a burn"
+      ],
+      images: [
+        require('../assets/images/lesson9/p1.png'),
+        require('../assets/images/lesson9/p2.png'),
+        require('../assets/images/lesson9/p3.png'),
+        require('../assets/images/lesson9/p4.png'),
+        require('../assets/images/lesson9/p5.png'),
+        require('../assets/images/lesson9/p6.png'),
+        require('../assets/images/lesson9/p7.png'),
+        require('../assets/images/lesson9/p8.png')
       ]
     },
     {
-      "type": "fill_in_blanks",
-      "value": "1. ...................."
+      "type": blockTypes.QUESTION_TEXT,
+      "value": "A1: Work in pairs. Ask and answer the following questions."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "2. ...................."
+      type: blockTypes.QUESTION_LIST,
+      values: [
+        "\u2022 Have you had any of these or other health problems recently? Which ones? or what?",
+        "\u2022 How many times had you been sick in the year?",
+        "\u2022 What do you do when you have a headache or a cold or a toothache?"
+      ]
     },
     {
-      "type": "fill_in_blanks",
-      "value": "3. ...................."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "4. ...................."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "5. ...................."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "6. ...................."
-    },
-    {
-      "type": "question_text",
-      "value": "A1"
-    },
-    {
-      "type": "paragraph",
-      "value": "Work in pairs. Ask and answer the following questions."
-    },
-    {
-      "type": "paragraph",
-      "value": "\u2022 Have you had any of these or other health problems recently? Which ones? or what?"
-    },
-    {
-      "type": "paragraph",
-      "value": "\u2022 How many times had you been sick in the year?"
-    },
-    {
-      "type": "paragraph",
-      "value": "\u2022 What do you do when you have a headache or a cold or a toothache?"
-    },
-    {
-      "type": "question_text",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "B. Look at some health problems. Choose several pieces of good advice for each problem. There are more pieces of advice than problems."
     },
     {
@@ -1826,26 +1821,21 @@ const chapter9Data = {
 }
 
 const chapter10Data = {
-  title: "",
+  title: "Lesson 10: Remedies: Modern and Traditional",
   learningObjectives: [
+    "read and understand written instructions",
+    "read and understand texts",
     "ask and answer questions",
     "participate in short dialogues and conversations on familiar topics",
+    "and write short paragraphs"
   ],
   content: [
-    {
-      "type": "paragraph",
-      "value": "Lesson 10 Remedies: modern and traditional"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand written instructions, read and understand texts, ask and answer questions, participate in short dialogues and conversations on familiar topics, and write short paragraphs."
-    },
     {
       "type": "question_text",
       "value": "A. Look at the following pictures. Discuss with your partner what they are. Match them with their names given in the box."
     },
     {
-      "type": "list",
+      "type": blockTypes.IMAGE_WITH_SELECT_OPTIONS,
       "values": [
         "paracetamol",
         "neem",
@@ -1855,14 +1845,20 @@ const chapter10Data = {
         "turmeric",
         "honey",
         "aloe vera"
+      ],
+      images: [
+        require('../assets/images/lesson10/p1.png'),
+        require('../assets/images/lesson10/p2.png'),
+        require('../assets/images/lesson10/p3.png'),
+        require('../assets/images/lesson10/p4.png'),
+        require('../assets/images/lesson10/p5.png'),
+        require('../assets/images/lesson10/p6.png'),
+        require('../assets/images/lesson10/p7.png'),
+        require('../assets/images/lesson10/p8.png')
       ]
     },
     {
-      "type": "paragraph",
-      "value": "Forma-5, English For Today -6"
-    },
-    {
-      "type": "question_text",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "B. Read the following text."
     },
     {
@@ -1895,7 +1891,7 @@ const chapter10Data = {
       "value": "B2. Answer the questions."
     },
     {
-      "type": "list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "1. What are natural cures made of?",
         "2. Are herbal cures modern inventions? Explain your reasons.",
@@ -1909,13 +1905,16 @@ const chapter10Data = {
       "value": "C. Work in pairs. Complete the following expressions with words from the box."
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
+      options: [
+
+      ],
       "values": [
-        "1 a ................. of ointment",
-        "2 a ................. of aspirin",
-        "3 a ................. of bandage",
-        "4 a ................. of foot spray",
-        "5 a ................. of tissue"
+        { value: "1 a ................. of ointment"},
+        { value: "2 a ................. of aspirin"},
+        { value: "3 a ................. of bandage"},
+        { value: "4 a ................. of foot spray"},
+        { value: "5 a ................. of tissue"}
       ]
     },
     {

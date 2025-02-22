@@ -21,10 +21,10 @@ const ImageWithSelectOptions = ({ values, images }) => {
 
       {/* Display Images with Select Options */}
       <View style={styles.imageContainer}>
-        {images.map((imageUri, index) => (
+        {images.map((source, index) => (
           <View key={index} style={styles.imageBlock}>
             <Image
-              source={{ uri: imageUri }}
+              source={source}
               style={styles.image}
               resizeMode="contain"
             />

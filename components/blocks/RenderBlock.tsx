@@ -18,6 +18,7 @@ import FillinBlanksWithOptions from './FillinBlanksWithOptions'
 import QuestionList from './QuestionList'
 import List from './List'
 import Poem from './Poem'
+import ParagraphWithImage from './ParagraphWithImage'
 
 type RenderBlockProps = {
   block: any
@@ -60,7 +61,7 @@ export default function RenderBlock({ block }: RenderBlockProps) {
       return <QuestionList questions={block.values} />
     
     case blockTypes.IMAGE:
-      return <Image source={block.source} style={block.style} />
+      return <Image source={block.value} style={block.style} />
     
     case blockTypes.ITALIC_TEXT:
       return <ItalicText value={block.value} />
@@ -77,6 +78,9 @@ export default function RenderBlock({ block }: RenderBlockProps) {
     
     case blockTypes.PARAGRAPH:
       return <Paragraph value={block.value} />
+
+    case blockTypes.PARAGRAPH_WITH_IMAGE:
+      return <ParagraphWithImage value={block.value} imagePosition={block.imagePosition} imageSource={block.imageSource}/>
 
     case blockTypes.FREE_ANSWER:
       return <FreeAnswer label={block.label} />
