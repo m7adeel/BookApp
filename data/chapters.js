@@ -35,7 +35,8 @@ const blockTypes = {
   LANGUAGE_FOCUS: 'language_focus',
   NUMBERED_LIST: 'numbered_list',
   LIST: 'list',
-  QUESTION_LIST: 'question_list'
+  QUESTION_LIST: 'question_list',
+  IMAGE_GRID_WITH_TEXT: 'image_grid_with_text',
 }
 
 const chaptersData = {
