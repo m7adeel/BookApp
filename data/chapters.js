@@ -2033,20 +2033,32 @@ const chapter11Data = {
       "value": "A. Listen to and read the following words."
     },
     {
-      "type": "list",
-      "values": [
-        "shed",
-        "shade",
-        "pepper",
-        "paper",
-        "test",
-        "taste",
-        "wet",
-        "wait",
-        "pen",
-        "pain",
-        "man",
-        "mane"
+      "type": blockTypes.IMAGE_GRID_WITH_TEXT,
+      values: [
+        {
+          left: { word: 'shed', image: require('./assets/images/lesson11/p1.png') },
+          right: { word: 'shade', image: require('./assets/images/lesson11/p2.png') },
+        },
+        {
+          left: { word: 'pepper', image: require('./assets/images/lesson11/p3.png') },
+          right: { word: 'paper', image: require('./assets/images/lesson11/p4.png') },
+        },
+        {
+          left: { word: 'test', image: require('./assets/images/lesson11/p5.png') },
+          right: { word: 'taste', image: require('./assets/images/lesson11/p6.png') },
+        },
+        {
+          left: { word: 'wet', image: require('./assets/images/lesson11/p7.png') },
+          right: { word: 'wait', image: require('./assets/images/lesson11/p8.png') },
+        },
+        {
+          left: { word: 'pen', image: require('./assets/images/lesson11/p9.png') },
+          right: { word: 'pain', image: require('./assets/images/lesson11/p10.png') },
+        },
+        {
+          left: { word: 'man', image: require('./assets/images/lesson11/p11.png') },
+          right: { word: 'mane', image: require('./assets/images/lesson11/p12.png') },
+        },
       ]
     },
     {

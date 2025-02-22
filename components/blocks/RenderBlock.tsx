@@ -19,6 +19,7 @@ import QuestionList from './QuestionList'
 import List from './List'
 import Poem from './Poem'
 import ParagraphWithImage from './ParagraphWithImage'
+import ImageGridWithText from './ImageGridWithText'
 
 type RenderBlockProps = {
   block: any
@@ -90,6 +91,9 @@ export default function RenderBlock({ block }: RenderBlockProps) {
 
     case blockTypes.IMAGE_WITH_SELECT_OPTIONS:
       return <ImageWithSelectOptions values={block.values} images={block.images} />
+
+    case blockTypes.IMAGE_GRID_WITH_TEXT:
+      return <ImageGridWithText data={block.values} />
     
     default:
       console.log("Block not found")
