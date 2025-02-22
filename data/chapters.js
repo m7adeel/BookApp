@@ -1907,7 +1907,11 @@ const chapter10Data = {
     {
       "type": blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
       options: [
-
+        "bottle",
+        "box",
+        "can",
+        "package",
+        "tube"
       ],
       "values": [
         { value: "1 a ................. of ointment"},
@@ -1922,17 +1926,33 @@ const chapter10Data = {
       "value": "Now write down some sentences using these phrases."
     },
     {
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your sentences here..."
+    },
+    {
       "type": "question_text",
       "value": "D. Read the dialogue and practise in pairs."
     },
     {
-      "type": "conversation",
-      "value": [
-        "Pharmacist: Good morning. Can I help you?",
-        "Mr Arman: Do you have anything for dry skin?",
-        "Pharmacist: Well, you may try this new body lotion. It's good. Or, you can try this brand of Olive oil. Olive oil is also good for dry skin.",
-        "Mr Arman: Well, I think I'll take the lotion. How much is it?"
-      ]
+      "type": blockTypes.CONVERSATION,
+      dialogues: [
+        {
+          speaker:"Pharmacist",
+          text: "Good morning. Can I help you?"
+        },
+        {
+          speaker: "Mr Arman",
+          text:"Do you have anything for dry skin?"
+        },
+        {
+          speaker:"Pharmacist",
+          text:"Well, you may try this new body lotion. It's good. Or, you can try this brand of Olive oil. Olive oil is also good for dry skin."
+        },
+        {
+          speaker:"Mr Arman",
+          text:"Well, I think I'll take the lotion. How much is it?"
+        },
+      ],
     },
     {
       "type": "question_text",
@@ -1952,24 +1972,44 @@ const chapter10Data = {
       "value": "E. People with a cold, a fever, or the flu often go to the doctor for help. But many people in our country also use home remedies for common illnesses. Read about some simple home remedies and answer the following questions."
     },
     {
+      type: blockTypes.QUESTION_TEXT,
+      value: "Cough"
+    },
+    {
       "type": "paragraph",
       "value": "For children's cough, grandmas give two tea-spoons of basil leaf/tulsi juice with one spoon of honey. It works excellent. Some people take grape juice and honey too. It is also good for dry cough. Hot milk with honey is also useful in cough problems. You can take ginger tea which is also a useful home remedy for cough."
+    },
+    {
+      type: blockTypes.QUESTION_TEXT,
+      value: "Cold"
     },
     {
       "type": "paragraph",
       "value": "Lemon juice is good for any cold because it contains vitamin C. Vitamin C increases body resistance. Lemon juice, hot water and honey together work well in healing common cold."
     },
     {
+      type: blockTypes.QUESTION_TEXT,
+      value: "Toothache"
+    },
+    {
       "type": "paragraph",
       "value": "In normal toothache, keep a clove in your mouth. Place it in between the aching teeth and suck on it. You can even apply clove oil on the affected tooth. Garlic also cures toothache. Place a clove of garlic on the aching tooth and munch mildly. Its juice will work as a relief. A pinch of pepper powder mixed with common salt works well on the aching tooth. It's especially effective against the increased sensitiveness of the teeth."
+    },
+    {
+      type: blockTypes.QUESTION_TEXT,
+      value: "Headaches"
     },
     {
       "type": "paragraph",
       "value": "Eating apples give good result in headaches. While eating, add a little salt to it. When headache is caused by cold winds, cinnamon works the best. Make a paste of cinnamon by mixing in water and apply it on your forehead."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "E1 Learn these words: ginger, resistance, clove, garlic, pepper, cinnamon, sensitive, munch, pinch (as used in the text)."
+      type: blockTypes.QUESTION_TEXT,
+      value: "E1 Learn these words: "
+    },
+    {
+      "type": blockTypes.PARAGRAPH,
+      "value": "ginger, resistance, clove, garlic, pepper, cinnamon, sensitive, munch, pinch (as used in the text)."
     },
     {
       "type": "free_answer",
@@ -1979,24 +2019,14 @@ const chapter10Data = {
 }
 
 const chapter11Data = {
-  title: "",
+  title: "Lesson 11: Are you Listening?-1",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "recognize English sounds",
+    "recognize word and stress on words in sentences",
+    "recognize intonation in sentences",
+    "read aloud texts with proper pronunciation, stress and intonation."
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 11"
-    },
-    {
-      "type": "header",
-      "value": "Are you Listening?-1"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to recognize English sounds, recognize word and stress on words in sentences, recognize intonation in sentences, read aloud texts with proper pronunciation, stress and intonation."
-    },
     {
       "type": "question_text",
       "value": "A. Listen to and read the following words."
@@ -2068,22 +2098,15 @@ const chapter11Data = {
 }
 
 const chapter12Data = {
-  title: "",
+  title: "Lesson 12: An unseen beauty of Bangladesh",
   learningObjectives: [
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
+    "write short paragraphs"
   ],
   content: [
     {
-      "type": "question_text",
-      "value": "Lesson 12 An unseen beauty of Bangladesh"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to ask and answer questions, read and understand texts, write short paragraphs."
-    },
-    {
-      "type": "numbered_list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "1. Have you ever visited any interesting tourist spot in Bangladesh? If you have, what was that place? What special attractions did you see there? If you haven't, what places do you wish to visit? What special attractions will you see there?",
         "2. Which of the following activities would you like to do while visiting a tourist spot? sight-seeing, taking photos, having picnic, shopping, collecting souvenirs, others ___\u2026\u2026"
@@ -2102,8 +2125,8 @@ const chapter12Data = {
       "value": "Shusong Durgapur has an amazing landscape. It is located on the bank of crystal clear Someshwari river and is close to the Garo hills. You can see the hills of Indian state of Meghalaya from here. The nature has unfolded its glory in this small, rural landscape. Here you can see the ceramic mountain leaning against the sky, the blue water of the pictorial\u2026"
     },
     {
-      "type": "paragraph",
-      "value": "**English For Today**"
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson12/p1.png')
     },
     {
       "type": "paragraph",
@@ -2123,7 +2146,7 @@ const chapter12Data = {
     },
     {
       "type": "conversation",
-      "value": [
+      dialogues: [
         {
           "speaker": "A",
           "text": "Are there any rivers in Birishiri?"
@@ -2159,7 +2182,7 @@ const chapter12Data = {
       "value": "B2 Discuss the following questions in pairs."
     },
     {
-      "type": "numbered_list",
+      "type": blockTypes.QUESTION_LIST,
       "value": [
         "1. In which district is Shusong Durgapur located?",
         "2. How far is Shusong Durgapur from Dhaka?",
@@ -2200,34 +2223,23 @@ const chapter12Data = {
     {
       "type": "question_text",
       "value": "D Write a passage on a place of tourist attraction that you know."
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your answer here..."
     }
   ]
 }
 
 const chapter13Data = {
-  title: "",
+  title: "Lesson 13: Our pride",
   learningObjectives: [
+    "read and understand texts",
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "write short paragraphs",
+    "participate in short dialogues and conversations on familiar topics"
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 13 Our pride"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to"
-    },
-    {
-      "type": "numbered_list",
-      "values": [
-        "read and understand texts",
-        "ask and answer questions",
-        "write short paragraphs",
-        "participate in short dialogues and conversations on familiar topics"
-      ]
-    },
     {
       "type": "question_text",
       "value": "A Read the following passage."
@@ -2237,16 +2249,16 @@ const chapter13Data = {
       "value": "December 16 is a remarkable day for Bangladeshi people. On this day in 1971, Bangladesh got independence after a nine-month-long blood-soaked battle against the Pakistani army. It is a day of national pride as well as a day of commemorating the sacrifices of the millions of Bangladeshi people. Pakistani army killed three million people and raped thousands of women."
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson13/p1.png')
+    },
+    {
       "type": "paragraph",
       "value": "Victory Day is celebrated with great enthusiasm across the country. The day begins with a 31-gun salute at dawn, followed by the hoisting of the national flag at government buildings and private institutions. Different political, cultural and educational programs are organized to pay homage to the martyrs of the war. The entire nation celebrates the day with colorful flags, banners and parades."
     },
     {
       "type": "paragraph",
       "value": "The National Parade ground hosts a grand military parade where the president, the prime minister and dignitaries from government and non-government sectors join. The National Martyrs' Memorial in Savar, our"
-    },
-    {
-      "type": "container",
-      "value": "English For Today"
     },
     {
       "type": "paragraph",
@@ -2265,7 +2277,7 @@ const chapter13Data = {
       "value": "A2. Answer the following questions."
     },
     {
-      "type": "list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "a. What is the significance of our victory day?",
         "b. Why do we pay homage to our martyrs?",
@@ -2278,13 +2290,22 @@ const chapter13Data = {
       "value": "A3. Make a list of the patriotic songs that encouraged our people during the Liberation War of Bangladesh."
     },
     {
-      "type": "fill_in_blanks_select",
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your answer here..."
+    },
+    {
+      "type": blockTypes.QUESTION_TEXT,
       "value": "B Listen to the dialogue from a CD or as your teacher reads it out and fill in the gaps."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson13/p2.png')
     },
     {
       "type": "conversation",
       "value": "Teacher: Well students, how do we celebrate our national days?  Shanta: We go to the \u2026\u2026. on \u2026\u2026\u2026. . We go to the Jatiyo Smritisoudho at \u2026\u2026\u2026. on ___. and ___\u2026\u2026  Teacher: Great! But do you know the English of Jatiyo Smriti Soudho? Shanta: Yes, ma\u2019am. It's \u2026\u2026\u2026.. Mausoleum. Teacher: Very good. Have you ever been to our National ___\u2026? Shanta: Oh yes, I went there last year on the ___\u2026 \u2026\u2026\u2026., on 16 December."
     },
+    // TODO: ADD A CONVERSATION_WITH_BLANKS component as well
     {
       "type": "conversation",
       "value": "Teacher  What did you do there?"
@@ -2346,6 +2367,7 @@ const chapter13Data = {
       "type": "question_text",
       "value": "D. Work in pairs and take an interview of your partner. Use these cues."
     },
+    // TODO: Make a component which can handle multiple fill in blanks
     {
       "type": "fill_in_blanks",
       "value": [
@@ -2362,27 +2384,27 @@ const chapter13Data = {
       "value": "E. Use the cues in Section D and write a small paragraph on how your partner celebrated a national day."
     },
     {
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your answer here..."
+    },
+    {
       "type": "question_text",
       "value": "F. Write your own experience about the day. Mention what day you celebrated; what exactly you, your teachers, and your friends did; and what your feelings were on that day."
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your experience here..."
     }
   ]
 }
 
 const chapter14Data = {
-  title: "",
+  title: "Lesson 14 The Lion's Mane",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts and talk about people",
+    "places and familiar objects in short and simple sentences",
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 14 The Lion\u2019s Mane"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand texts and talk about people, places and familiar objects in short and simple sentences."
-    },
     {
       "type": "question_text",
       "value": "A. Read the story."
@@ -2390,6 +2412,10 @@ const chapter14Data = {
     {
       "type": "paragraph",
       "value": "Once, a lion was sitting beside a river. Suddenly he looked at his own reflection and thought 'My mane is too old. I need a new hairstyle!'"
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require("../assets/images/lesson14/p1.png")
     },
     {
       "type": "paragraph",
@@ -2499,10 +2525,11 @@ const chapter14Data = {
 }
 
 const chapter15Data = {
-  title: "",
+  title: "Lesson 15: An old people's Home",
   learningObjectives: [
+    "read and understand text",
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "write short paragraphs",
   ],
   content: [
     {
@@ -2512,6 +2539,10 @@ const chapter15Data = {
       {
         "type": "paragraph",
         "value": "Mariam is a student of class six in a government school in Rajshahi. Her mother works in an office and her father is a businessman. Mariam is very fond of her aunt, her father's sister, Suraiya Begum who lives in another part of the same town. On Fridays she often goes to her aunt's place and spends time with her."
+      },
+      {
+        type: blockTypes.IMAGE,
+        value: require('../assets/images/lesson15/p1.png')
       },
       {
         "type": "paragraph",
