@@ -3533,16 +3533,16 @@ const chapter24Data = {
           "may try"
         ],
         values: [
-          "You ................. to Sonargaon.",
-          "You ................. the capital of ancient Bengal there.",
-          "You ................. the Lalbagh Fort in the old part of Dhaka.",
-          "You ................. a couple of hours at the Baldha Garden.",
-          "You ................. the Ahsan Manzil too.",
-          "You ................. a boat ride on the Buriganga river.",
-          "You ................. the taste of Mughlai Khana once you're in Dhaka.",
-          "You ................. a Tom Tom ride from Sadarghat to Gulistan.",
-          "You ................. Chattpaty or Fuchka on the foot path.",
-          "But you .......... tap water in a restaurant."
+          {value: "You ................. to Sonargaon."},
+          {value:"You ................. the capital of ancient Bengal there."},
+          {value:"You ................. the Lalbagh Fort in the old part of Dhaka."},
+          {value:"You ................. a couple of hours at the Baldha Garden."},
+          {value:"You ................. the Ahsan Manzil too."},
+          {value:"You ................. a boat ride on the Buriganga river."},
+          {value:"You ................. the taste of Mughlai Khana once you're in Dhaka."},
+          {value:"You ................. a Tom Tom ride from Sadarghat to Gulistan."},
+          {value:"You ................. Chattpaty or Fuchka on the foot path."},
+          {value:"But you .......... tap water in a restaurant."}
         ]
       },
       {
@@ -3887,7 +3887,13 @@ const chapter26Data = {
     },
     {
       type: blockTypes.MULTI_FILL_IN_BLANKS,
-      values: []
+      values: [
+          "Imran does not like polo shirts with a ___",
+          "A ___ size shirt fits Imran perfectly.",
+          "The shirt that Imran chose finally is ___ in colour.",
+          "He wants to ___ the polo shirt on before buying it.",
+          "The polo shirt that Imran likes is on ___ this week."
+      ]
     },
     {
       "type": "question_text",
@@ -3938,68 +3944,135 @@ const chapter26Data = {
       "value": "D Read the conversations between Mrs Urmila Karim and Imran. Which clothes do they choose? Tick the correct picture for each conversation."
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson26/p13.png')
+    },
+    {
       "type": "conversation",
       dialogues: [
         {
           "speaker": "Mrs Karim",
-          "line": "Look at these jeans."
+          "text": "Look at these jeans."
         },
         {
           "speaker": "Imran",
-          "line": "No, mom. That is too narrow. I want some baggy ones."
+          "text": "No, mom. That is too narrow. I want some baggy ones."
         },
         {
           "speaker": "Mrs. Karim",
-          "line": "Flat, you mean?"
+          "text": "Flat, you mean?"
         },
         {
           "speaker": "Imran",
-          "line": "No, not flat. Just baggy, you know, loose fitting with pockets on the sides."
+          "text": "No, not flat. Just baggy, you know, loose fitting with pockets on the sides."
         }
       ]
     },
     {
-      "type": "short_answer",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "Dialogue 2"
     },
     {
-      "type": "conversation",
-      "value": "**Mrs. Karim:** I need some shoes.  \n**Imran:** How about these?  \n**Mrs. Karim:** No, the heels are too high.  \n**Imran:** Do you want flat shoes then?  \n**Mrs. Karim:** No, not flat, something in between. A bit of heel but not too high."
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson26/p14.png')
     },
     {
-      "type": "conversation",
-      "value": "**Mrs. Karim:** What about this T-shirt, Imran??  \n**Imran:** No, mom. I don't like the cartoon on the front.  \n**Mrs. Urmila:** Well, what about that one, with writings on the chest?  \n**Imran:** No, I don't really like that either. I want something completely plain, like this one, no writings, just plain."
+      type: blockTypes.CONVERSATION,
+      dialogues: [
+        {
+          speaker: "Mrs. Karim",
+          text: "I need some shoes."
+        },
+        {
+          speaker: "Imran",
+          text: "How about these?"
+        },
+        {
+          speaker: "Mrs. Karim",
+          text: "No, the heels are too high."
+        },
+        {
+          speaker: "Imran",
+          text: "Do you want flat shoes then?"
+        },
+        {
+          speaker: "Mrs. Karim",
+          text: "No, not flat, something in between. A bit of heel but not too high."
+        }
+      ]
     },
     {
-      "type": "conversation",
-      "value": "Imran I need to buy a shirt, too."
+      type: blockTypes.QUESTION_TEXT,
+      value: "Dialogue 3"
     },
     {
-      "type": "conversation",
-      "value": "Mrs. Karim Look, this shirt has nice prints!"
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson26/p15.png')
     },
     {
-      "type": "conversation",
-      "value": "Imran No, mom. I want something more formal."
+      type: blockTypes.CONVERSATION,
+      dialogues:[
+        {
+          speaker: "Mrs. Karim",
+          text: "What about this T-shirt, Imran?"
+        },
+        {
+          speaker: "Imran",
+          text: "No, mom. I don't like the cartoon on the front."
+        },
+        {
+          speaker: "Mrs. Urmila",
+          text: "Well, what about that one, with writings on the chest?"
+        },
+        {
+          speaker: "Imran",
+          text: "No, I don't really like that either. I want something completely plain, like this one, no writings, just plain."
+        }
+      ]
     },
     {
-      "type": "conversation",
-      "value": "Mrs. Karim Then what about this one with stripes?"
+      type: blockTypes.QUESTION_TEXT,
+      value: "Dialogue 4"
     },
     {
-      "type": "conversation",
-      "value": "Imran No, it's too boring. Look at this shirt with checks. This looks nice."
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson26/p16.png')
     },
     {
-      "type": "conversation",
-      "value": "Mrs. Karim Yes, that's much better. Well, take it then."
+      type: blockTypes.CONVERSATION,
+      dialogues: [
+        {
+          speaker: "Mrs. Karim",
+          text: "Look at this shirt, Imran."
+        },
+        {
+          speaker: "Imran",
+          text: "No, mom. I want something more formal."
+        },
+        {
+          speaker: "Mrs. Karim",
+          text: "Then what about this one with stripes?"
+        },
+        {
+          speaker: "Imran",
+          text: "No, it's too boring. Look at this shirt with checks. This looks nice."
+        },
+        {
+          speaker: "Mrs. Karim",
+          text: "Yes, that's much better. Well, take it then."
+        }
+      ]
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.QUESTION_TEXT,
+      "value": "D1 Practise the dialogues with a partner."
+    },
+    {
+      "type": blockTypes.QUESTION_TEXT,
       "value": "E Fill up the blanks in the following sentences with words from the box below."
     },
     {
-      "type": "fill_in_blanks_select",
+      "type": blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
       "options": [
         "try",
         "wearing",
@@ -4011,21 +4084,17 @@ const chapter26Data = {
         "shorts",
         "fit"
       ],
-      "blanks": [
-        "1. I have gained so much weight. My clothes do not ...................... me any more.",
-        "2. I never wear red. It does not ..................... me.",
-        "3. You have got a nice blue top. You just need a pair of sky jeans to ................... it.",
-        "4. A: I'd like to .................... this dress on, please.\n   B: Sure, the trial room is over there.",
-        "5. I like this jacket but it's too small. Have you got it in a bigger ....................?",
-        "6. What are you .................... to the function tonight?",
-        "7. These heels are too high. I am looking for some ....................... shoes.",
-        "8. I like that dress, but it's too expensive. I want something like that but .................... .",
-        "9. I think I need a pair of ....................... for my trip to Cox'sbazar. They are always good for going to the beach."
-      ]
-    },
-    {
-      "type": "short_answer",
-      "value": "D1 Practise the dialogues with a partner."
+      values: [
+        { value: "1. I have gained so much weight. My clothes do not ...................... me any more." },
+        { value: "2. I never wear red. It does not ..................... me." },
+        { value: "3. You have got a nice blue top. You just need a pair of sky jeans to ................... it." },
+        { value: "4. A: I'd like to .................... this dress on, please.\n   B: Sure, the trial room is over there." },
+        { value: "5. I like this jacket but it's too small. Have you got it in a bigger ....................?" },
+        { value: "6. What are you .................... to the function tonight?" },
+        { value: "7. These heels are too high. I am looking for some ....................... shoes." },
+        { value: "8. I like that dress, but it's too expensive. I want something like that but .................... ." },
+        { value: "9. I think I need a pair of ....................... for my trip to Cox'sbazar. They are always good for going to the beach." }
+      ],
     }
   ]
 }
