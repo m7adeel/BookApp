@@ -4100,30 +4100,25 @@ const chapter26Data = {
 }
 
 const chapter27Data = {
-  title: "",
+  title: "Lesson 27: Andre",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read aloud texts with proper pronunciation, stress and intonation",
+    "read and understand written instructions",
+    "understand and enjoy stories and poems",
   ],
   content: [
-    {
-      "type": "paragraph",
-      "value": "Lesson 27 Andre"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read aloud texts with proper pronunciation, stress and intonation, read and understand written instructions, and understand and enjoy stories and poems."
-    },
     {
       "type": "question_text",
       "value": "A  Read the following poem."
     },
     {
-      "type": "poem",
+      "type": blockTypes.PARAGRAPH_WITH_IMAGE,
+      imageSource: require('../assets/images/lesson27/p1.png'),
+      imagePosition: positions.RIGHT,
       "value": "Andr\u00e9\n-Gwendolyn Brooks\nI had a dream last night. I dreamed\nI had to pick a mother out.\nI had to choose a father too.\nAt first, I wondered what to do,\nThere were so many there, it seemed,\nShort and tall and thin and stout.\nBut just before I sprang awake,\nI knew what parents I would take.\nAnd this surprised and made me glad;\nThey were the ones I always had!"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A1  Underline all the verbs in the poem above. Then, list them in two columns: present tense and past tense. Next, change the verbs in the past tense to their present form, and the present tense ones to their past form."
     },
     {
@@ -4131,7 +4126,7 @@ const chapter27Data = {
       "value": "Example:\nPresent tense  |  Past tense\nhave                 |  had\nchoose             |"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A2  Read the poem aloud with proper pronunciation, stress and intonation."
     }
   ]
