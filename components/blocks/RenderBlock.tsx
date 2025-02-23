@@ -20,6 +20,11 @@ import List from './List'
 import Poem from './Poem'
 import ParagraphWithImage from './ParagraphWithImage'
 import ImageGridWithText from './ImageGridWithText'
+import FillInTheBlanksConversation from './FillinTheBlanksConversation'
+import MultiFillInBlanks from './MultiFillinBlanks'
+import ShortAnswer from './ShortAnswer'
+import ParagraphWithBlanks from './ParagraphWithBlanks'
+import ParagraphWithBlanksWithOptions from './ParagraphWithBlanksWithOptions'
 
 type RenderBlockProps = {
   block: any
@@ -55,6 +60,9 @@ export default function RenderBlock({ block }: RenderBlockProps) {
         numeric={block.numeric}
       />
 
+    case blockTypes.MULTI_FILL_IN_BLANKS:
+      return <MultiFillInBlanks data={block.data} numeric={block.numeric} />
+
     case blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS:
       return <FillinBlanksWithOptions values={block.values} options={block.options} showOptions={block.showOptions}/>
 
@@ -86,6 +94,9 @@ export default function RenderBlock({ block }: RenderBlockProps) {
     case blockTypes.FREE_ANSWER:
       return <FreeAnswer label={block.label} />
 
+    case blockTypes.SHORT_ANSWER:
+      return <ShortAnswer label={block.label} />
+
     case blockTypes.MATCH_COLUMNS:
       return <MatchColumns headers={block.headers} leftValues={block.leftValues} rightValues={block.rightValues}/>
 
@@ -94,6 +105,15 @@ export default function RenderBlock({ block }: RenderBlockProps) {
 
     case blockTypes.IMAGE_GRID_WITH_TEXT:
       return <ImageGridWithText data={block.values} />
+
+    case blockTypes.PARAGRAPH_WITH_BLANKS:
+      return <ParagraphWithBlanks text={block.value}/>
+
+    case blockTypes.CONVERSATION_WITH_BLANKS:
+      return <FillInTheBlanksConversation dialogues={block.dialogues} />
+
+    case blockTypes.PARAGRAPH_WITH_BLANKS_WITH_OPTIONS:
+      return <ParagraphWithBlanksWithOptions text={block.value} options={block.options} showOptions={block.showOptions}/>
     
     default:
       console.log("Block not found")

@@ -37,6 +37,10 @@ const blockTypes = {
   LIST: 'list',
   QUESTION_LIST: 'question_list',
   IMAGE_GRID_WITH_TEXT: 'image_grid_with_text',
+  CONVERSATION_WITH_BLANKS: 'conversation_with_blanks',
+  MULTI_FILL_IN_BLANKS: 'multi_fill_in_blanks',
+  PARAGRAPH_WITH_BLANKS: 'paragraph_with_blanks',
+  PARAGRAPH_WITH_BLANKS_WITH_OPTIONS: 'paragraph_with_blanks_with_options',
 }
 
 const chaptersData = {
@@ -1331,7 +1335,7 @@ const chapter8Data = {
     {
       "type": blockTypes.CONVERSATION_WITH_IMAGE,
       imagePosition: positions.RIGHT,
-      imageSource: require('../asets/images/lesson8/p2.png'),
+      imageSource: require('../assets/images/lesson8/p2.png'),
       dialogues: [
         {
           speaker: "Salesperson",
@@ -2036,28 +2040,28 @@ const chapter11Data = {
       "type": blockTypes.IMAGE_GRID_WITH_TEXT,
       values: [
         {
-          left: { word: 'shed', image: require('./assets/images/lesson11/p1.png') },
-          right: { word: 'shade', image: require('./assets/images/lesson11/p2.png') },
+          left: { word: 'shed', image: require('../assets/images/lesson11/p1.png') },
+          right: { word: 'shade', image: require('../assets/images/lesson11/p2.png') },
         },
         {
-          left: { word: 'pepper', image: require('./assets/images/lesson11/p3.png') },
-          right: { word: 'paper', image: require('./assets/images/lesson11/p4.png') },
+          left: { word: 'pepper', image: require('../assets/images/lesson11/p3.png') },
+          right: { word: 'paper', image: require('../assets/images/lesson11/p4.png') },
         },
         {
-          left: { word: 'test', image: require('./assets/images/lesson11/p5.png') },
-          right: { word: 'taste', image: require('./assets/images/lesson11/p6.png') },
+          left: { word: 'test', image: require('../assets/images/lesson11/p5.png') },
+          right: { word: 'taste', image: require('../assets/images/lesson11/p6.png') },
         },
         {
-          left: { word: 'wet', image: require('./assets/images/lesson11/p7.png') },
-          right: { word: 'wait', image: require('./assets/images/lesson11/p8.png') },
+          left: { word: 'wet', image: require('../assets/images/lesson11/p7.png') },
+          right: { word: 'wait', image: require('../assets/images/lesson11/p8.png') },
         },
         {
-          left: { word: 'pen', image: require('./assets/images/lesson11/p9.png') },
-          right: { word: 'pain', image: require('./assets/images/lesson11/p10.png') },
+          left: { word: 'pen', image: require('../assets/images/lesson11/p9.png') },
+          right: { word: 'pain', image: require('../assets/images/lesson11/p10.png') },
         },
         {
-          left: { word: 'man', image: require('./assets/images/lesson11/p11.png') },
-          right: { word: 'mane', image: require('./assets/images/lesson11/p12.png') },
+          left: { word: 'man', image: require('../assets/images/lesson11/p11.png') },
+          right: { word: 'mane', image: require('../assets/images/lesson11/p12.png') },
         },
       ]
     },
@@ -2282,8 +2286,29 @@ const chapter13Data = {
       "value": "A1. Write the meanings of the following words:"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.PARAGRAPH,
       "value": "Homage, Martyrs, Dedicate, Patriotic, Sacrifice, Commemorate"
+    },
+    {
+      type: blockTypes.SHORT_ANSWER,
+      label: "Homage"
+    },
+    {
+      type: blockTypes.SHORT_ANSWER,
+      label: "Martyrs"
+    },
+    {
+      type: blockTypes.SHORT_ANSWER,
+      label: "Dedicate"
+    },{
+      type: blockTypes.SHORT_ANSWER,
+      label: "Patriotic"
+    },{
+      type: blockTypes.SHORT_ANSWER,
+      label: "Sacrifice"
+    },{
+      type: blockTypes.SHORT_ANSWER,
+      label: "Commemorate"
     },
     {
       "type": "question_text",
@@ -2315,37 +2340,61 @@ const chapter13Data = {
       value: require('../assets/images/lesson13/p2.png')
     },
     {
-      "type": "conversation",
-      "value": "Teacher: Well students, how do we celebrate our national days?  Shanta: We go to the \u2026\u2026. on \u2026\u2026\u2026. . We go to the Jatiyo Smritisoudho at \u2026\u2026\u2026. on ___. and ___\u2026\u2026  Teacher: Great! But do you know the English of Jatiyo Smriti Soudho? Shanta: Yes, ma\u2019am. It's \u2026\u2026\u2026.. Mausoleum. Teacher: Very good. Have you ever been to our National ___\u2026? Shanta: Oh yes, I went there last year on the ___\u2026 \u2026\u2026\u2026., on 16 December."
-    },
-    // TODO: ADD A CONVERSATION_WITH_BLANKS component as well
-    {
-      "type": "conversation",
-      "value": "Teacher  What did you do there?"
-    },
-    {
-      "type": "conversation",
-      "value": "Shanta  Well, I went there with my .......... and my brother. Many people were there! Everybody went there to pay .......... to the liberation war martyrs. We were in a long queue. We had flowers with us. We .......... wreaths of flowers before the mausoleum. My parents took me to the mass graveyards. They told us about the sacrifice of our people for our ......................... I was very .......... to see the mass graves. I prayed for the souls of the martyrs."
-    },
-    {
-      "type": "conversation",
-      "value": "Teacher  Yes, we should never forget their ............... . What else did you see there, Shanta?"
-    },
-    {
-      "type": "conversation",
-      "value": "Shanta  I saw all kinds of people there- old and young, men, women, and children, politicians, workers, teachers, diplomats, ................. . All came to pay .......... to the freedom fighters. I saw some ........................."
-    },
-    {
-      "type": "conversation",
-      "value": "Teacher  Really? Were you excited?"
-    },
-    {
-      "type": "conversation",
-      "value": "Shanta  Oh, yes! I shook hands with them and gave them some flowers."
-    },
-    {
-      "type": "conversation",
-      "value": "Teacher  You must have felt very .................. We all should love and respect them. They are our source of inspirations."
+      type: blockTypes.CONVERSATION_WITH_BLANKS,
+      dialogues: [
+        {
+          "speaker": "Teacher",
+          "text": "Well students, how do we celebrate our national days?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "We go to the ___ on ___ . We go to the Jatiyo Smritisoudho at ___ on ___. and ___"
+        },
+        {
+          "speaker": "Teacher",
+          "text": "Great! But do you know the English of Jatiyo Smriti Soudho?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "Yes, ma'am. It's ___ Mausoleum."
+        },
+        {
+          "speaker": "Teacher",
+          "text": "Very good. Have you ever been to our National ___?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "Oh yes, I went there last year on the ___, on 16 December."
+        },
+        {
+          "speaker": "Teacher",
+          "text": "What did you do there?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "Well, I went there with my ___ and my brother. Many people were there! Everybody went there to pay ___ to the liberation war martyrs. We were in a long queue. We had flowers with us. We ___ wreaths of flowers before the mausoleum. My parents took me to the mass graveyards. They told us about the sacrifice of our people for our ___. I was very ___ to see the mass graves. I prayed for the souls of the martyrs."
+        },
+        {
+          "speaker": "Teacher",
+          "text": "Yes, we should never forget their ___. What else did you see there, Shanta?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "I saw all kinds of people there- old and young, men, women, and children, politicians, workers, teachers, diplomats, ___. All came to pay ___ to the freedom fighters. I saw some ___."
+        },
+        {
+          "speaker": "Teacher",
+          "text": "Really? Were you excited?"
+        },
+        {
+          "speaker": "Shanta",
+          "text": "Oh, yes! I shook hands with them and gave them some flowers."
+        },
+        {
+          "speaker": "Teacher",
+          "text": "You must have felt very ___. We all should love and respect them. They are our source of inspirations."
+        }
+      ],
     },
     {
       "type": "question_text",
@@ -2382,8 +2431,8 @@ const chapter13Data = {
     },
     // TODO: Make a component which can handle multiple fill in blanks
     {
-      "type": "fill_in_blanks",
-      "value": [
+      "type": blockTypes.QUESTION_LIST,
+      "values": [
         "i) Do you have any experience of a great day?_______________.",
         "ii) What was it for?_______________.",
         "iii) Where did you go?_______________.",
@@ -2412,10 +2461,10 @@ const chapter13Data = {
 }
 
 const chapter14Data = {
-  title: "Lesson 14 The Lion's Mane",
+  title: "Lesson 14: The Lion's Mane",
   learningObjectives: [
-    "read and understand texts and talk about people",
-    "places and familiar objects in short and simple sentences",
+    "read and understand texts",
+    "talk about people, places and familiar objects in short and simple sentences",
   ],
   content: [
     {
@@ -2488,7 +2537,7 @@ const chapter14Data = {
       "value": "A2 Answer the following questions."
     },
     {
-      "type": "list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "1. Why did the lion want to change his hairstyle?",
         "2. What was the giraffe's suggestion?",
@@ -2531,8 +2580,12 @@ const chapter14Data = {
       "value": "B Here is a puzzle for you."
     },
     {
-      "type": "short_answer",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "Can you say which baby is born with a moustache?"
+    },
+    {
+      type: blockTypes.SHORT_ANSWER,
+      label: "Write your answer here..."
     }
   ]
 }
@@ -2572,10 +2625,6 @@ const chapter15Data = {
       {
         "type": "paragraph",
         "value": "On Fridays, she often takes Mariam with her on these visits. Mariam has already become very friendly with some of the old men and women."
-      },
-      {
-        "type": "container",
-        "value": "After completing the lesson students will be able to - read and understand texts - ask and answer questions - write short paragraphs"
       },
       {
         "type": "question_text",
@@ -2625,28 +2674,26 @@ const chapter15Data = {
         "value": "Suraiya Begum needs many people's help to make her dream come true. She sits down to write a letter to a friend who was her colleague and now lives in the next town."
       },
       {
-        "type": "paragraph",
-        "value": "**English For Today**\n51\n\nDear Sharmila,\nHow are you? I\u2019m writing to share with you a plan that I have. I know some old, physically weak and lonely people in our town. Some of them are quite well-off and some are not. But they all share one common thing that is they live alone and have no one to take care of them in sickness. Sometimes they don\u2019t have anybody to talk to.\n\nI have a plan. I want to set up a home for the old people where they would live like a family and we can be a part of that family, too. I need your help because I know that together we can do a lot.\n\nWrite to me soon. I\u2019ll wait eagerly for your reply.\nYour friend,\nSuraiya"
+        type: blockTypes.OUTLINED_CONTAINER,
+        children: [
+          {
+            "type": "paragraph",
+            "value": "Dear Sharmila,\nHow are you? I\u2019m writing to share with you a plan that I have. I know some old, physically weak and lonely people in our town. Some of them are quite well-off and some are not. But they all share one common thing that is they live alone and have no one to take care of them in sickness. Sometimes they don\u2019t have anybody to talk to.\n\nI have a plan. I want to set up a home for the old people where they would live like a family and we can be a part of that family, too. I need your help because I know that together we can do a lot.\n\nWrite to me soon. I\u2019ll wait eagerly for your reply.\nYour friend,\nSuraiya"
+          },
+        ]
       },
       {
         "type": "question_text",
         "value": "B1 Answer the following questions."
       },
       {
-        "type": "short_answer",
-        "value": "a. Who is the writer of the letter?"
-      },
-      {
-        "type": "short_answer",
-        "value": "b. Who is she writing to? What is the relationship between the two?"
-      },
-      {
-        "type": "short_answer",
-        "value": "c. Does the writer have any particular reason for writing this letter?"
-      },
-      {
-        "type": "short_answer",
-        "value": "d. Do you think what Suraiya Begum wants to do is her profession, or is it a community work? Why do you think so?"
+        type: blockTypes.QUESTION_LIST,
+        values: [
+          "a. Who is the writer of the letter?",
+          "b. Who is she writing to? What is the relationship between the two?",
+          "c. Does the writer have any particular reason for writing this letter?",
+          "d. Do you think what Suraiya Begum wants to do is her profession, or is it a community work? Why do you think so?"
+        ]
       },
       {
         "type": "question_text",
@@ -2664,23 +2711,20 @@ const chapter15Data = {
 }
 
 const chapter16Data = {
-  title: "",
+  title: "Lesson 16 Boats sail on the rivers",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "recognize English sounds",
+    "recognize intonation in sentences",
+    "understand and enjoy stories and poems"
   ],
   content: [
     {
-      "type": "container",
-      "value": "Lesson 16 Boats sail on the rivers"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to:\n- recognize English sounds\n- recognize intonation in sentences\n- understand and enjoy stories and poems"
-    },
-    {
       "type": "question_text",
       "value": "A Listen to, read and then recite the poem."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson16/p1.png')
     },
     {
       "type": "poem",
@@ -2689,55 +2733,55 @@ const chapter16Data = {
     {
       "type": "question_text",
       "value": "A1 What bow is the poet talking about when she says, 'But the bow that bridges heaven'?"
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      label: "Write your answer here..."
     }
   ]
 }
 
 const chapter17Data = {
-  title: "",
+  title: "Lesson 17 Are you listening?-2",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
-  ],
-  content: [
-    {
-      "type": "container",
-      "value": "Lesson 17 Are you listening?-2"
-    },
-    {
-      "type": "numbered_list",
-      "values": [
-        "recognize English sounds",
+    "recognize English sounds",
         "recognize word stress and stress on words in sentences",
         "recognize intonation in sentences",
         "use English sounds appropriately",
         "use proper intonation in sentences",
         "read aloud texts with proper pronunciation, stress and intonation."
-      ]
-    },
+  ],
+  content: [
     {
       "type": "question_text",
       "value": "A. Read the following poem out loud. Be careful about how you pronounce each word, as the spellings and sounds can be quite tricky!"
     },
     {
-      "type": "poem",
-      "value": "The Chaos"
-    },
-    {
-      "type": "paragraph",
-      "value": "I take it you already know\nOf tough and bough and cough and dough?\n\nOthers may stumble, but not you,\nOn hiccough, thorough, slough and through.\n\nBeware of heard, a dreadful word,\nThat looks like beard but sounds like bird.\n\nAnd dead: It\u2019s said like bed, not bead --\nFor goodness\u2019 sake, don\u2019t call it deed!\n\nWatch out for meat and great and threat\u2026\nThey rhyme with suite and straight and debt.\n\nA moth is not the moth in mother,\nNor both in bother, nor broth in brother.\n\nAnd here is not a match for there,\nNor dear and fear for bear and pear,\n\nAnd then there\u2019s dose and rose and lose --\nJust look them up -- and goose and choose.\n\nA dreadful language? Why, sakes alive!\nI\u2019d learned to speak it when I was five.\n\nAnd yet, to write it, the more I tried,\nI hadn\u2019t learned it at fifty-five."
-    },
-    {
-      "type": "italic_text",
-      "value": "Gerard Nolst Trenit\u00e9"
-    },
-    {
-      "type": "container",
-      "value": "54"
-    },
-    {
-      "type": "paragraph",
-      "value": "English For Today"
+      type: blockTypes.POEM,
+      title: "The Chaos",
+      author: "Gerard Nolst Trenit\u00e9",
+      lines: [
+        "I take it you already know",
+        "Of tough and bough and cough and dough?",
+        "Others may stumble, but not you,",
+        "On hiccough, thorough, slough and through.",
+        "Beware of heard, a dreadful word,",
+        "That looks like beard but sounds like bird.",
+        "And dead: It\u2019s said like bed, not bead --",
+        "For goodness\u2019 sake, don\u2019t call it deed!",
+        "Watch out for meat and great and threat\u2026",
+        "They rhyme with suite and straight and debt.",
+        "A moth is not the moth in mother,",
+        "Nor both in bother, nor broth in brother.",
+        "And here is not a match for there,",
+        "Nor dear and fear for bear and pear,",
+        "And then there\u2019s dose and rose and lose --",
+        "Just look them up -- and goose and choose.",
+        "A dreadful language? Why, sakes alive!",
+        "I\u2019d learned to speak it when I was five.",
+        "And yet, to write it, the more I tried,",
+        "I hadn\u2019t learned it at fifty-five."
+      ]
     },
     {
       "type": "question_text",
@@ -2748,18 +2792,28 @@ const chapter17Data = {
       "value": "A2 The words \u201calive\u201d, \u201cfive\u201d, and \u201cwrite\u201d from the poem have the same vowel sound. Now, read and listen to some other words that have the same sound as these."
     },
     {
-      "type": "list",
-      "values": [
-        "try",
-        "cry",
-        "ice-cream",
-        "nice",
-        "ride",
-        "drive",
-        "sky",
-        "fly",
-        "child",
-        "light"
+      type: blockTypes.IMAGE_GRID_WITH_TEXT,
+      values: [
+        {
+          left: { word: 'try', image: require('../assets/images/lesson17/p1.png')  },
+          right: { word: 'cry', image: require('../assets/images/lesson17/p2.png') }
+        },
+        {
+          left: { word: 'ice-cream', image: require('../assets/images/lesson17/p3.png') },
+          right: { word: 'nice', image: require('../assets/images/lesson17/p4.png') }
+        },
+        {
+          left: { word: 'ride', image: require('../assets/images/lesson17/p5.png') },
+          right: { word: 'drive', image: require('../assets/images/lesson17/p6.png') }
+        },
+        {
+          left: { word: 'sky', image: require('../assets/images/lesson17/p7.png') },
+          right: { word: 'fly', image: require('../assets/images/lesson17/p8.png') }
+        },
+        {
+          left: { word: 'child', image: require('../assets/images/lesson17/p9.png') },
+          right: { word: 'light', image: require('../assets/images/lesson17/p10.png') }
+        }
       ]
     },
     {
@@ -2767,84 +2821,26 @@ const chapter17Data = {
       "value": "A3 Read the sentences below and choose the right words from the list of words in the box to fill in the blanks."
     },
     {
-      "type": "fill_in_blanks_select",
-      "blanks": [
-        {
-          "text": "Mike is a ______ young accountant.",
-          "options": [
-            "nine",
-            "time",
-            "fine",
-            "five",
-            "ride",
-            "side",
-            "bicycle",
-            "night",
-            "tide",
-            "rise"
-          ]
-        },
-        {
-          "text": "He works from ______ to ______ in a government office.",
-          "options": [
-            "nine",
-            "time",
-            "fine",
-            "five",
-            "ride",
-            "side",
-            "bicycle",
-            "night",
-            "tide",
-            "rise"
-          ]
-        },
-        {
-          "text": "In his free ______ he loves to ______ his ______ along the sea ______.",
-          "options": [
-            "nine",
-            "time",
-            "fine",
-            "five",
-            "ride",
-            "side",
-            "bicycle",
-            "night",
-            "tide",
-            "rise"
-          ]
-        },
-        {
-          "text": "He often comes to the sea beach at ______.",
-          "options": [
-            "nine",
-            "time",
-            "fine",
-            "five",
-            "ride",
-            "side",
-            "bicycle",
-            "night",
-            "tide",
-            "rise"
-          ]
-        },
-        {
-          "text": "He loves to watch the moon ______ in the sky and the ______ come in.",
-          "options": [
-            "nine",
-            "time",
-            "fine",
-            "five",
-            "ride",
-            "side",
-            "bicycle",
-            "night",
-            "tide",
-            "rise"
-          ]
-        }
-      ]
+      "type": blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
+      options: [
+        "nine",
+        "time",
+        "fine",
+        "five",
+        "ride",
+        "side",
+        "bicycle",
+        "night",
+        "tide",
+        "rise"
+      ],
+      values: [
+        { value: "Mike is a ______ young accountant." },
+        { value: "He works from ______ to ______ in a government office." },
+        { value: "In his free ______ he loves to ______ his ______ along the sea ______." },
+        { value: "He often comes to the sea beach at ______." },
+        { value: "He loves to watch the moon ______ in the sky and the ______ come in." }
+      ],
     },
     {
       "type": "question_text",
@@ -2854,27 +2850,23 @@ const chapter17Data = {
 }
 
 const chapter18Data = {
-  title: "",
+  title: "Lesson 18: Make your snacks",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand written instructions",
+    "read and understand texts"
   ],
   content: [
     {
-      "type": "question_text",
-      "value": "Lesson 18: Make your snacks"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand written instructions and read and understand texts."
-    },
-    {
-      "type": "conversation",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A Mrs. Nilufar Ahmed is teaching her son Adib how to make easy snacks at home. She is reading a set of instructions from a recipe book."
     },
     {
-      "type": "question_text",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "First look at the pictures of the things you will need to make an egg sandwich and match them with their names in the list of ingredients below."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson18/p1.png')
     },
     {
       "type": "list",
@@ -2887,6 +2879,10 @@ const chapter18Data = {
         "6. Lettuce",
         "7. One slice of cheese"
       ]
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson18/p2.png')
     },
     {
       "type": "question_text",
@@ -2909,10 +2905,6 @@ const chapter18Data = {
     },
     {
       "type": "paragraph",
-      "value": "English For Today 57"
-    },
-    {
-      "type": "paragraph",
       "value": "Handy Hints 1. Remember to wash and dry all vegetables before preparing them. 2. Be extra careful when handling sharp knife. 3. You may wish to choose a variety of fillings for example, 4 slices of cucumber, 1 slice of meat such as chicken loaf or meat loaf, mustard and so on."
     },
     {
@@ -2920,7 +2912,7 @@ const chapter18Data = {
       "value": "A1 Fill in the blanks and complete the instructions for making a sandwich."
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.MULTI_FILL_IN_BLANKS,
       "value": [
         "First, take two slices of __________________.",
         "Second, spread ____________________ on one side of them.",
@@ -2964,11 +2956,7 @@ const chapter18Data = {
       ]
     },
     {
-      "type": "container",
-      "value": "English For Today"
-    },
-    {
-      "type": "numbered_list",
+      "type": blockTypes.IMAGE_WITH_SELECT_OPTIONS,
       "values": [
         "break",
         "beat",
@@ -2978,6 +2966,16 @@ const chapter18Data = {
         "pour",
         "stir",
         "slice"
+      ],
+      images: [
+        require('../assets/images/lesson18/p3.png'),
+        require('../assets/images/lesson18/p4.png'),
+        require('../assets/images/lesson18/p5.png'),
+        require('../assets/images/lesson18/p6.png'),
+        require('../assets/images/lesson18/p7.png'),
+        require('../assets/images/lesson18/p8.png'),
+        require('../assets/images/lesson18/p9.png'),
+        require('../assets/images/lesson18/p10.png'),
       ]
     },
     {
@@ -2985,48 +2983,68 @@ const chapter18Data = {
       "value": "C. Now, use some of the verbs above to write a simple recipe for making instant noodles."
     },
     {
-      "type": "fill_in_blanks",
-      "values": [
-        "First, ___________ water into a pot.",
-        "Put your pot on a stove and ___________ the water for two minutes.",
-        "___________ some onions and a green chilli thinly.",
-        "Then, add noodles into the water.",
-        "___________ gently with a spoon.",
-        "Add the spices that come with the noodles.",
-        "Add the onions and green chilli.",
-        "Serve the noodles in a dish.",
-        "___________ an egg and add it on top if you want."
+      "type": blockTypes.MULTI_FILL_IN_BLANKS,
+      "data": [
+        {
+          "sentence": "First, ___ water into a pot.",
+          "labels": ["Your Answer"]
+        },
+        {
+          "sentence": "Put your pot on a stove and ___ the water for two minutes.",
+          "labels": ["Your Answer"]
+        },
+        {
+          "sentence": "___ some onions and a green chilli thinly.",
+          "labels": ["Your Answer"]
+        },
+        {
+          "sentence": "Then, add noodles into the water.",
+          "labels": []
+        },
+        {
+          "sentence": "___ gently with a spoon.",
+          "labels": ["Your Answer"]
+        },
+        {
+          "sentence": "Add the spices that come with the noodles.",
+          "labels": []
+        },
+        {
+          "sentence": "Add the onions and green chilli.",
+          "labels": []
+        },
+        {
+          "sentence": "Serve the noodles in a dish.",
+          "labels": []
+        },
+        {
+          "sentence": "___ an egg and add it on top if you want.",
+          "labels": ["Your Answer"]
+        }
       ]
     }
   ]
 }
 
 const chapter19Data = {
-  title: "",
+  title: "Lesson 19: Stop, look and listen",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read aloud texts with proper pronunciation, stress and intonation",
+    "read and understand texts"
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 19"
-    },
-    {
-      "type": "formatted_text",
-      "value": "Stop, look and listen"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to  \u2022 read aloud texts with proper pronunciation, stress and intonation  \u2022 read and understand texts"
-    },
     {
       "type": "question_text",
       "value": "A. Read the following verse."
     },
     {
-      "type": "poem",
-      "value": "Stop, Look, and Listen\nIs a very good rule to use\nNot just before you cross a street,\nBut when you look for clues."
+      type: blockTypes.LIST,
+      values: [
+        "Stop, Look, and Listen",
+        "Is a very good rule to use",
+        "Not just before you cross a street,",
+        "But when you look for clues."
+      ]
     },
     {
       "type": "question_text",
@@ -3037,22 +3055,31 @@ const chapter19Data = {
       "value": "B. Quickly read the following text with blank spaces only once. Then listen to the audio file or what your teacher reads out to fill in the blank spaces."
     },
     {
-      "type": "fill_in_blanks",
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson19/p1.png')
+    },
+    {
+      "type": blockTypes.PARAGRAPH,
       "value": "Last week, for my __________, I got a little white-board and a package of colored ________. I took it to school and ________ to my teacher. I said that if I ________ on the little white-board at my desk, I could ________ more carefully. My teacher said there are ________ ways to improve one's __________. But she said it would be all ________ to try it out. I had a terrible ________ trying to write as ________ with chalk as the other children were writing with ________. I held the chalk so ________, it kept breaking in ________. When the lesson was over, I was totally ________. My wrist felt numb. I wrote this ________ on my whiteboard and left it on my desk. The chalk was too ________ and holding it was too ________. I'll try to find some easier ________ to improve my writing."
     }
   ]
 }
 
 const chapter20Data = {
-  title: "",
+  title: "Lesson 20: Hason Raja: The Mystic Bard of Bangladesh",
   learningObjectives: [
+    "read and understand texts",
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read aloud with proper pronunciation, stress, and intonation",
   ],
   content: [
     {
         "type": "question_text",
         "value": "A. Look at the pictures below. Do you know who they are or anything about them?"
+      },
+      {
+        type: blockTypes.IMAGE,
+        value: require('../assets/images/lesson20/p1.png')
       },
       {
         "type": "paragraph",
@@ -3071,8 +3098,8 @@ const chapter20Data = {
         "value": "However, at one point in his life, he began to feel that these material possessions were meaningless. He gave away all his properties and started to think deeply about the creator, life, death, and humankind."
       },
       {
-        "type": "question_text",
-        "value": "Hason Raja"
+        "type": blockTypes.IMAGE,
+        "value": require('../assets/images/lesson20/p2.png')
       },
       {
         "type": "paragraph",
@@ -3083,7 +3110,7 @@ const chapter20Data = {
         "value": "B1 Answer the following questions."
       },
       {
-        "type": "list",
+        "type": blockTypes.QUESTION_LIST,
         "values": [
           "a. When was Hason Raja born?",
           "b. Where was he from?",
@@ -3117,27 +3144,27 @@ const chapter20Data = {
 }
 
 const chapter21Data = {
-  title: "",
+  title: "Lesson 21: Wonders of the world",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "follow instructions, commands, requests accordingly",
+    "read and understand texts",
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 21 Wonders of the world-1"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to follow instructions, commands, requests accordingly and read and understand texts."
-    },
     {
       "type": "question_text",
       "value": "A Look at the pictures. What are they called?"
     },
     {
-      "type": "fill_in_blanks",
-      "value": "Now, listen to the audio and fill in the gaps of the following text: The pyramids are huge _______________________________ for the ancient kings and queens of Egypt. These kings and queens are known as the ____________________. It needed a few thousand ________________ ________________________ to build the pyramids. The most famous ___________________________ are the Giza pyramids. Giza is a place near Cairo, the __________________________ of Egypt. The Pyramids of ____________________ at Giza is the largest Egyptian pyramid. It is the only one of the ______________________ still in existence."
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson21/p1.png')
+    },
+    {
+      "type": blockTypes.QUESTION_TEXT,
+      "value": "Now, listen to the audio and fill in the gaps of the following text:"
+    },
+    {
+      type: blockTypes.PARAGRAPH,
+      value: "The pyramids are huge _______________________________ for the ancient kings and queens of Egypt. These kings and queens are known as the ____________________. It needed a few thousand ________________ ________________________ to build the pyramids. The most famous ___________________________ are the Giza pyramids. Giza is a place near Cairo, the __________________________ of Egypt. The Pyramids of ____________________ at Giza is the largest Egyptian pyramid. It is the only one of the ______________________ still in existence."
     },
     {
       "type": "paragraph",
@@ -3152,7 +3179,7 @@ const chapter21Data = {
       "value": "C1 Now, make some questions based on the passage you read, using the cues given below:"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "a. What is...................................................................................?",
         "b. Where is.................................................................................?",
@@ -3167,7 +3194,7 @@ const chapter21Data = {
       "value": "C2 Complete the following table with the information given in the passage."
     },
     {
-      "type": "fill_in_blanks",
+      "type": "list",
       "values": [
         "Shah Jahan               built",
         "Taj Mahal                is",
@@ -3181,7 +3208,7 @@ const chapter21Data = {
       "value": "D Read the text about one of the wonders of the world, the Eiffel Tower."
     },
     {
-      "type": "fill_in_blanks_select",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "Put the verbs in brackets into the correct tense."
     },
     {
@@ -3194,22 +3221,22 @@ const chapter21Data = {
     },
     {
       "type": "conversation",
-      "value": [
+      dialogues: [
         {
           "speaker": "Mong Pru",
-          "dialogue": "Nira, I'm really surprised to know about these wonders. What do you think?"
+          text: "Nira, I'm really surprised to know about these wonders. What do you think?"
         },
         {
           "speaker": "Nira",
-          "dialogue": "They are amazing! But the wonders of the present time are also amazing. They are not as huge as the super structures of the past but they are also incredible!"
+          text: "They are amazing! But the wonders of the present time are also amazing. They are not as huge as the super structures of the past but they are also incredible!"
         },
         {
           "speaker": "Mong Pru",
-          "dialogue": "What do you mean?"
+          text: "What do you mean?"
         },
         {
           "speaker": "Nira",
-          "dialogue": "Just wait for now! Let me only say that some of the wonders of the modern world are truly incredible! I mean, they are really unbelievable! We'll read about them in the next lesson."
+          text: "Just wait for now! Let me only say that some of the wonders of the modern world are truly incredible! I mean, they are really unbelievable! We'll read about them in the next lesson."
         }
       ]
     },
@@ -3228,31 +3255,40 @@ const chapter22Data = {
 }
 
 const chapter23Data = {
-  title: "",
+  title: "Lesson 23: We live in a global village",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
+    "follow instructions, commands, requests and act accordingly",
+    "understand and enjoy stories and poems"
   ],
   content: [
-    {
-      "type": "header",
-      "value": "Lesson 23"
-    },
-    {
-      "type": "header",
-      "value": "We live in a global village"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand the texts, follow instructions, commands, request and act accordingly, understand and enjoy stories and poems."
-    },
     {
       "type": "question_text",
       "value": "A. Look at the pictures and discuss with your partner what you see in them."
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson23/p1.png')
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson23/p2.png')
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
+    },
+    {
       "type": "question_text",
       "value": "B. Sohan has received a letter from his uncle, who is a captain in the Bangladesh Army. At present, he is in Congo on a US Peacekeeping Mission. Read his letter and do the activities that follow."
+    },
+    {
+      "type": "paragraph",
+      "value": "Dear Sohan, I hope you are doing well, and focusing on your studies. I received your letter last week, but did not have the time to write back. Things are really busy here in Congo. I am glad to know that you read up about this country. You\u2019re right\u2014Congo is a country in central Africa. It is rich in natural resources and its people are incredible. However, there are several regions in this country which face problems
     },
     {
       "type": "paragraph",
@@ -3316,16 +3352,12 @@ const chapter23Data = {
       "value": "B2 Answer the following questions."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "a. Where is Congo?"
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "b. Who called Ashar Santoso \u2018Mr Global Citizen\u2019? Why?"
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "c. Would you like to be a global citizen?"
+      type: blockTypes.QUESTION_LIST,
+      values: [
+        "a. Where is Congo?",
+        "b. Who called Ashar Santoso \u2018Mr Global Citizen\u2019? Why?",
+        "c. Would you like to be a global citizen?"
+      ]
     },
     {
       "type": "question_text",
@@ -3340,48 +3372,25 @@ const chapter23Data = {
       "value": "C Listen to the audio and fill in the following gaps."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "The term 'global village' was ________ used by Marshal McLuhan."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "In 1962 and ________ he wrote two books on media and communication."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "In his books he said that telephone, TV and electronic media have brought all mankind close to one another."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "For example, if we see the news of floods in a distant country on TV, we feel that we are also ________ there."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "We can share the same suffering with the people who are in the real ________ at the moment."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "McLuhan believed that electronic ______________ would make the world a global village."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "When he first said about the idea of global village, the Internet was not invented."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "But now, personal computers and the Internet have made McLuhan's idea more ________ than ever."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "Now the entire globe is ________ in a worldwide web called 'The Internet'."
+      type: blockTypes.PARAGRAPH_WITH_BLANKS,
+      value: `
+    The term 'global village' was ___ used by Marshal McLuhan. In 1962 and ___ he wrote two books on media and communication.
+    In his books he said that telephone, TV and electronic media have brought all mankind close to one another.
+    For example, if we see the news of floods in a distant country on TV, we feel that we are also ___ there.
+    We can see what is happening at the same moment. We can share the same suffering with the people who are in the real ___ at the moment.
+    McLuhan believed that electronic ___ would make the world a global village.
+    When he first said about the idea of global village, the Internet was not invented. But now, personal computers and the Internet have made McLuhan's idea more ___ than ever.
+    Now the entire globe is ___ in a world-wide web called 'The Internet'.
+  `
     }
   ]
 }
 
 const chapter24Data = {
-  title: "",
+  title: "Lesson 24: Our wage earners",
   learningObjectives: [
     "ask and answer questions",
+    "read and understand texts",
     "participate in short dialogues and conversations on familiar topics",
   ],
   content: [
@@ -3407,7 +3416,7 @@ const chapter24Data = {
         "value": "B. Answer the following questions in pairs, then read the text below."
       },
       {
-        "type": "list",
+        "type": blockTypes.QUESTION_LIST,
         "values": [
           "Do you know anyone who has gone abroad to earn a living?",
           "Which countries do Bangladeshi workers go to?",
@@ -3446,43 +3455,43 @@ const chapter24Data = {
         "value": "C Sohan had a conversation with a Bangladeshi doctor, Mr Arman who works in a hospital in Cairo, Egypt. Read and practise the dialogue in pairs."
       },
       {
-        "type": "conversation",
-        "value": [
+        "type": blockTypes.CONVERSATION,
+        dialogues: [
           {
             "speaker": "Sohan",
-            "dialogue": "Can you tell me a little about Cairo?"
+            text: "Can you tell me a little about Cairo?"
           },
           {
             "speaker": "Dr Arman",
-            "dialogue": "Sure. What would you like to know?"
+            "text": "Sure. What would you like to know?"
           },
           {
             "speaker": "Sohan",
-            "dialogue": "Well, what's a good time to visit there?"
+            "text": "Well, what's a good time to visit there?"
           },
           {
             "speaker": "Dr Arman",
-            "dialogue": "I think you can visit any time. The weather is more or less the same."
+            "text": "I think you can visit any time. The weather is more or less the same."
           },
           {
             "speaker": "Sohan",
-            "dialogue": "Good! And what should I see there?"
+            "text": "Good! And what should I see there?"
           },
           {
             "speaker": "Dr Arman",
-            "dialogue": "Well, you can visit the Cairo Museum and you should see the mummies. And you mustn't leave Cairo without visiting the Pyramids."
+            "text": "Well, you can visit the Cairo Museum and you should see the mummies. And you mustn't leave Cairo without visiting the Pyramids."
           },
           {
             "speaker": "Sohan",
-            "dialogue": "Anything else?"
+            "text": "Anything else?"
           },
           {
             "speaker": "Dr Arman",
-            "dialogue": "Oh yes. If you have time, you may visit Port Suez. You could have an excellent night view of the Red Sea."
+            "text": "Oh yes. If you have time, you may visit Port Suez. You could have an excellent night view of the Red Sea."
           },
           {
             "speaker": "Sohan",
-            "dialogue": "It all sounds exciting! Thank you very much."
+            "text ": "It all sounds exciting! Thank you very much."
           }
         ]
       },
@@ -3511,109 +3520,93 @@ const chapter24Data = {
         "value": "Complete the sentences about what a tourist can do and see in Dhaka. Use the verbs from the box."
       },
       {
-        "type": "list",
-        "value": "can see, may spend, can go, could(even) taste, shouldn't miss, should visit, should go for, mustn't drink, may try"
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. to Sonargaon."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. the capital of ancient Bengal there."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. the Lalbagh Fort in the old part of Dhaka."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. a couple of hours at the Baldha Garden."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. the Ahsan Manzil too."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. a boat ride on the Buriganga river."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. the taste of Mughlai Khana once you're in Dhaka."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. a Tom Tom ride from Sadarghat to Gulistan."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "You ................. Chattpaty or Fuchka on the foot path."
-      },
-      {
-        "type": "fill_in_blanks",
-        "value": "But you .......... tap water in a restaurant."
+        type: blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
+        options: [
+          "can see",
+          "may spend",
+          "can go",
+          "could(even) taste",
+          "shouldn't miss",
+          "should visit",
+          "should go for",
+          "mustn't drink",
+          "may try"
+        ],
+        values: [
+          "You ................. to Sonargaon.",
+          "You ................. the capital of ancient Bengal there.",
+          "You ................. the Lalbagh Fort in the old part of Dhaka.",
+          "You ................. a couple of hours at the Baldha Garden.",
+          "You ................. the Ahsan Manzil too.",
+          "You ................. a boat ride on the Buriganga river.",
+          "You ................. the taste of Mughlai Khana once you're in Dhaka.",
+          "You ................. a Tom Tom ride from Sadarghat to Gulistan.",
+          "You ................. Chattpaty or Fuchka on the foot path.",
+          "But you .......... tap water in a restaurant."
+        ]
       },
       {
         "type": "question_text",
         "value": "E Read the sentences in Section D (1-10) again. Suppose, a foreign traveller wants to visit Dhaka. He wants some information from you, such as, when to visit, what to see, where to eat, what to do in Dhaka, etc. Complete the following dialogue taking the cue from D."
       },
       {
-        "type": "conversation",
-        "value": "Foreign traveller Can you tell me a little about Dhaka?"
+        type: blockTypes.CONVERSATION_WITH_BLANKS,
+        dialogues: [
+          {
+            speaker: "Foreign traveller",
+            text: "Can you tell me a little about Dhaka?"
+          },
+          {
+            speaker: "You",
+            text: "Sure. What ___ to know?"
+          },
+          {
+            speaker: "Foreign traveller",
+            text: "Well, what's ___"
+          },
+          {
+            speaker: "You",
+            text: "I think you can visit in winter. The weather ___."
+          },
+          {
+            speaker: "Foreign traveller",
+            text: "Good! And what ___ there?"
+          },
+          {
+            speaker: "You",
+            text: "Well, you can visit Sonargaon Folk Art Museum and you ___ the handicrafts. But you ___ leave Dhaka without visiting the Lalbagh Fort."
+          },
+          {
+            speaker: "Foreign traveller",
+            text: "___?"
+          },
+          {
+            speaker: "You",
+            text: "Oh yes. If you have time, you ___ Ahsan Manzil. You ___ have an excellent experience of the Mughal and the British architecture by visiting it."
+          }
+        ]
       },
-      {
-        "type": "conversation",
-        "value": "You Sure. What ...................................... to know?"
-      },
-      {
-        "type": "conversation",
-        "value": "Foreign traveller Well, what's ..........................................................?"
-      },
-      {
-        "type": "conversation",
-        "value": "You I think you can visit in winter. The weather is .........."
-      },
-      {
-        "type": "conversation",
-        "value": "Foreign traveller Good! And what ..................................................... there?"
-      },
-      {
-        "type": "conversation",
-        "value": "You Well, you can visit Sonargaon Folk Art Museum and you ............... the handicrafts. But you ............... Dhaka without visiting the Lalbagh Fort."
-      },
-      {
-        "type": "conversation",
-        "value": "Foreign traveller .................................?"
-      },
-      {
-        "type": "conversation",
-        "value": "You Oh yes, if you have time, you ................. Ahsan Manjil. You ............... an excellent experience of the Mughal and the British architecture by visiting it."
-      }]
+    ]
 }
 
 const chapter25Data = {
-  title: "",
+  title: "Lesson 25: The Concert for Bangladesh",
   learningObjectives: [
     "ask and answer questions",
     "participate in short dialogues and conversations on familiar topics",
   ],
   content: [
     {
-      "type": "container",
-      "value": "Lesson 25"
-    },
-    {
-      "type": "paragraph",
-      "value": "The Concert for Bangladesh"
-    },
-    {
       "type": "paragraph",
       "value": "After completing the lesson students will be able to read and understand texts, ask and answer questions, participate in short dialogues and conversations on familiar topics."
     },
     {
-      "type": "paragraph",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A It\u2019s Friday evening. Mr. Farhad is watching television in the sitting room. His daughter Fahmida comes in. A tall, bearded man with long hair is playing a guitar and singing a song, \u201cBangladesh, Bangladesh...\u201d on the television screen. Fahmida is thrilled to watch a foreigner singing a song on Bangladesh. She has the following conversation with her father about the song and the singer."
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson25/p1.png')
     },
     {
       "type": "conversation",
@@ -3649,24 +3642,29 @@ const chapter25Data = {
       ]
     },
     {
-      "type": "conversation",
-      "value": "Mr. Farhad\nWell, the Concert for Bangladesh was held on the 1st August, 1971 at the Madison Square Garden, New York. George Harrison and some other famous musicians performed in that live concert in front of an audience of about forty thousand people. It was organised to make the world aware of the sufferings of Bangladesh during our liberation war."
-    },
-    {
-      "type": "conversation",
-      "value": "Fahmida\nWasn\u2019t that great!"
-    },
-    {
-      "type": "conversation",
-      "value": "Mr. Farhad\nYes, it was great! The concert won huge support for the millions of war victims of Bangladesh. At the same time it raised millions of dollars for UNICEF relief fund."
-    },
-    {
-      "type": "conversation",
-      "value": "Fahmida\nI'm really glad that you told me all this, Father. I think we should be grateful to George Harrison and his friends who organised the Concert for Bangladesh."
-    },
-    {
-      "type": "conversation",
-      "value": "Mr. Farhad\nYou are right, dear! We should remember those great friends who helped us in our days of struggle and suffering."
+      type: blockTypes.CONVERSATION,
+      dialogues: [
+        {
+          speaker: "Mr. Farhad",
+          text: "Well, the Concert for Bangladesh was held on the 1st August, 1971 at the Madison Square Garden, New York. George Harrison and some other famous musicians performed in that live concert in front of an audience of about forty thousand people. It was organised to make the world aware of the sufferings of Bangladesh during our liberation war."
+        },
+        {
+          speaker: "Fahmida",
+          text: "Wasn\u2019t that great!"
+        },
+        {
+          speaker: "Mr. Farhad",
+          text: "Yes, it was great! The concert won huge support for the millions of war victims of Bangladesh. At the same time it raised millions of dollars for UNICEF relief fund."
+        },
+        {
+          speaker: "Fahmida",
+          text: "I'm really glad that you told me all this, Father. I think we should be grateful to George Harrison and his friends who organised the Concert for Bangladesh."
+        },
+        {
+          speaker: "Mr. Farhad",
+          text: "You are right, dear! We should remember those great friends who helped us in our days of struggle and suffering."
+        }
+      ]
     },
     {
       "type": "question_text",
@@ -3692,37 +3690,48 @@ const chapter25Data = {
     },
     {
       "type": "poem",
-      "value": "Bangladesh, Bangladesh  \nWhere so many people are dying fast  \nAnd it sure looks like a mess  \nI've never seen such distress  \n\nNow, won't you lend your hand"
+      "value": "Bangladesh, Bangladesh  \nWhere so many people are dying fast  \nAnd it sure looks like a mess  \nI've never seen such distress  \n\nNow, won't you lend your hand\nRelieve the people of Bangladesh\nRelieve Bangladesh"
+    },
+    {
+      "type": "question_text",
+      value: "B1 Now, complete the summary of the first three stanzas of the song 'Bangladesh' with suitable words from the box below the passage"
+    },
+    {
+      type: blockTypes.PARAGRAPH_WITH_BLANKS_WITH_OPTIONS,
+      "value": "My friend came to me with sad eyes and requested me to help his country before it died. Though I could not feel the pain, but I think I should try to help. I also appeal to you all to (1) ____ us to save the lives of those people. The country is facing (2) ____ and I have never seen such sufferings. Now, won't you (3) ____ beside the people of Bangladesh and (4) ____ forward to reduce their sufferings?",
+      "options": ["support", "stand", "come", "problems"]
+    },
+    {
+      type: blockTypes.QUESTION_TEXT,
+      value: "B2 Do you know of any Bangla song that inspired the people of Bangladesh during the war of liberation in 1971? Discuss in groups and write down the first line or a few lines of the song in Bangla."
+    },
+    {
+      type: blockTypes.QUESTION_LIST,
+      values: [
+          "What is the first line of the song?",
+          "What is the song about?",
+          "Who is the singer of the song?",
+          "Where did you hear the song first?",
+          "How do you feel when you listen to this song?"
+      ]
     }
   ]
 }
 
 const chapter26Data = {
-  title: "",
+  title: "Lesson 26: Buying clothes",
   learningObjectives: [
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
   ],
   content: [
-    {
-      "type": "question_text",
-      "value": "Lesson 26 Buying clothes"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to ask and answer questions, read and understand texts."
-    },
     {
       "type": "question_text",
       "value": "A. Match the words with the pictures of clothes."
     },
     {
-      "type": "match_columns",
-      "headers": [
-        "Words",
-        "Pictures"
-      ],
-      "leftValues": [
+      type: blockTypes.IMAGE_WITH_SELECT_OPTIONS,
+      options: [
         "trousers",
         "jacket",
         "saree",
@@ -3736,19 +3745,19 @@ const chapter26Data = {
         "salwar-kameez",
         "shoes"
       ],
-      "rightValues": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12"
+      images: [
+        require('../assets/images/lesson26/p1.png'),
+        require('../assets/images/lesson26/p2.png'),
+        require('../assets/images/lesson26/p3.png'),
+        require('../assets/images/lesson26/p4.png'),
+        require('../assets/images/lesson26/p5.png'),
+        require('../assets/images/lesson26/p6.png'),
+        require('../assets/images/lesson26/p7.png'),
+        require('../assets/images/lesson26/p8.png'),
+        require('../assets/images/lesson26/p9.png'),
+        require('../assets/images/lesson26/p10.png'),
+        require('../assets/images/lesson26/p11.png'),
+        require('../assets/images/lesson26/p12.png')
       ]
     },
     {
@@ -3756,7 +3765,7 @@ const chapter26Data = {
       "value": "B. In pairs, discuss the following questions about you."
     },
     {
-      "type": "list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "1. Have you ever been to a clothes shop?",
         "2. If no, then who buys your clothes?",
@@ -3770,9 +3779,86 @@ const chapter26Data = {
       "value": "C. Read the conversation between Imran and the shop assistant."
     },
     {
-      "type": "conversation",
-      "value": "Imran: Excuse me, where are the polo shirts?  Assistant: They're over there in the boy's section. Let me show you.  Imran: Thanks. Do you have one without a chain?  Assistant: Yes, quite a few, sir. What size do you wear?  Imran: May be a medium?  Assistant: Here you are! This one is in medium size.  Imran: A medium! But it's too big!  Assistant: How about this? This is small.  Imran: Yeah, I think this size is OK. Do you have it in a different colour?  Assistant: What colour would you like?  Imran: Blue, I guess.  Assistant: Just a moment please, I'll check. How about this one? It's a nice sky blue.  Imran: Yes, this is a nice colour. Can I try this on?  Assistant: Sure! The trial room is at the back.  Imran: Thank you. It's just perfect! How much is it?  Assistant: It's Taka three hundred. This shirt is on sale this week.  Imran: Mom, can I buy this one?  Mom: Sure, dear! Shall we go and pay at the cash counter?  Salesman: Yes, Ma\u2019am. Would you follow me, please?"
-    },
+      "type": "CONVERSATION",
+      "dialogues": [
+        {
+          "speaker": "Imran",
+          "text": "Excuse me, where are the polo shirts?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "They're over there in the boy's section. Let me show you."
+        },
+        {
+          "speaker": "Imran",
+          "text": "Thanks. Do you have one without a chain?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "Yes, quite a few, sir. What size do you wear?"
+        },
+        {
+          "speaker": "Imran",
+          "text": "Maybe a medium?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "Here you are! This one is in medium size."
+        },
+        {
+          "speaker": "Imran",
+          "text": "A medium! But it's too big!"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "How about this? This is small."
+        },
+        {
+          "speaker": "Imran",
+          "text": "Yeah, I think this size is OK. Do you have it in a different colour?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "What colour would you like?"
+        },
+        {
+          "speaker": "Imran",
+          "text": "Blue, I guess."
+        },
+        {
+          "speaker": "Assistant",
+          "text": "Just a moment please, I'll check. How about this one? It's a nice sky blue."
+        },
+        {
+          "speaker": "Imran",
+          "text": "Yes, this is a nice colour. Can I try this on?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "Sure! The trial room is at the back."
+        },
+        {
+          "speaker": "Imran",
+          "text": "Thank you. It's just perfect! How much is it?"
+        },
+        {
+          "speaker": "Assistant",
+          "text": "It's Taka three hundred. This shirt is on sale this week."
+        },
+        {
+          "speaker": "Imran",
+          "text": "Mom, can I buy this one?"
+        },
+        {
+          "speaker": "Mom",
+          "text": "Sure, dear! Shall we go and pay at the cash counter?"
+        },
+        {
+          "speaker": "Salesman",
+          "text": "Yes, Ma'am. Would you follow me, please?"
+        }
+      ]
+    },    
     {
       "type": "fill_in_blanks",
       "value": "C1 Complete the sentences using the words from the conversation in B.",
@@ -3798,6 +3884,10 @@ const chapter26Data = {
           "value": "sale"
         }
       ]
+    },
+    {
+      type: blockTypes.MULTI_FILL_IN_BLANKS,
+      values: []
     },
     {
       "type": "question_text",
@@ -4425,42 +4515,39 @@ const chapter33Data = {
 }
 
 const chapters = [
-  { name: "Going to a new school", lesson: "Lesson 1" },
-  { name: "Congratulations! Well done!", lesson: "Lesson 2", data: chapter2Data },
-  { name: "A railway station", lesson: "Lesson 3", data: chapter3Data },
-  { name: "Where are you from?", lesson: "Lesson 4", data: chapter4Data },
-  { name: "Thanks for your work", lesson: "Lesson 5", data: chapter5Data },
-  { name: "It smells good!", lesson: "Lesson 6", data: chapter6Data },
-  { name: "Holding Hands", lesson: "Lesson 7", data: chapter7Data },
-  { name: "Grocery shopping", lesson: "Lesson 8", data: chapter8Data },
-  { name: "Health is wealth", lesson: "Lesson 9", data: chapter9Data },
-  { name: "Remedies: modern and traditional", lesson: "Lesson 10", data: chapter10Data },
-  { name: "Are you listening?-1", lesson: "Lesson 11", data: chapter11Data },
-  { name: "Birds of Bangladesh", lesson: "Lesson 12", data: chapter12Data },
-  { name: "An unseen beauty of Bangladesh", lesson: "Lesson 13", data: chapter13Data },
-  { name: "Our pride", lesson: "Lesson 14", data: chapter14Data },
-  { name: "The lion's mane", lesson: "Lesson 15", data: chapter15Data },
-  { name: "An old people's home", lesson: "Lesson 16", data: chapter16Data },
-  { name: "Boats sail on the rivers", lesson: "Lesson 17", data: chapter17Data },
-  { name: "Are you listening?-2", lesson: "Lesson 18", data: chapter18Data },
-  { name: "Make your snacks", lesson: "Lesson 19", data: chapter19Data },
-  { name: "Stop, look and listen", lesson: "Lesson 20", data: chapter20Data },
-  { name: "Hason Raja: the mystic bard of Bangladesh", lesson: "Lesson 21", data: chapter21Data },
-  { name: "Wonders of the world-1", lesson: "Lesson 22", data: chapter22Data },
-  { name: "Wonders of the world-2", lesson: "Lesson 23", data: chapter23Data },
-  { name: "Aesop's fable", lesson: "Lesson 24", data: chapter24Data },
-  { name: "We live in a global village", lesson: "Lesson 25", data: chapter25Data },
-  { name: "Our wage earners", lesson: "Lesson 26", data: chapter26Data },
-  { name: "The concert for Bangladesh", lesson: "Lesson 27", data: chapter27Data },
-  { name: "Buying clothes", lesson: "Lesson 28", data: chapter28Data },
-  { name: "Andre", lesson: "Lesson 29", data: chapter29Data },
-  { name: "Are you listening?-3", lesson: "Lesson 30", data: chapter30Data },
-  { name: "Taking a test", lesson: "Lesson 31", data: chapter31Data },
-  { name: "What should we do?", lesson: "Lesson 32", data: chapter32Data },
-  { name: "Too much or too little water", lesson: "Lesson 33", data: chapter33Data },
-  { name: "An invitation for Robin", lesson: "Lesson 34" },
-  { name: "The Garden", lesson: "Lesson 35" },
-  { name: "Sample Question", lesson: "Lesson 36" },
+  { "name": "Going to a new school", "lesson": "Lesson 1", data: chaptersData },
+  { "name": "Congratulations! Well done!", "lesson": "Lesson 2", data: chapter2Data },
+  { "name": "At a railway station", "lesson": "Lesson 3", data: chapter3Data },
+  { "name": "Where are you from?", "lesson": "Lesson 4", data: chapter4Data },
+  { "name": "Thanks for your work", "lesson": "Lesson 5", data: chapter5Data },
+  { "name": "It smells good!", "lesson": "Lesson 6", data: chapter6Data },
+  { "name": "Holding Hands", "lesson": "Lesson 7", data: chapter7Data },
+  { "name": "Grocery shopping", "lesson": "Lesson 8", data: chapter8Data },
+  { "name": "Health is wealth", "lesson": "Lesson 9", data: chapter9Data },
+  { "name": "Remedies: modern and traditional", "lesson": "Lesson 10", data: chapter10Data },
+  { "name": "Are you listening?-1", "lesson": "Lesson 11", data: chapter11Data },
+  { "name": "An unseen beauty of Bangladesh", "lesson": "Lesson 12", data: chapter12Data },
+  { "name": "Our pride", "lesson": "Lesson 13", data: chapter13Data },
+  { "name": "The lion's mane", "lesson": "Lesson 14", data: chapter14Data },
+  { "name": "An old people's home", "lesson": "Lesson 15", data: chapter15Data },
+  { "name": "Boats sail on the rivers", "lesson": "Lesson 16", data: chapter16Data },
+  { "name": "Are you listening?-2", "lesson": "Lesson 17", data: chapter17Data },
+  { "name": "Make your snacks", "lesson": "Lesson 18", data: chapter18Data },
+  { "name": "Stop, look and listen", "lesson": "Lesson 19", data: chapter19Data },
+  { "name": "Hason Raja: The mystic bard of Bangladesh", "lesson": "Lesson 20", data: chapter20Data },
+  { "name": "Wonders of the world-1", "lesson": "Lesson 21", data: chapter21Data },
+  { "name": "Wonders of the world-2", "lesson": "Lesson 22", data: chapter22Data },
+  { "name": "We live in a global village", "lesson": "Lesson 23", data: chapter23Data },
+  { "name": "Our wage earners", "lesson": "Lesson 24", data: chapter24Data },
+  { "name": "The concert for Bangladesh", "lesson": "Lesson 25", data: chapter25Data },
+  { "name": "Buying clothes", "lesson": "Lesson 26", data: chapter26Data },
+  { "name": "Andre", "lesson": "Lesson 27", data: chapter27Data },
+  { "name": "Are you listening?-3", "lesson": "Lesson 28", data: chapter28Data },
+  { "name": "Taking a test", "lesson": "Lesson 29", data: chapter29Data },
+  { "name": "What should we do?", "lesson": "Lesson 30", data: chapter30Data },
+  { "name": "Too much or too little water", "lesson": "Lesson 31", data: chapter31Data },
+  { "name": "An invitation for Robin", "lesson": "Lesson 32", data: chapter32Data },
+  { "name": "The Garden", "lesson": "Lesson 33", data: chapter33Data }
 ];
 
 export {
