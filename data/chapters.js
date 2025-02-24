@@ -4133,20 +4133,13 @@ const chapter27Data = {
 }
 
 const chapter28Data = {
-  title: "",
+  title: "Lesson 28: Are you listening?",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "recognize English sounds",
+    "recognize word and stress on words in sentences",
+    "read aloud with proper pronunciation, stress and intonation"
   ],
   content: [
-    {
-        "type": "paragraph",
-        "value": "**Lesson 28**  \n**Are you listening?**"
-      },
-      {
-        "type": "paragraph",
-        "value": "After completing the lesson students will be able to  \n\u2022 recognize English sounds  \n\u2022 recognize word and stress on words in sentences  \n\u2022 read aloud with proper pronunciation, stress and intonation"
-      },
       {
         "type": "question_text",
         "value": "A Listen to and say the following words. Notice how the letter \u2018O\u2019 is pronounced in words in List 1 and List 2"
@@ -4175,25 +4168,32 @@ const chapter28Data = {
         "value": "A1 Listen to and practise saying some more words with the two vowel sounds together (diphthong) as in the word 'hope' or 'note'."
       },
       {
-        "type": "numbered_list",
-        "values": [
-          "bowl",
-          "coke",
-          "bone",
-          "throw",
-          "old",
-          "window"
-        ]
-      },
-      {
-        "type": "numbered_list",
-        "values": [
-          "boat",
-          "coat",
-          "phone",
-          "snow",
-          "gold",
-          "closed"
+        type: blockTypes.IMAGE_GRID_WITH_TEXT,
+        values: [
+          {
+            left: {word: "bowl", image: require('../assets/images/lesson28/p1.png')},
+            right: {word: "boat", image: require('../assets/images/lesson28/p2.png')}
+          },
+          {
+            left: {word: "coke", image: require('../assets/images/lesson28/p3.png')},
+            right: {word: "coat", image: require('../assets/images/lesson28/p4.png')}
+          },
+          {
+            left: {word: "bone", image: require('../assets/images/lesson28/p5.png')},
+            right: {word: "phone", image: require('../assets/images/lesson28/p6.png')}
+          },
+          {
+            left: {word: "throw", image: require('../assets/images/lesson28/p7.png')},
+            right: {word: "snow", image: require('../assets/images/lesson28/p8.png')}
+          },
+          {
+            left: {word: "old", image: require('../assets/images/lesson28/p9.png')},
+            right: {word: "gold", image: require('../assets/images/lesson28/p10.png')}
+          },
+          {
+            left: {word: "window", image: require('../assets/images/lesson28/p11.png')},
+            right: {word: "closed", image: require('../assets/images/lesson28/p12.png')}
+          }
         ]
       },
       {
@@ -4201,18 +4201,8 @@ const chapter28Data = {
         "value": "A2 Read the following passage. Choose a word from the list of words below to fill in each of the blanks in the sentences."
       },
       {
-        "type": "fill_in_blanks",
-        "blanks": [
-          "home",
-          "note",
-          "bowl",
-          "coke",
-          "bowl",
-          "close",
-          "stove",
-          "hope"
-        ],
-        "wordList": [
+        type: blockTypes.PARAGRAPH_WITH_BLANKS_WITH_OPTIONS,
+        options: [
           "phone",
           "bowl",
           "hope",
@@ -4222,7 +4212,7 @@ const chapter28Data = {
           "coke",
           "note"
         ],
-        "content": "I was waiting for my friend Shila. But since she was late, I thought I would just go to the bookstore and get some stationery from there. But before leaving _______, I left the following ______ next to the ______.\n\nSorry, I'm going out. Won't take long.\nI've left two cans of ______ and a ______ of fruits on the table.\nThere is a box of biscuits near the bed.\nDon't forget to ______ the lid of the box tightly.\nIf you want tea, the kettle is on the ______.\n____________ to be back in half an hour."
+        value: "I was waiting for my friend Shila. But since she was late, I thought I would just go to the bookstore and get some stationery from there. But before leaving _______, I left the following ______ next to the ______.\n\nSorry, I'm going out. Won't take long.\nI've left two cans of ______ and a ______ of fruits on the table.\nThere is a box of biscuits near the bed.\nDon't forget to ______ the lid of the box tightly.\nIf you want tea, the kettle is on the ______.\n____________ to be back in half an hour."
       },
       {
         "type": "question_text",
@@ -4232,16 +4222,12 @@ const chapter28Data = {
 }
 
 const chapter29Data = {
-  title: "",
+  title: "Lesson 29: Taking a test",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand written instructions",
+    "read and understand texts"
   ],
   content: [
-    {
-      "type": "question_text",
-      "value": "Lesson 29 Taking a test"
-    },
     {
       "type": "paragraph",
       "value": "After completing the lesson students will be able to read and understand written instructions and texts."
@@ -4259,137 +4245,107 @@ const chapter29Data = {
       "value": "A1 Read the following sentences and write down the instructions that Ms. Chowdhury may give in each situation. Use 'Do not' or 'cannot', if necessary. One is done for you."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "b. Teacher sees books and papers on students' desks. She tells them, ___________ all books and papers from your desks."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "c. She gives scripts to the students and says, ____________ your name, class, section, roll number, subject and date."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "d. She gives the question papers and tells them, __________ the questions carefully."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "e. ___________ from someone else's script."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "f. ___________ with others."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "g. You ___________ out before one hour is over."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "h. ___________ writing."
+      type: blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
+      options: [
+        "write down",
+        "talk",
+        "put away",
+        "read",
+        "copy",
+        "start",
+        "go",
+        "be quiet"
+      ],
+      values: [
+        {value: "b. Teacher sees books and papers on students' desks. She tells them, ___________ all books and papers from your desks."},
+        {value: "c. She gives scripts to the students and says, ____________ your name, class, section, roll number, subject and date."},
+        {value: "d. She gives the question papers and tells them, __________ the questions carefully."},
+        {value: "e. ___________ from someone else's script."},
+        {value: "f. ___________ with others."},
+        {value: "g. You ___________ out before one hour is over."},
+        {value: "h. ___________ writing."}
+      ]
     },
     {
       "type": "question_text",
       "value": "B Look at the following signs."
     },
     {
-      "type": "list",
-      "values": [
-        "Keep Off The Grass",
-        "CASHIER",
-        "Slow Playground"
-      ]
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson29/p1.png')
     },
     {
       "type": "fill_in_blanks",
       "value": "Fill in the blanks in the following sentences to complete the instructions for the above signs. Use the words in the box. Add 'Do not' if necessary."
     },
     {
-      "type": "list",
-      "values": [
+      type: blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
+      options: [
         "use",
         "walk",
         "pay",
         "throw",
         "drive",
         "blow"
+      ],
+      values: [
+        {value: "i. Hospital ahead! __________ horns."},
+        {value: "ii. __________ on the grass."},
+        {value: "iii. _________ litter in public places. _______ the waste bin."},
+        {value: "iv. _________ for your goods at the cash counter."},
+        {value: "v. _________ carefully. Children's playground ahead!"}
       ]
     },
-    {
-      "type": "fill_in_blanks",
-      "value": "i. Hospital ahead! __________ horns."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "ii. __________ on the grass."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "iii. _________ litter in public places. _______ the waste bin."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "iv. _________ for your goods at the cash counter."
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "v. _________ carefully. Children's playground ahead!"
-    }
   ]
 }
 
 const chapter30Data = {
-  title: "",
+  title: "Lesson 30: What should we do?",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
+    "read and understand written instructions",
+    "write questions and answers",
+    "write short paragraphs"
   ],
   content: [
     {
-      "type": "question_text",
-      "value": "Lesson 30 What should we do?"
-    },
-    {
-      "type": "numbered_list",
-      "values": [
-        "read and understand texts",
-        "read and understand written instructions",
-        "write questions and answers",
-        "write short paragraphs"
-      ]
+      type: blockTypes.QUESTION_TEXT,
+      value: "A Read the following dialogue."
     },
     {
       "type": "conversation",
       "value": [
         {
           "speaker": "Bahar",
-          "line": "We have a week's vacation next week. What should we do?"
+          "text": "We have a week's vacation next week. What should we do?"
         },
         {
           "speaker": "Azim",
-          "line": "Let's go somewhere we haven't been before."
+          "text": "Let's go somewhere we haven't been before."
         },
         {
           "speaker": "Joseph",
-          "line": "Right! I saw an ad for an interesting place. Hmm... well, here it is!"
+          "text": "Right! I saw an ad for an interesting place. Hmm... well, here it is!"
         },
         {
           "speaker": "Bahar",
-          "line": "Let me see! Ah! A two day trip to Kuakata! That sounds interesting! Look at the picture of the sea-beach and the sun rise! It looks fantastic!"
+          "text": "Let me see! Ah! A two day trip to Kuakata! That sounds interesting! Look at the picture of the sea-beach and the sun rise! It looks fantastic!"
         },
         {
           "speaker": "Azim",
-          "line": "Well, I've always wanted to climb a mountain. Why don't we go to the Chimbuk Mountains in Bandarban?"
+          "text": "Well, I've always wanted to climb a mountain. Why don't we go to the Chimbuk Mountains in Bandarban?"
         },
         {
           "speaker": "Shujan",
-          "line": "I've an idea! How about going to the Sundarbans? We can see some wild animals and can also take pictures of the forests and the sea."
+          "text": "I've an idea! How about going to the Sundarbans? We can see some wild animals and can also take pictures of the forests and the sea."
         },
         {
           "speaker": "Bahar",
-          "line": "Well... well... calm down everybody! We can't go to all the places and do all the things at a time, right?"
+          "text": "Well... well... calm down everybody! We can't go to all the places and do all the things at a time, right?"
         },
         {
           "speaker": "Joseph",
-          "line": "Yeah. Let's think about all the options and then decide."
+          "text": "Yeah. Let's think about all the options and then decide."
         }
       ]
     },
@@ -4398,7 +4354,7 @@ const chapter30Data = {
       "value": "A1 Make a list of the places the friends wanted to go to. Why did they want to go to these places?"
     },
     {
-      "type": "free_answer",
+      "type": blockTypes.FREE_ANSWER,
       "value": "List of places:"
     },
     {
@@ -4410,11 +4366,32 @@ const chapter30Data = {
       "value": "Language Focus: For suggestions, we often use these expressions: What should we do? Why don't we ___\u2026\u2026? How about ___\u2026\u2026 ? Let's ______\u2026, etc."
     },
     {
+      "type": blockTypes.FREE_ANSWER,
+      "value": "Write your answer here..."
+    },
+    {
+      type: blockTypes.QUESTION_TEXT,
+      value: "Language Focus"
+    },
+    {
+      type: blockTypes.OUTLINED_CONTAINER,
+      children: [
+        {
+          type: blockTypes.PARAGRAPH,
+          value: `For suggestions, we often use these expressions:
+          What should we do?
+          Why don't we ................. ?
+          How about ................. ?
+          Let's ................. etc.`
+        }
+      ]
+    },
+    {
       "type": "question_text",
       "value": "A3 Write short dialogues for the following situations. Use the expressions in the Language Focus."
     },
     {
-      "type": "list",
+      "type": blockTypes.QUESTION_LIST,
       "values": [
         "a. You and your friends want to do a class project. Discuss and decide what you want to do. **clues:** poster drawing wall magazine drama, etc.",
         "b. You and your friends want to buy a gift for your teacher on his/her birthday. Discuss and decide what gift to get."
@@ -4424,27 +4401,27 @@ const chapter30Data = {
 }
 
 const chapter31Data = {
-  title: "",
+  title: "Lesson 31: Too much or too little water",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
+    "write short paragraphs"
   ],
   content: [
-    {
-      "type": "container",
-      "value": "Lesson 31\nToo much or too little water"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to\n- read and understand texts\n- write short paragraphs"
-    },
     {
       "type": "question_text",
       "value": "A Look at the pictures."
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson31/p1.png')
+    },
+    {
       "type": "conversation",
       "value": "A1 Discuss in groups what you see in the pictures."
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
     },
     {
       "type": "question_text",
@@ -4459,6 +4436,10 @@ const chapter31Data = {
       "value": "A3 Write down a few sentences about how people suffer if there is too much water."
     },
     {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
+    },
+    {
       "type": "question_text",
       "value": "B. Read the following passage."
     },
@@ -4471,8 +4452,16 @@ const chapter31Data = {
       "value": "B1. Look at the pictures below and discuss what you see."
     },
     {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson31/p2.png')
+    },
+    {
       "type": "question_text",
       "value": "B2. Look at the pictures above and talk about how people suffer if there is too little water."
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
     }
   ]
 }
