@@ -41,6 +41,9 @@ const blockTypes = {
   MULTI_FILL_IN_BLANKS: 'multi_fill_in_blanks',
   PARAGRAPH_WITH_BLANKS: 'paragraph_with_blanks',
   PARAGRAPH_WITH_BLANKS_WITH_OPTIONS: 'paragraph_with_blanks_with_options',
+  ADD_ROWS_TABLE: 'add_rows_table',
+  ADD_COLUMNS_TABLE: 'add_columns_table',
+  TABLE: 'table',
 }
 
 const chaptersData = {
@@ -3516,7 +3519,7 @@ const chapter24Data = {
         "value": "What should I see in Cairo museum? You should see the mummies. But you mustn't leave Egypt without visiting the Pyramids."
       },
       {
-        "type": "fill_in_blanks",
+        "type": blockTypes.QUESTION_TEXT,
         "value": "Complete the sentences about what a tourist can do and see in Dhaka. Use the verbs from the box."
       },
       {
@@ -3592,14 +3595,11 @@ const chapter24Data = {
 const chapter25Data = {
   title: "Lesson 25: The Concert for Bangladesh",
   learningObjectives: [
+    "read and understand texts",
     "ask and answer questions",
     "participate in short dialogues and conversations on familiar topics",
   ],
   content: [
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand texts, ask and answer questions, participate in short dialogues and conversations on familiar topics."
-    },
     {
       "type": blockTypes.QUESTION_TEXT,
       "value": "A It\u2019s Friday evening. Mr. Farhad is watching television in the sitting room. His daughter Fahmida comes in. A tall, bearded man with long hair is playing a guitar and singing a song, \u201cBangladesh, Bangladesh...\u201d on the television screen. Fahmida is thrilled to watch a foreigner singing a song on Bangladesh. She has the following conversation with her father about the song and the singer."
@@ -3610,7 +3610,7 @@ const chapter25Data = {
     },
     {
       "type": "conversation",
-      "value": [
+      dialogues: [
         {
           "speaker": "Fahmida",
           "text": "Father, who is this singer? He is not a Bangladeshi, is he?"
@@ -3640,6 +3640,10 @@ const chapter25Data = {
           "text": "Concert for Bangladesh! Please, father. Tell me more about it."
         }
       ]
+    },
+    {
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson25/p2.png')
     },
     {
       type: blockTypes.CONVERSATION,
@@ -3689,7 +3693,7 @@ const chapter25Data = {
       "value": "Bangladesh\nMy friend came to me, with sadness in his eyes\nHe told me that he wanted help\nBefore his country dies\nAlthough I couldn't feel the"
     },
     {
-      "type": "poem",
+      "type": blockTypes.PARAGRAPH,
       "value": "Bangladesh, Bangladesh  \nWhere so many people are dying fast  \nAnd it sure looks like a mess  \nI've never seen such distress  \n\nNow, won't you lend your hand\nRelieve the people of Bangladesh\nRelieve Bangladesh"
     },
     {
@@ -4121,9 +4125,13 @@ const chapter27Data = {
       "type": blockTypes.QUESTION_TEXT,
       "value": "A1  Underline all the verbs in the poem above. Then, list them in two columns: present tense and past tense. Next, change the verbs in the past tense to their present form, and the present tense ones to their past form."
     },
+    // {
+    //   "type": "numbered_list",
+    //   "value": "Example:\nPresent tense  |  Past tense\nhave                 |  had\nchoose             |"
+    // },
     {
-      "type": "numbered_list",
-      "value": "Example:\nPresent tense  |  Past tense\nhave                 |  had\nchoose             |"
+      type: blockTypes.ADD_ROWS_TABLE,
+      columns: ["Present Tense", "Past Tense"],
     },
     {
       "type": blockTypes.QUESTION_TEXT,

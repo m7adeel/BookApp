@@ -7,34 +7,32 @@ import {
   StyleSheet, 
   ScrollView, 
   KeyboardAvoidingView, 
-  Platform 
+  Platform,
+  Alert
 } from 'react-native';
 
-type EditableTableProps = {
-    canAddColumns: boolean;
-    canAddRows: boolean;
-}
-
-const EditableTable = ({ canAddColumns, canAddRows }) => {
-  // Initial columns configuration
-  const initialColumns = ['Name', 'Age', 'Email'];
-  
+const EditableTable = ({ canAddRows, canAddColumns, initialColumns }) => {
   // State for table data and form inputs
   const [columns, setColumns] = useState(initialColumns);
   const [data, setData] = useState([]);
   const [newRow, setNewRow] = useState(initialColumns.reduce((acc, col) => ({...acc, [col]: ''}), {}));
   const [newColumnName, setNewColumnName] = useState('');
+  
+  // Edit mode state
+  const [editMode, setEditMode] = useState(false);
+  const [editRowIndex, setEditRowIndex] = useState(null);
+  const [editRowData, setEditRowData] = useState({});
 
   // Add a new row to the table
   const addRow = () => {
     // Check if at least one field has data
-    const hasData = Object.values(newRow).some(value => value.trim() !== '');
+    // const hasData = Object.values(newRow).some(value => value.trim() !== '');
     
-    if (hasData) {
+    // if (hasData) {
       setData([...data, {...newRow}]);
       // Reset form
       setNewRow(columns.reduce((acc, col) => ({...acc, [col]: ''}), {}));
-    }
+    // }
   };
 
   // Add a new column to the table
@@ -55,14 +53,66 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
   const handleInputChange = (column, value) => {
     setNewRow({...newRow, [column]: value});
   };
+  
+  // Handle edit row click
+  const handleEditRow = (rowIndex) => {
+    setEditMode(true);
+    setEditRowIndex(rowIndex);
+    setEditRowData({...data[rowIndex]});
+  };
+  
+  // Handle edit input change
+  const handleEditInputChange = (column, value) => {
+    setEditRowData({...editRowData, [column]: value});
+  };
+  
+  // Save edited row
+  const saveEditedRow = () => {
+    const newData = [...data];
+    newData[editRowIndex] = editRowData;
+    setData(newData);
+    cancelEdit();
+  };
+  
+  // Cancel edit
+  const cancelEdit = () => {
+    setEditMode(false);
+    setEditRowIndex(null);
+    setEditRowData({});
+  };
+  
+  // Delete row
+  const deleteRow = (rowIndex) => {
+    Alert.alert(
+      "Delete Row",
+      "Are you sure you want to delete this row?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel"
+        },
+        { 
+          text: "Delete", 
+          onPress: () => {
+            const newData = [...data];
+            newData.splice(rowIndex, 1);
+            setData(newData);
+            if (editMode && editRowIndex === rowIndex) {
+              cancelEdit();
+            }
+          },
+          style: "destructive"
+        }
+      ]
+    );
+  };
 
   return (
     <KeyboardAvoidingView 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-        <Text style={styles.title}>Editable Table</Text>
-        
+      <ScrollView>        
         {/* Table Header */}
         <ScrollView horizontal>
           <View>
@@ -73,6 +123,9 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
                   <Text style={styles.headerText}>{column}</Text>
                 </View>
               ))}
+              <View style={[styles.tableHeader, styles.actionHeader]}>
+                <Text style={styles.headerText}>Actions</Text>
+              </View>
             </View>
             
             {/* Table Data */}
@@ -80,16 +133,57 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
               <View key={rowIndex} style={styles.tableRow}>
                 {columns.map((column, colIndex) => (
                   <View key={`${rowIndex}-${colIndex}`} style={styles.tableCell}>
-                    <Text>{row[column] || ''}</Text>
+                    {editMode && editRowIndex === rowIndex ? (
+                      <TextInput
+                        style={styles.editInput}
+                        value={editRowData[column] || ''}
+                        onChangeText={(text) => handleEditInputChange(column, text)}
+                      />
+                    ) : (
+                      <Text>{row[column] || ''}</Text>
+                    )}
                   </View>
                 ))}
+                <View style={[styles.tableCell, styles.actionCell]}>
+                  {editMode && editRowIndex === rowIndex ? (
+                    <View style={styles.actionButtonsContainer}>
+                      <TouchableOpacity 
+                        style={[styles.actionButton, styles.saveButton]} 
+                        onPress={saveEditedRow}
+                      >
+                        <Text style={styles.actionButtonText}>Save</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity 
+                        style={[styles.actionButton, styles.cancelButton]} 
+                        onPress={cancelEdit}
+                      >
+                        <Text style={styles.actionButtonText}>Cancel</Text>
+                      </TouchableOpacity>
+                    </View>
+                  ) : (
+                    <View style={styles.actionButtonsContainer}>
+                      <TouchableOpacity 
+                        style={[styles.actionButton, styles.editButton]} 
+                        onPress={() => handleEditRow(rowIndex)}
+                      >
+                        <Text style={styles.actionButtonText}>Edit</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity 
+                        style={[styles.actionButton, styles.deleteButton]} 
+                        onPress={() => deleteRow(rowIndex)}
+                      >
+                        <Text style={styles.actionButtonText}>Delete</Text>
+                      </TouchableOpacity>
+                    </View>
+                  )}
+                </View>
               </View>
             ))}
           </View>
         </ScrollView>
         
         {/* Add New Row Form */}
-        {canAddRows && <View style={styles.formContainer}>
+        {/* <View style={styles.formContainer}>
           <Text style={styles.formTitle}>Add New Row</Text>
           {columns.map((column, index) => (
             <View key={index} style={styles.inputContainer}>
@@ -105,7 +199,13 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
           <TouchableOpacity style={styles.button} onPress={addRow}>
             <Text style={styles.buttonText}>Add Row</Text>
           </TouchableOpacity>
-        </View>}
+        </View> */}
+
+        {canAddRows && (
+            <TouchableOpacity style={styles.button} onPress={addRow}>
+            <Text style={styles.buttonText}>Add Row</Text>
+          </TouchableOpacity>
+        )}
         
         {/* Add New Column Form */}
         {canAddColumns && <View style={styles.formContainer}>
@@ -123,6 +223,7 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
             <Text style={styles.buttonText}>Add Column</Text>
           </TouchableOpacity>
         </View>}
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };
@@ -130,8 +231,6 @@ const EditableTable = ({ canAddColumns, canAddRows }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    backgroundColor: '#f5f5f5',
   },
   title: {
     fontSize: 24,
@@ -149,6 +248,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
   },
+  actionHeader: {
+    width: 160,
+  },
   headerText: {
     fontWeight: 'bold',
   },
@@ -158,6 +260,47 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     backgroundColor: '#fff',
+    justifyContent: 'center',
+  },
+  actionCell: {
+    width: 160,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  actionButtonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+  },
+  actionButton: {
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    borderRadius: 4,
+    marginHorizontal: 2,
+  },
+  editButton: {
+    backgroundColor: '#4CAF50',
+  },
+  deleteButton: {
+    backgroundColor: '#F44336',
+  },
+  saveButton: {
+    backgroundColor: '#2196F3',
+  },
+  cancelButton: {
+    backgroundColor: '#9E9E9E',
+  },
+  actionButtonText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  editInput: {
+    borderWidth: 1,
+    borderColor: '#2196F3',
+    borderRadius: 4,
+    padding: 2,
+    height: 30,
   },
   formContainer: {
     marginTop: 20,
