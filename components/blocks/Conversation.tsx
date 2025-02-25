@@ -27,7 +27,6 @@ export default function Conversation({ dialogues }: ConversationProps) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
     gap: 10,
   },
   dialogueContainer: {

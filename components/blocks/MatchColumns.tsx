@@ -24,15 +24,8 @@ export default function MatchColumns({ headers, leftValues, rightValues }) {
       const newSelection = { ...prev, [side]: value };
 
       if (newSelection.left && newSelection.right) {
-        const isCorrect = data.some(
-          (item) => item.question === newSelection.left && item.answer === newSelection.right
-        );
 
-        if (true) {
-          setMatches((prevMatches) => [...prevMatches, newSelection]);
-        } else {
-          Alert.alert("Incorrect match! Try again.");
-        }
+        setMatches((prevMatches) => [...prevMatches, newSelection]);
 
         return { left: null, right: null }; // Reset selection after matching attempt
       }

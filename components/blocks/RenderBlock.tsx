@@ -25,6 +25,7 @@ import MultiFillInBlanks from './MultiFillinBlanks'
 import ShortAnswer from './ShortAnswer'
 import ParagraphWithBlanks from './ParagraphWithBlanks'
 import ParagraphWithBlanksWithOptions from './ParagraphWithBlanksWithOptions'
+import MCQS from './MCQs'
 
 type RenderBlockProps = {
   block: any
@@ -114,6 +115,9 @@ export default function RenderBlock({ block }: RenderBlockProps) {
 
     case blockTypes.PARAGRAPH_WITH_BLANKS_WITH_OPTIONS:
       return <ParagraphWithBlanksWithOptions text={block.value} options={block.options} showOptions={block.showOptions}/>
+
+    case blockTypes.MCQS:
+      return <MCQS options={block.values} />
     
     default:
       console.log("Block not found")

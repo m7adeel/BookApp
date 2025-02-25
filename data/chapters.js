@@ -3288,7 +3288,7 @@ const chapter23Data = {
     },
     {
       "type": "paragraph",
-      "value": "Dear Sohan, I hope you are doing well, and focusing on your studies. I received your letter last week, but did not have the time to write back. Things are really busy here in Congo. I am glad to know that you read up about this country. You\u2019re right\u2014Congo is a country in central Africa. It is rich in natural resources and its people are incredible. However, there are several regions in this country which face problems
+      "value": "Dear Sohan, I hope you are doing well, and focusing on your studies. I received your letter last week, but did not have the time to write back. Things are really busy here in Congo. I am glad to know that you read up about this country. You\u2019re right\u2014Congo is a country in central Africa. It is rich in natural resources and its people are incredible. However, there are several regions in this country which face problems"
     },
     {
       "type": "paragraph",
@@ -4212,7 +4212,7 @@ const chapter28Data = {
           "coke",
           "note"
         ],
-        value: "I was waiting for my friend Shila. But since she was late, I thought I would just go to the bookstore and get some stationery from there. But before leaving _______, I left the following ______ next to the ______.\n\nSorry, I'm going out. Won't take long.\nI've left two cans of ______ and a ______ of fruits on the table.\nThere is a box of biscuits near the bed.\nDon't forget to ______ the lid of the box tightly.\nIf you want tea, the kettle is on the ______.\n____________ to be back in half an hour."
+        value: "I was waiting for my friend Shila. But since she was late, I thought I would just go to the bookstore and get some stationery from there. But before leaving ____, I left the following ____ next to the ____.\n\nSorry, I'm going out. Won't take long.\nI've left two cans of ____ and a ____ of fruits on the table.\nThere is a box of biscuits near the bed.\nDon't forget to ____ the lid of the box tightly.\nIf you want tea, the kettle is on the ____.\n____ to be back in half an hour."
       },
       {
         "type": "question_text",
@@ -4228,10 +4228,6 @@ const chapter29Data = {
     "read and understand texts"
   ],
   content: [
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand written instructions and texts."
-    },
     {
       "type": "question_text",
       "value": "A Read the passage below."
@@ -4257,13 +4253,13 @@ const chapter29Data = {
         "be quiet"
       ],
       values: [
-        {value: "b. Teacher sees books and papers on students' desks. She tells them, ___________ all books and papers from your desks."},
-        {value: "c. She gives scripts to the students and says, ____________ your name, class, section, roll number, subject and date."},
-        {value: "d. She gives the question papers and tells them, __________ the questions carefully."},
-        {value: "e. ___________ from someone else's script."},
-        {value: "f. ___________ with others."},
-        {value: "g. You ___________ out before one hour is over."},
-        {value: "h. ___________ writing."}
+        {value: "b. Teacher sees books and papers on students' desks. She tells them, ___ all books and papers from your desks."},
+        {value: "c. She gives scripts to the students and says, ___ your name, class, section, roll number, subject and date."},
+        {value: "d. She gives the question papers and tells them, ___ the questions carefully."},
+        {value: "e. ___ from someone else's script."},
+        {value: "f. ___ with others."},
+        {value: "g. You ___ out before one hour is over."},
+        {value: "h. ___ writing."}
       ]
     },
     {
@@ -4275,7 +4271,7 @@ const chapter29Data = {
       value: require('../assets/images/lesson29/p1.png')
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "Fill in the blanks in the following sentences to complete the instructions for the above signs. Use the words in the box. Add 'Do not' if necessary."
     },
     {
@@ -4314,10 +4310,10 @@ const chapter30Data = {
     },
     {
       "type": "conversation",
-      "value": [
+      dialogues: [
         {
           "speaker": "Bahar",
-          "text": "We have a week's vacation next week. What should we do?"
+          "text": "We have a week's vacation next week.\nWhat should we do?"
         },
         {
           "speaker": "Azim",
@@ -4325,27 +4321,27 @@ const chapter30Data = {
         },
         {
           "speaker": "Joseph",
-          "text": "Right! I saw an ad for an interesting place. Hmm... well, here it is!"
+          "text": "Right! I saw an ad for an interesting place.\nHmm... well, here it is!"
         },
         {
           "speaker": "Bahar",
-          "text": "Let me see! Ah! A two day trip to Kuakata! That sounds interesting! Look at the picture of the sea-beach and the sun rise! It looks fantastic!"
+          "text": "Let me see! Ah! A two day trip to Kuakata!\nThat sounds interesting! Look at the picture of\nthe sea-beach and the sun rise! It looks\nfantastic!"
         },
         {
           "speaker": "Azim",
-          "text": "Well, I've always wanted to climb a mountain. Why don't we go to the Chimbuk Mountains in Bandarban?"
+          "text": "Well, I've always wanted to climb a mountain.\nWhy don't we go to the Chimbuk Mountains\nin Bandarban?"
         },
         {
           "speaker": "Shujan",
-          "text": "I've an idea! How about going to the Sundarbans? We can see some wild animals and can also take pictures of the forests and the sea."
+          "text": "I've an idea! How about going to the\nSundarbans? We can see some wild animals\nand can also take pictures of the forests\nand the sea."
         },
         {
           "speaker": "Bahar",
-          "text": "Well... well... calm down everybody! We can't go to all the places and do all the things at a time, right?"
+          "text": "Well... well... calm down everybody!\nWe can't go to all the places and do all the\nthings at a time, right?"
         },
         {
           "speaker": "Joseph",
-          "text": "Yeah. Let's think about all the options and then decide."
+          "text": "Yeah. Let's think about all the options and\nthen decide."
         }
       ]
     },
@@ -4358,12 +4354,8 @@ const chapter30Data = {
       "value": "List of places:"
     },
     {
-      "type": "paragraph",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A2 Think of a place you would like to go to. Now write down a few sentences about where you want to go, why you want to go there, who you want to go with."
-    },
-    {
-      "type": "paragraph",
-      "value": "Language Focus: For suggestions, we often use these expressions: What should we do? Why don't we ___\u2026\u2026? How about ___\u2026\u2026 ? Let's ______\u2026, etc."
     },
     {
       "type": blockTypes.FREE_ANSWER,
@@ -4416,7 +4408,7 @@ const chapter31Data = {
       value: require('../assets/images/lesson31/p1.png')
     },
     {
-      "type": "conversation",
+      "type": blockTypes.QUESTION_TEXT,
       "value": "A1 Discuss in groups what you see in the pictures."
     },
     {
@@ -4467,20 +4459,14 @@ const chapter31Data = {
 }
 
 const chapter32Data = {
-  title: "",
+  title: "Lesson 32: An invitation for Robin",
   learningObjectives: [
+    "read and understand texts",
     "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "write short paragraphs",
+    "write simple informal letters"
   ],
   content: [
-    {
-      "type": "question_text",
-      "value": "Lesson 32 An invitation for Robin"
-    },
-    {
-      "type": "paragraph",
-      "value": "After completing the lesson students will be able to read and understand texts, ask and answer questions, write short paragraphs, write simple informal letters."
-    },
     {
       "type": "question_text",
       "value": "A. Read the following passage and the letter."
@@ -4490,55 +4476,85 @@ const chapter32Data = {
       "value": "Robin received a letter. He read the letter over and over. He was very excited. It came from his aunt Amina. Aunt Amina and her family live in the countryside forty miles away from Dhaka. Robin ran to his mother and said, \"Mom, listen to this letter.\" He then read it to her."
     },
     {
-      "type": "formatted_text",
-      "value": "*Dear Robin,*\n*We are happy to know that your summer holiday is starting from the next week. We would like you to come and stay with us for a few days.*\n*We know you\u2019ll like the country. We have four ducks, six chickens, and a cow that gives fresh milk every day.*\n*Your cousin Maher is just about your age. He\u2019s very excited and is making a lot of plans to do together.*\n*Let us know when you will arrive. We have already talked to your parents. Tell them not to worry. We\u2019ll be at the bus station to receive you.*\n*Your Aunt Amina and Uncle Karim*"
+      type: blockTypes.OUTLINED_CONTAINER,
+      children: [
+        {
+          type: blockTypes.PARAGRAPH,
+          value: "*Dear Robin,*\n*We are happy to know that your summer holiday is starting from the next week. We would like you to come and stay with us for a few days.*\n*We know you\u2019ll like the country. We have four ducks, six chickens, and a cow that gives fresh milk every day.*\n*Your cousin Maher is just about your age. He\u2019s very excited and is making a lot of plans to do together.*\n*Let us know when you will arrive. We have already talked to your parents. Tell them not to worry. We\u2019ll be at the bus station to receive you.*\n*Your Aunt Amina and Uncle Karim*"
+        }
+      ]
     },
     {
-      "type": "language_focus",
-      "value": "For requests and invitations we often use the following expressions: 'Would like you to' to mean, 'Would you please' or 'Please do'; 'Let us know' to mean, 'inform us', or simply 'tell us'."
+      type: blockTypes.QUESTION_TEXT,
+      value: "Language Focus"
+    },
+    {
+      type: blockTypes.OUTLINED_CONTAINER,
+      children: [
+        {
+          type: blockTypes.PARAGRAPH,
+          value: "For requests and invitations we often use the following expressions: 'Would like you to' to mean, 'Would you please' or 'Please do'; 'Let us know' to mean, 'inform us', or simply 'tell us'."
+        }
+      ]
     },
     {
       "type": "question_text",
       "value": "A1 Read the letter again and then answer the following questions."
     },
     {
-      "type": "fill_in_blanks",
-      "value": "a. Why was Robin excited?"
-    },
-    {
-      "type": "fill_in_blanks",
-      "value": "b. How would he go to the country?"
+      type: blockTypes.QUESTION_LIST,
+      values: [
+        "a. Why was Robin excited?",
+        "b. How would he go to the country?"
+      ]
     },
     {
       "type": "question_text",
       "value": "A2 Write a few sentences of your own with the following expressions:"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.PARAGRAPH,
       "value": "a. I would like you to __________"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.PARAGRAPH,
       "value": "b. Would you please __________"
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your sentences here..."
     },
     {
       "type": "question_text",
       "value": "A3 Write a similar invitation letter to a friend. Tell him/her about some of the things you plan to do together."
     },
     {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your letter here..."
+    },
+    {
       "type": "question_text",
       "value": "B A few days after Robin came back home from his aunt's house, he wrote the following letter to his Aunt Amina. Read the letter."
     },
     {
-      "type": "paragraph",
-      "value": "My dear Aunt,\nI really enjoyed my stay with you in the country. For a city boy, it was a whole new world to see. I was so proud when I first milked your cow 'Dulari'. Uncle and you have taught me things that I didn't know before. And please tell Maher that I already miss him. I hope you'll invite me to stay with you again next summer.\n\nThanks again for inviting me.\nRobin"
+      type: blockTypes.OUTLINED_CONTAINER,
+      children: [
+        {
+          type: blockTypes.PARAGRAPH,
+          value: "My dear Aunt,\nI really enjoyed my stay with you in the country. For a city boy, it was a whole new world to see. I was so proud when I first milked your cow 'Dulari'. Uncle and you have taught me things that I didn't know before. And please tell Maher that I already miss him. I hope you'll invite me to stay with you again next summer.\n\nThanks again for inviting me.\nRobin"
+        },
+        {
+          type: blockTypes.IMAGE,
+          value: require("../assets/images/lesson32/p2.png")
+        }
+      ]
     },
     {
       "type": "question_text",
       "value": "B1 What do you think is the main idea of the letter? Choose the best answer:"
     },
     {
-      "type": "multiple_choice",
+      "type": blockTypes.MCQS,
       "values": [
         "a. To ask his aunt to invite him again.",
         "b. To thank his aunt for inviting him.",
@@ -4550,20 +4566,697 @@ const chapter32Data = {
       "value": "B2 Discuss in groups what is meant by the following expressions:"
     },
     {
-      "type": "fill_in_blanks",
+      "type": blockTypes.PARAGRAPH,
       "value": "a city boy, a whole new world, miss someone"
+    },
+    {
+      type: blockTypes.FREE_ANSWER,
+      value: "Write your answer here..."
     }
   ]
 }
 
 const chapter33Data = {
-  title: "",
+  title: "Lesson 33: The Garden",
   learningObjectives: [
-    "ask and answer questions",
-    "participate in short dialogues and conversations on familiar topics",
+    "read and understand texts",
+    "use punctuation marks e.g. comma, full stop, question mark, exclamation mark, quotation marks in sentences",
+    "understand and enjoy stories and poems "
   ],
   content: [
-    
+  {
+      "type": "question_text",
+      "value": "A Read the story below."
+  },
+  {
+      "type": "paragraph",
+      "value": "The Garden\nArnold Lobel"
+  },
+  {
+      "type": "paragraph",
+      "value": "Frog was in his garden. Toad came walking by. \"What a fine garden you have, Frog,\" he said. \"Yes,\" said Frog. \"It is very nice, but it was hard work.\" \"I wish I had a garden,\" said Toad. \"Here are some flower seeds. Plant them in the ground,\" said Frog, \"and soon you will have a garden.\" \"How soon?\" asked Toad. \"Very soon,\" said Frog."
+  },
+  {
+	type: blockTypes.IMAGE,
+	value: require('../assets/images/lesson33/p1.png')
+  },
+  {
+    "type": "paragraph",
+    "value": "Toad ran home. He planted the flower seeds.\n\n\"New seeds,\" said Toad, \"start growing."
+  },
+  {
+	type: blockTypes.IMAGE,
+	value: require('../assets/images/lesson33/p2.png')
+  },
+  {
+	type: blockTypes.PARAGRAPH,
+	value: "Toad walked up and down a few times. The seeds did not start to grow.\n\nToad put his head close to the ground and cried, \"Now seeds, start growing!\"\n\nThe seeds did not start to grow.\n\nToad put his head very close to the ground and shouted, \"NOW SEEDS START GROWING!\""
+  },
+  {
+	type: blockTypes.PARAGRAPH_WITH_IMAGE,
+	imageSource: require('../assets/images/lesson33/p3.png'),
+	imagePosition: positions.RIGHT,
+	value: "Frog ran up the path. \"What is going on?\" he asked.\n\"My seeds will not grow,\" said Toad.\n\"You are shouting too much,\" said Frog. \"These poor seeds are afraid to grow.\"\n\"My seeds are afraid to grow?\" asked Toad"
+  },
+  {
+	type: blockTypes.PARAGRAPH_WITH_IMAGE,
+	imageSource: require('../assets/images/lesson33/p4.png'),
+	imagePosition: positions.LEFT,
+	value: `"Yes," said Frog. "Leave them alone for a few days. Let the sun shine on them, let the rain fall on them. Soon your seeds will start to grow."\n\nThat night Toad looked out his window.\n\n"Oh, no!" cried Toad. "My seeds have not started to grow. They must be afraid of the dark."`
+  },
+  {
+	type: blockTypes.PARAGRAPH_WITH_IMAGE,
+	imageSource: require('../assets/images/lesson33/p5.png'),
+	imagePosition: positions.RIGHT,
+	value: `Toad went out to his garden.\n\n"I will read the seeds a story," said Toad.\n\nToad read a long story to his seeds.\nAll the next day Toad sang songs to his seeds.\n\nAnd all the next day Toad read poems to his seeds.`
+  },
+{
+  "type": "paragraph",
+  "value": "And all the next day Toad played music for his seeds."
+},
+{
+  "type": "paragraph",
+  "value": "Toad looked at the ground. The seeds still did not start to grow."
+},
+{
+	type: blockTypes.IMAGE,
+	value: require('../assets/images/lesson33/p6.png')
+},
+{
+  "type": "paragraph",
+  "value": "\"What shall I do?\" cried Toad. \"These seeds are still afraid to grow.\"\n\nThen Toad became very tired, and he fell asleep.\n\n\"Toad, Toad, wake up,\" said Frog. \"Look at your garden!\"\n\nToad looked at his garden. Little green plants were growing up out of the ground.\n\n\"At last,\" shouted Toad, \"my seeds are not afraid anymore.\""
+},
+{
+	type: blockTypes.IMAGE,
+	value: require('../assets/images/lesson33/p7.png')
+},
+	{
+		"type": "paragraph",
+	"value": "\"And now you will have a nice garden, too,\" said Frog.\n\n\"Yes,\" said Toad, \"but you were right, Frog. It was very hard work.\""
+  },
+  {
+	type: blockTypes.IMAGE,
+	value: require('../assets/images/lesson33/p8.png')
+  },
+{
+  "type": "question_text",
+  "value": "A1 Choose the right answer."
+},
+{
+	type: blockTypes.PARAGRAPH,
+	value: "The first thing Toad did was he---"
+},
+{
+  "type": blockTypes.MCQS,
+  "values": [
+      "a. watered the seeds",
+      "b. kept the seeds in the sun",
+      "c. planted the seeds",
+      "d. put the seeds in a box"
+  ]
+},
+{
+  "type": "question_text",
+  "value": "A2 Match a word in column A with a word in column B that goes together. One is done for you."
+},
+{
+  "type": "match_columns",
+  "headers": [
+      "Column A",
+      "Column B"
+  ],
+  "leftValues": [
+      "play",
+      "water",
+      "plant",
+      "read",
+      "work"
+  ],
+  "rightValues": [
+      "seeds",
+      "hard",
+      "music",
+      "plants",
+      "stories"
+  ]
+},
+{
+  "type": "question_text",
+  "value": "A3 Punctuation marks"
+},
+{
+  "type": "paragraph",
+  "value": "Punctuation marks are special symbols used in writing to separate sentences and phrases. They show how a piece of text should be read and understood. The most common punctuation marks in English are:\n\n- Full stop (.) – This shows that the sentence has ended.\n- Comma (,) – This indicates a short pause in the sentence.\n- Question Mark (?) – This is used when asking a question.\n- Exclamation Mark (!) – This shows excitement or surprise!\n- Quotation Marks (“ ”) – These are used to show that someone is speaking."
+},
+{
+  "type": "question_text",
+  "value": "Now, read the story “The Garden” again carefully. Identify the punctuation marks in the story, and notice how they are used."
+},
+{
+  "type": "question_text",
+  "value": "A4 Read the following passage. All punctuation marks are missing in it. Put punctuation marks as necessary. Use capital letters where you should."
+},
+{
+  "type": blockTypes.PARAGRAPH,
+  "value": "bobby and farid were walking to school one morning in february suddenly farid asked bobby did neel ask you to go to his house this afternoon bobby said yes he did it's his birthday today really said farid what should we give him on his birthday"
+},
+{
+	type: blockTypes.FREE_ANSWER,
+	value: "Write your paragraph here..."
+},
+{
+  "type": "question_text",
+  "value": "A5 Learn the meanings of these words."
+},
+{
+  "type": "list",
+  "values": [
+      "Toad",
+      "seeds",
+      "plant",
+      "grow",
+      "shout",
+      "dark"
+  ]
+},
+  ]
+}
+
+const SampleQuestionsData = {
+  heading: "Sample Question for Grade 6\n(From 2017)\nEnglish Paper One\nFull Marks: 80\nTime: 3 hours",
+  content: [
+    {
+      "type": "paragraph",
+      "value": "**Section A: Reading (Total Marks 40)** 1. Read the following text and answer the question that follows."
+  },
+  {
+      "type": "paragraph",
+      "value": "People around the world are slowly changing their attitude towards medicine. More and more they are turning to natural cures. Natural cures are made of natural things, most often herbs and plants. History says that natural or herbal remedies are nothing new. People used them all along in different ages. Herbal medicines were used in ancient civilizations like India, China, Greece, Egypt, and Rome. Some ancient treatment systems are still in practice today. They have come down through generations."
+  },
+  {
+      "type": "paragraph",
+      "value": "For a minor burn injury the doctor may prescribe you a tube of ointment. But for the same, a rural grandma may put some aloe vera or use cold water. If children have cold in our country, grandmas give them honey and tulsi leaves to eat. And it works too. If you have a minor cut or wound, grown-ups may put some turmeric, marigold or aloe vera on it. Rural people usually use garlic, neem or turmeric to cure skin problems. With experience they have seen that these remedies work. Moreover, they are easy to get, are cheap and most often are without any side effect."
+  },
+  {
+      "type": "question_text",
+      "value": "Now, choose the correct answer to each question from the alternatives given and write the corresponding number of the answers in your answer script."
+  },
+  {
+      "type": "multiple_choice",
+      "values": [
+          "i) People around the world are slowly changing their attitude toward medicine. Here the word ‘attitude’ is similar to",
+          "a. altitude",
+          "b. belief",
+          "c. believe",
+          "d. fate"
+      ]
+  }
+]
+[
+  {
+      "type": "question_text",
+      "value": "ii) More and more they are turning to natural cures. Here 'turning' means:"
+  },
+  {
+      "type": "multiple_choice",
+      "values": [
+          "a. shifting",
+          "b. tuning",
+          "c. using",
+          "d. welcoming"
+      ]
+  },
+  {
+      "type": "question_text",
+      "value": "iii) More and more they are turning to natural cures. Which of the following words is not a synonym of the word 'cure'?"
+  },
+  {
+      "type": "multiple_choice",
+      "values": [
+          "a. disease",
+          "b. relief",
+          "c. illness",
+          "d. care"
+      ]
+  },
+  {
+      "type": "question_text",
+      "value": "iv) History says that natural or herbal remedies are nothing new. The term 'herbal remedy' means:"
+  },
+  {
+      "type": "multiple_choice",
+      "values": [
+          "a. treatment using chemicals",
+          "b. treatment using soil",
+          "c. treatment using fire",
+          "d. treatment using plants"
+      ]
+  },
+  {
+      "type": "question_text",
+      "value": "v) Herbal medicines were used in ancient civilizations. What does 'ancient' mean?"
+  },
+  {
+      "type": "multiple_choice",
+      "values": [
+          "a. new",
+          "b. recent",
+          "c. old",
+          "d. modern"
+      ]
+  },
+  {
+    "type": "question_text",
+    "value": "vi) They have come down through generations. Which of the following words has opposite meaning to ‘come down’?"
+},
+{
+    "type": "multiple_choice",
+    "values": [
+        "a. pass",
+        "b. transfer",
+        "c. come back",
+        "d. move on"
+    ]
+},
+{
+    "type": "question_text",
+    "value": "vii) People’s tendency to go for natural cures is"
+},
+{
+    "type": "multiple_choice",
+    "values": [
+        "a. increasing",
+        "b. unchanging",
+        "c. decreasing",
+        "d. falling"
+    ]
+},
+{
+    "type": "question_text",
+    "value": "viii) The history of herbal treatment relates to"
+},
+{
+    "type": "multiple_choice",
+    "values": [
+        "a. rural civilisation",
+        "b. one civilisation",
+        "c. specific civilisation",
+        "d. many civilisations"
+    ]
+},
+{
+    "type": "question_text",
+    "value": "ix) Honey with basil leaves is a natural remedy for"
+},
+{
+    "type": "multiple_choice",
+    "values": [
+        "a. burn",
+        "b. cut",
+        "c. injury",
+        "d. cold"
+    ]
+},
+{
+    "type": "question_text",
+    "value": "x) People understand that natural cures"
+},
+{
+    "type": "multiple_choice",
+    "values": [
+        "a. give benefits",
+        "b. have side effects",
+        "c. save rural life",
+        "d. are useless"
+    ]
+},
+{
+    "type": "paragraph",
+    "value": "Answers: i) b ii) a iii) b iv) d v) c vi) a vii) d viii) d ix) d x) a"
+},
+{
+  "type": "question_text",
+  "value": "2. Read the text and answer the following questions. 2X5=10"
+},
+{
+  "type": "paragraph",
+  "value": "Hason Raja was born in 1854 in a wealthy landlord’s family in Sylhet. He did not receive much formal education. In his youth, he led a life of luxury. He had everything - money, comfort, and pleasure. At one time he understood that all these are meaningless. He gave away all of his properties. He started to think deeply about the Creator, about life, death, and mankind. Hason Raja wrote a lot of songs, perhaps about a thousand in number. His book called “Hason Udash” was published in 1906. The book had 206 songs in it. In his songs, Hason called himself ‘Crazy Hason Raja’ or ‘Pagla Hason Raja’. A volume called ‘Hason Raja Samagra’ (Complete Works of Hason Raja) was also published. The book contained 500 poems and songs. Some of the songs were written by the poet in Hindi."
+},
+{
+  "type": "question_text",
+  "value": "Questions"
+},
+{
+  "type": "short_answer",
+  "value": "a. How many songs did Hason Raja compose?"
+},
+{
+  "type": "free_answer",
+  "value": "a. Hason Raja composed about a thousand songs."
+},
+{
+  "type": "short_answer",
+  "value": "b. Describe Hason Raja’s early life."
+},
+{
+  "type": "free_answer",
+  "value": "b. In his early life, Hason had a luxurious life. He was born in a landlord’s family and he had everything like money, comfort, and pleasure."
+},
+{
+  "type": "short_answer",
+  "value": "c. Why did Hason Raja give away all his wealth? Explain?"
+},
+{
+  "type": "free_answer",
+  "value": "c. Hason had a luxurious life in his childhood. However, at one stage everything became meaningless to him. The ideas of Creator, life, death etc."
+},
+{
+  "type": "short_answer",
+  "value": "d. Interpret the term ‘Pagla Hason Raja’."
+},
+{
+  "type": "short_answer",
+  "value": "e. Why did the songs of Hason Raja become so popular in Bangladesh and beyond?"
+},
+{
+  "type": "container",
+  "value": "English For Today"
+},
+{
+  "type": "paragraph",
+  "value": "became more important to him than his property. So he left all his meaningless wealth. d. People love wealth but Hason Raja gave them away. He became crazy to learn more about the Creator, life, and mankind. Maybe he became crazy for God. Maybe this is why people called him Pagla Hason Raja."
+},
+{
+  "type": "paragraph",
+  "value": "Hason Raja was a mystic poet. His songs had love for God, human beings, and life. Perhaps, it touched everyone’s heart. So, gradually they spread from Sylhet to whole Bangladesh and beyond."
+},
+{
+  "type": "question_text",
+  "value": "3. Read the text and answer the following questions."
+},
+{
+  "type": "paragraph",
+  "value": "Bushra, and her cousin, Asha are class mates. Asha is 11 now. Bushra is three months senior to her. Abir is two years junior to Asha. This year they all celebrated Pahela Boishakh at their grandma’s home. Grandma prepared different foods and snacks for them in the morning of the Pahela Boishakh. Bushra didn’t like sweets. She wanted to try some firni but forgot. Grandma offered her some khichuri. She had it with some chicken. Abir likes watered rice. Grandma didn’t forget that. So it was there. However, Abir changed his mind and decided to go for firni. Asha is a food lover. She didn’t mind trying them all. Immediately after taking foods they rushed to the local Boishakhi Mela to meet their friends."
+},
+{
+  "type": "fill_in_blanks",
+  "value": "A. Complete the following table with the information given in the passage."
+},
+{
+  "type": "numbered_list",
+  "values": [
+    "Name  | Age  | Food they had in the Pahela Boishakh morning",
+    "Bushra | a)  | b)",
+    "Asha   | X   | c)",
+    "Abir   | d)  | e)"
+  ]
+},
+{
+  "type": "question_text",
+  "value": "Read the text and answer the following questions."
+},
+{
+  "type": "paragraph",
+  "value": "Last week Turjo visited his uncle’s house with his parents. His uncle lives in Dhaka. His cousin Tamim sent an email inviting him to visit his house. He also wrote him that they would visit the Ekushey book fair together. Turjo had dream to visit the fair. Every year in February, Ekushey Book Fair is held in Bangla Academy premises. It was 18th February. Turjo and Tamim with their parents went to the fair. Tamim’s younger sister Nowsin was with them. They visited different stalls which were decorated beautifully. They saw many new books there. Turjo brought two novels and two comic books. He presented a comic book to Nowsin. She became very happy as she is fond of such books. Tamim brought two science fictions. Turjo was excited to see his favourite writer in the stall. He took an autograph and a snap with him. It was a very pleasant experience for him. They all enjoyed the day very much."
+},
+{
+  "type": "question_text",
+  "value": "B. Read the following statements. Write (T) in your answer script if the statement is true. Write (F) if the statement is false. If false, give the correct answer."
+},
+{
+  "type": "list",
+  "values": [
+      "i) Turjo’s uncle lives in an urban area.",
+      "ii) Nowsin received a gift from Turjo.",
+      "iii) Nowsin disliked comic book.",
+      "iv) Turjo met his favourite writer in the fair.",
+      "v) Tamim received an email from Turjo."
+  ]
+},
+{
+  "type": "fill_in_blanks",
+  "value": "1X5=5"
+},
+{
+  "type": "fill_in_blanks_select",
+  "value": "Answer:"
+},
+{
+  "type": "short_answer",
+  "values": [
+      "a) 11 years and 3 months",
+      "b) khichuri and chicken",
+      "c) khichuri, chicken, firni, watered rice",
+      "d) 9 years",
+      "e) Firni"
+  ]
+},
+{
+  "type": "question_text",
+  "value": "4. Read the text below and complete it with suitable words given in the box. 0.5X10=5"
+},
+{
+  "type": "fill_in_blanks",
+  "blanks": [
+      {
+          "index": "a",
+          "value": "__________"
+      },
+      {
+          "index": "b",
+          "value": "__________"
+      },
+      {
+          "index": "c",
+          "value": "__________"
+      },
+      {
+          "index": "d",
+          "value": "__________"
+      },
+      {
+          "index": "e",
+          "value": "__________"
+      },
+      {
+          "index": "f",
+          "value": "__________"
+      },
+      {
+          "index": "g",
+          "value": "__________"
+      },
+      {
+          "index": "h",
+          "value": "__________"
+      },
+      {
+          "index": "i",
+          "value": "__________"
+      },
+      {
+          "index": "j",
+          "value": "__________"
+      }
+  ]  },
+  {
+      "type": "list",
+      "values": [
+          "the",
+          "see",
+          "looked",
+          "sweater",
+          "that",
+          "shivering",
+          "beautiful",
+          "carrying",
+          "it",
+          "villagers"
+      ]
+  },
+  {
+      "type": "short_answer",
+      "value": "It was a winter morning. Nuhash got up from his bed and (a) looked through the window. He could see his (b) beautiful village. There was moderate fog outside. Some (c) villagers were carrying date juice to sell in (d) the local market. Suddenly Nuhash saw a boy (e) carrying a milk can. The boy was really (f) shivering in the cold. Nuhash felt bad to (g) see the poor boy. Nuhash took his own (h) sweater and came out his room to give (i) it to the boy. When the boy got (j) that there were marks of happiness in his eyes. Nuhash told himself – ‘Life is beautiful’."
+  },
+  {
+      "type": "paragraph",
+      "value": "Correct Answer: Nowshin liked comic books."
+  },
+  {
+      "type": "paragraph",
+      "value": "Correct Answer: Turjo received an email from Tamim."
+  },
+  {
+    "type": "question_text",
+    "value": "5. Match the parts of sentences given in column ‘A’ and column ‘B’ to write five complete sentences. 1X5=5"
+},
+{
+    "type": "match_columns",
+    "headers": [
+        "Column A",
+        "Column B"
+    ],
+    "leftValues": [
+        "i) The quality of giving is",
+        "ii) The task of giving can be done",
+        "iii) It needs",
+        "iv) Practising the quality of giving will make",
+        "v) Our small generosity can change"
+    ],
+    "rightValues": [
+        "such a virtue which can make our life successful.",
+        "any time anywhere.",
+        "just to think about others.",
+        "the world a better place.",
+        "someone’s life forever."
+    ]
+},
+{
+    "type": "paragraph",
+    "value": "Answer:\n\ni) The quality of giving is such a virtue which can make our life successful.\n\nii) The task of giving can be done any time anywhere.\n\niii) It needs just to think about others.\n\niv) Practising the quality of giving will make the world a better place.\n\nv) Our small generosity can change someone’s life forever."
+},
+{
+    "type": "question_text",
+    "value": "6. Rearrange the following sentences in correct order in your answer script. You do not need to reproduce the sentences in your script. Only the corresponding numbers of the sentences need to be written. 0.5X10=5"
+},
+{
+    "type": "numbered_list",
+    "values": [
+        "a) Suddenly Abira saw a boat on the sea.",
+        "b) Ayaan said, “I know you feel bored.”",
+        "c) She stood up.",
+        "d) “That boat is moving but there’s nobody in it,” Abira answered.",
+        "e) “Very strange,” she said.",
+        "f) Abira ran fast to call her father.",
+        "g) Abira said, “There’s nothing to do and nothing exciting happens here.”",
+        "h) Then she said, “I’m going to tell my father that something’s wrong.”",
+        "i) It was a hot afternoon in the island Saint Martin’s.",
+        "j) “What’s the matter?” Ayaan asked."
+    ]
+},
+{
+    "type": "short_answer",
+    "value": "i + g + b + a + e + j + d + c + h + f"
+},
+{
+        "type": "question_text",
+        "value": "7. Read the opening of a story below and complete it in 10 sentences."
+    },
+    {
+        "type": "paragraph",
+        "value": "An ant was feeling very thirsty. It went to the nearby stream to drink some water. Suddenly, a wave washed to the bank and carried the ant away into the stream. A dove, sitting on a tree beside the stream saw the helpless ant. The dove plucked a leaf from the branch and dropped it into the water. ......"
+    },
+    {
+        "type": "free_answer",
+        "value": "……………. The ant climbed onto the leaf. It floated back safely to the bank. Shortly afterwards, there appeared a bird-catcher. The dove drew his attention. He fixed his arrow toward the bird. The ant understood the bird-catcher’s intention. He stung the bird-catcher on his foot. The bird-catcher shouted out in pain. He threw down the bow. The dove was alarmed and flew away."
+    },
+    {
+        "type": "question_text",
+        "value": "8. Suppose you want to visit some important places of Dhaka City during the winter vacation. Write an email to your friend about your plan after the final exam."
+    },
+    {
+        "type": "paragraph",
+        "value": "Suggested Answer:"
+    },
+    {
+        "type": "formatted_text",
+        "value": "To: sarah@yahoo.com\nSubject: Plan for winter vacation\n\nDear Sarah,\nHow are you? It’s almost the end of the year. My final exam has just finished and the school is closed. I have planned to do a lot of things during the vacation. At first I’m going to buy some new story books to read during the vacation. Then I’ll be going to Dhaka with my parents to stay a few days with my uncle’s family. We will stay there for about a week. During that time we are going to visit many important places in Dhaka. My father is going to take me to the Lalbag Fort, the Ahsan Manzil and the Mirpur National Zoo. My mother is going to take me to a market where I will buy a new school bag for myself. We will also go to the Shishu Park and the National Museum if we have time.\n\nWhat is your plan? Write soon.\n\nYour friend,\nMonira"
+    },
+    {
+        "type": "question_text",
+        "value": "9. Write a dialogue between two friends about a performance that one of them participated in."
+    },
+    {
+        "type": "conversation",
+        "value": [
+            {
+                "speaker": "Rivo",
+                "text": "Hi! Dhrubo! How’s it going?"
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "Not too well. I’m still embarrassed from last night."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "Oh no! What happened?"
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "Nothing too bad."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "Alright then. I heard you acted in a play in the cultural program of school yesterday. How was it?"
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "The play is the very reason I’m embarrassed! I didn’t perform that well."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "That’s contrary to what I heard."
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "What do you mean?"
+            },
+            {
+                "speaker": "Rivo",
+                "text": "My parents went to the program and they told me the audience was laughing and clapping very loudly at the end of your performance. I wasn’t surprised. You’re honestly a natural performer!"
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "I wasn’t trying to be funny, though. I was supposed to act gloomy in the play."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "You put a twist to the character you were supposed to be. That’s not at all bad."
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "I haven’t heard any reviews yet, but I hope you’re right."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "Then I hope I’m right too. I’ll see you tomorrow, yeah?"
+            },
+            {
+                "speaker": "Dhrubo",
+                "text": "Definitely! I have to go home now; see you soon."
+            },
+            {
+                "speaker": "Rivo",
+                "text": "Have a safe trip."
+            },
+		]
+	},
+	{
+        "type": "question_text",
+        "value": "10. Answer the following questions into a continuous paragraph on “The Place I like Most”:"
+    },
+    {
+        "type": "list",
+        "values": [
+            "a. What is the place you like most?",
+            "b. How do you spend your time there?",
+            "c. How is the weather there?",
+            "d. What is the most exciting thing that happens there?",
+            "e. What is the effect of such visits?"
+        ]
+    },
+    {
+        "type": "paragraph",
+        "value": "**The Place I Like Most**"
+    },
+    {
+        "type": "paragraph",
+        "value": "A favourite place is a place with family, good weather and funny things to do. My village home is my favorite place for many reasons. My grandfather’s family and my uncles live in the village. When I visit, my cousins and I laugh and play all day and night. I usually go there during the winter. My uncles and aunts take us to the village fair where we enjoy the rides. We devour juicy cakes and drink fresh date-juice. My family is fun to be with. The second reason is the weather. Instead of being hot and sweaty, it is always cool and moist. When I think about my visits, I can feel the crisp breeze in my hair. I can hear the soft sound of mist falling from leaves. I can feel the warm winter sun on my face. The third reason for my village home being my favorite place is fishing. We catch lots of fishes from the pond. Sometimes we catch fishes on hooks and sometimes we see uncles' fishing with the net. My grandmother cooks them. For all these reasons, my village home is my favorite place to go. It’s good to visit a favorite place where one can make special memories and that is refreshing."
+    },
+    {
+        "type": "paragraph",
+        "value": "THE END"
+    }
   ]
 }
 
