@@ -26,6 +26,7 @@ import ShortAnswer from './ShortAnswer'
 import ParagraphWithBlanks from './ParagraphWithBlanks'
 import ParagraphWithBlanksWithOptions from './ParagraphWithBlanksWithOptions'
 import MCQS from './MCQs'
+import EditableTable from './EditableTable'
 
 type RenderBlockProps = {
   block: any
@@ -118,6 +119,16 @@ export default function RenderBlock({ block }: RenderBlockProps) {
 
     case blockTypes.MCQS:
       return <MCQS options={block.values} />
+
+    case blockTypes.ADD_ROWS_TABLE: 
+      return <EditableTable columns={block.columns} data={block.data} canAddRows={true} canAddColumns={false} />
+
+    case blockTypes.ADD_COLUMNS_TABLE:
+      return <EditableTable columns={block.columns} data={block.data} canAddRows={false} canAddColumns={true} />
+
+    case blockTypes.TABLE:
+      return <EditableTable columns={block.columns} data={block.data} canAddRows={false} canAddColumns={false} />
+
     
     default:
       console.log("Block not found")
