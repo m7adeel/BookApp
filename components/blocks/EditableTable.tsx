@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   View, 
   Text, 
@@ -11,7 +11,7 @@ import {
   Alert
 } from 'react-native';
 
-const EditableTable = ({ canAddRows, canAddColumns, initialColumns }) => {
+const EditableTable = ({ canAddRows, canAddColumns, initialColumns, initialData = [] }) => {
   // State for table data and form inputs
   const [columns, setColumns] = useState(initialColumns);
   const [data, setData] = useState([]);
@@ -22,6 +22,23 @@ const EditableTable = ({ canAddRows, canAddColumns, initialColumns }) => {
   const [editMode, setEditMode] = useState(false);
   const [editRowIndex, setEditRowIndex] = useState(null);
   const [editRowData, setEditRowData] = useState({});
+
+  // Initialize with initial data
+  useEffect(() => {
+    if (initialData && initialData.length > 0) {
+      // Make sure all initialData rows have all columns (even if empty)
+      const formattedData = initialData.map(row => {
+        const formattedRow = {...row};
+        columns.forEach(col => {
+          if (formattedRow[col] === undefined) {
+            formattedRow[col] = '';
+          }
+        });
+        return formattedRow;
+      });
+      setData(formattedData);
+    }
+  }, [initialData]);
 
   // Add a new row to the table
   const addRow = () => {
@@ -182,27 +199,8 @@ const EditableTable = ({ canAddRows, canAddColumns, initialColumns }) => {
           </View>
         </ScrollView>
         
-        {/* Add New Row Form */}
-        {/* <View style={styles.formContainer}>
-          <Text style={styles.formTitle}>Add New Row</Text>
-          {columns.map((column, index) => (
-            <View key={index} style={styles.inputContainer}>
-              <Text style={styles.inputLabel}>{column}:</Text>
-              <TextInput
-                style={styles.input}
-                value={newRow[column]}
-                onChangeText={(text) => handleInputChange(column, text)}
-                placeholder={`Enter ${column}`}
-              />
-            </View>
-          ))}
-          <TouchableOpacity style={styles.button} onPress={addRow}>
-            <Text style={styles.buttonText}>Add Row</Text>
-          </TouchableOpacity>
-        </View> */}
-
         {canAddRows && (
-            <TouchableOpacity style={styles.button} onPress={addRow}>
+          <TouchableOpacity style={styles.button} onPress={addRow}>
             <Text style={styles.buttonText}>Add Row</Text>
           </TouchableOpacity>
         )}
@@ -337,6 +335,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 4,
     alignItems: 'center',
+    marginTop: 10,
   },
   buttonText: {
     color: 'white',

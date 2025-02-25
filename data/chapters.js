@@ -4132,6 +4132,16 @@ const chapter27Data = {
     {
       type: blockTypes.ADD_ROWS_TABLE,
       columns: ["Present Tense", "Past Tense"],
+      data: [
+        {
+          "Present Tense": "have",
+          "Past Tense": "had"
+        },
+        {
+          "Present Tense": "choose",
+          "Past Tense": ""
+        }
+      ]
     },
     {
       "type": blockTypes.QUESTION_TEXT,
