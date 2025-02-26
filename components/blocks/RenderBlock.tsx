@@ -121,13 +121,16 @@ export default function RenderBlock({ block }: RenderBlockProps) {
       return <MCQS options={block.values} />
 
     case blockTypes.ADD_ROWS_TABLE: 
-      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={true} canAddColumns={false} />
+      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={true} canAddColumns={false} canEdit={true}/>
 
     case blockTypes.ADD_COLUMNS_TABLE:
-      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={false} canAddColumns={true} />
+      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={false} canAddColumns={true} canEdit={true}/>
 
     case blockTypes.TABLE:
-      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={false} canAddColumns={false} />
+      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={false} canAddColumns={false} canEdit={true}/>
+
+    case blockTypes.UNEDITABLE_TABLE:
+      return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={false} canAddColumns={false} canEdit={false}/>
 
     
     default:

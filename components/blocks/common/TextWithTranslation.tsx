@@ -40,7 +40,9 @@ const TextWithTranslation = ({ text, textStyle }) => {
 
   const openDetails = () => {
     closeModal();
-    router.push("/WordDetails");
+    router.push(
+      { pathname: "/WordDetails", params: { word: selectedWord } },
+    );
   };
 
   const handleTranslation = async (word) => {

@@ -10,8 +10,9 @@ import {
   Platform,
   Alert
 } from 'react-native';
+import TextWithTranslation from './common/TextWithTranslation';
 
-const EditableTable = ({ canAddRows, canAddColumns, initialColumns, initialData = [] }) => {
+const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, initialData = [] }) => {
   // State for table data and form inputs
   const [columns, setColumns] = useState(initialColumns);
   const [data, setData] = useState([]);
@@ -140,9 +141,9 @@ const EditableTable = ({ canAddRows, canAddColumns, initialColumns, initialData 
                   <Text style={styles.headerText}>{column}</Text>
                 </View>
               ))}
-              <View style={[styles.tableHeader, styles.actionHeader]}>
+              {canEdit && <View style={[styles.tableHeader, styles.actionHeader]}>
                 <Text style={styles.headerText}>Actions</Text>
-              </View>
+              </View>}
             </View>
             
             {/* Table Data */}
@@ -157,11 +158,11 @@ const EditableTable = ({ canAddRows, canAddColumns, initialColumns, initialData 
                         onChangeText={(text) => handleEditInputChange(column, text)}
                       />
                     ) : (
-                      <Text>{row[column] || ''}</Text>
+                        <TextWithTranslation text={row[column] || ''}/>
                     )}
                   </View>
                 ))}
-                <View style={[styles.tableCell, styles.actionCell]}>
+                {canEdit && <View style={[styles.tableCell, styles.actionCell]}>
                   {editMode && editRowIndex === rowIndex ? (
                     <View style={styles.actionButtonsContainer}>
                       <TouchableOpacity 
@@ -193,7 +194,7 @@ const EditableTable = ({ canAddRows, canAddColumns, initialColumns, initialData 
                       </TouchableOpacity>
                     </View>
                   )}
-                </View>
+                </View>}
               </View>
             ))}
           </View>
