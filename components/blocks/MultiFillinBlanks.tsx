@@ -30,7 +30,7 @@ export default function MultiFillInBlanks({ data, numeric }: MultiFillInBlanksPr
                   {blankIndex < parts.length - 1 && (
                     <TextInput
                       style={styles.input}
-                      placeholder={item.labels[blankIndex] || "Blank"}
+                      placeholder={item.labels[blankIndex] || "..."}
                       value={answers[`${sentenceIndex}-${blankIndex}`] || ""}
                       onChangeText={(text) => handleChangeText(sentenceIndex, blankIndex, text)}
                       keyboardType={numeric ? "numeric" : "default"}
@@ -48,8 +48,7 @@ export default function MultiFillInBlanks({ data, numeric }: MultiFillInBlanksPr
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    gap: 10,
+    
   },
   sentenceContainer: {
     marginBottom: 10,

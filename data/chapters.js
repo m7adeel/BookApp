@@ -3863,32 +3863,10 @@ const chapter26Data = {
         }
       ]
     },    
-    // {
-    //   "type": "fill_in_blanks",
-    //   "value": "C1 Complete the sentences using the words from the conversation in B.",
-    //   "blanks": [
-    //     {
-    //       "number": 1,
-    //       "value": "chain"
-    //     },
-    //     {
-    //       "number": 2,
-    //       "value": "medium"
-    //     },
-    //     {
-    //       "number": 3,
-    //       "value": "sky blue"
-    //     },
-    //     {
-    //       "number": 4,
-    //       "value": "try on"
-    //     },
-    //     {
-    //       "number": 5,
-    //       "value": "sale"
-    //     }
-    //   ]
-    // },
+    {
+      "type": blockTypes.QUESTION_TEXT,
+      "value": "C1 Complete the sentences using the words from the conversation in B.",
+    },
     {
       type: blockTypes.MULTI_FILL_IN_BLANKS,
       data: [
@@ -3919,45 +3897,96 @@ const chapter26Data = {
       "value": "C2 Look at the useful expressions that Imran uses at the shop. Use the words below each incomplete sentence to make a complete sentence."
     },
     {
-      "type": "fill_in_blanks",
-      "blanks": [
-        {
-          "question": "Excuse me, where are the ___\u2026 \u2026?",
-          "options": [
-            "polo shirts",
-            "trousers",
-            "socks",
-            "shoes"
-          ]
-        },
-        {
-          "question": "Do you have the kinds without ___\u2026?",
-          "options": [
-            "buttons",
-            "lace",
-            "hooks"
-          ]
-        },
-        {
-          "question": "Do you have these in a different ___\u2026?",
-          "options": [
-            "colour",
-            "size",
-            "design"
-          ]
-        },
-        {
-          "question": "How much is/are ___\u2026?",
-          "options": [
-            "this",
-            "these",
-            "the shirt",
-            "these socks",
-            "the trousers"
-          ]
-        }
-      ]
+      type: blockTypes.PARAGRAPH,
+      value: "Excuse me, where are the ___?"
     },
+    {
+      type: blockTypes.MCQS,
+      values: [
+        "shoes",
+        "polo shirts",
+        "trousers",
+        "socks"
+      ],
+    },
+    {
+      type: blockTypes.PARAGRAPH,
+      value: "Do you have the kinds without ___?"
+    },
+    {
+      type: blockTypes.MCQS,
+      values: [
+        "buttons",
+        "lace",
+        "hooks"
+      ],
+    },
+    {
+      type: blockTypes.PARAGRAPH,
+      value: "Do you have these in a different ___?"
+    },
+    {
+      type: blockTypes.MCQS,
+      values: [
+        "colour",
+        "size",
+        "design"
+      ],
+    },
+    {
+      type: blockTypes.PARAGRAPH,
+      value: "How much is/are ___?"
+    },
+    {
+      type: blockTypes.MCQS,
+      values: [
+        "this",
+        "these",
+        "the shirt",
+        "these socks",
+        "the trousers"
+      ],
+    },
+    // {
+    //   "type": "fill_in_blanks",
+    //   "blanks": [
+    //     {
+    //       "question": "Excuse me, where are the ___\u2026 \u2026?",
+    //       "options": [
+    //         "polo shirts",
+    //         "trousers",
+    //         "socks",
+    //         "shoes"
+    //       ]
+    //     },
+    //     {
+    //       "question": "Do you have the kinds without ___\u2026?",
+    //       "options": [
+    //         "buttons",
+    //         "lace",
+    //         "hooks"
+    //       ]
+    //     },
+    //     {
+    //       "question": "Do you have these in a different ___\u2026?",
+    //       "options": [
+    //         "colour",
+    //         "size",
+    //         "design"
+    //       ]
+    //     },
+    //     {
+    //       "question": "How much is/are ___\u2026?",
+    //       "options": [
+    //         "this",
+    //         "these",
+    //         "the shirt",
+    //         "these socks",
+    //         "the trousers"
+    //       ]
+    //     }
+    //   ]
+    // },
     {
       "type": "question_text",
       "value": "D Read the conversations between Mrs Urmila Karim and Imran. Which clothes do they choose? Tick the correct picture for each conversation."
