@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import TextWithTranslation from './common/TextWithTranslation';
 
 type ImageGridWithTextProps = {
     data: {
@@ -15,9 +16,10 @@ const ImageGridWithText = ({ data }: ImageGridWithTextProps) => {
       {/* LEFT COLUMN */}
       <View style={styles.column}>
         {data.map((item, index) => (
-          <View key={`left-${index}`} style={styles.row}>
+          <View key={`left-${index}`} style={[styles.row, {marginRight: 10}]}>
             <Image source={item.left.image} style={styles.image} />
-            <Text style={styles.word}>{item.left.word}</Text>
+            {/* <Text style={styles.word}>{item.left.word}</Text> */}
+            <TextWithTranslation textStyle={styles.word} text={item.left.word} />
           </View>
         ))}
       </View>
@@ -25,8 +27,9 @@ const ImageGridWithText = ({ data }: ImageGridWithTextProps) => {
       {/* RIGHT COLUMN */}
       <View style={styles.column}>
         {data.map((item, index) => (
-          <View key={`right-${index}`} style={styles.row}>
-            <Text style={styles.word}>{item.right.word}</Text>
+          <View key={`right-${index}`} style={[styles.row, {marginLeft: 10}]}>
+            {/* <Text style={styles.word}>{item.right.word}</Text> */}
+            <TextWithTranslation textStyle={styles.word} text={item.right.word} />
             <Image source={item.right.image} style={styles.image} />
           </View>
         ))}
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-evenly',
     marginBottom: 15,
   },
   image: {

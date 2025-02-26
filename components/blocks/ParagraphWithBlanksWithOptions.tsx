@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList } from "react-native";
 import HeaderSelectOptions from "./common/HeaderSelectOptions";
+import TextWithTranslation from "./common/TextWithTranslation";
 
 type ParagraphWithBlanksProps = {
   text: string; // Paragraph with "____" as blank spaces
@@ -55,6 +56,7 @@ export default function ParagraphWithBlanksWithOptions({
           {parts.map((part, index) => (
             <React.Fragment key={index}>
               {part}
+              {/* <TextWithTranslation textStyle={styles.paragraphText} text={part}/> */}
               {index < blankCount && (
                 <TouchableOpacity
                   onPress={() => openOptionSelector(index)}

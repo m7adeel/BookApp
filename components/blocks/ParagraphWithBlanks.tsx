@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
+import TextWithTranslation from "./common/TextWithTranslation";
 
 type ParagraphWithBlanksProps = {
   text: string; // Paragraph with blanks as '___'
@@ -21,6 +22,7 @@ export default function ParagraphWithBlanks({ text }: ParagraphWithBlanksProps) 
         {parts.map((part, index) => (
           <React.Fragment key={index}>
             {part}
+            {/* <TextWithTranslation textStyle={styles.text} text={part}/> */}
             {index < parts.length - 1 && (
               <TextInput
                 style={styles.input}

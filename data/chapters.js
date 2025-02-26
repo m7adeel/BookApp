@@ -3498,10 +3498,10 @@ const chapter24Data = {
           }
         ]
       },
-      {
-        "type": "language_focus",
-        "value": "Modal verbs can/can't, could/couldn't, may, should, must/mustn't:"
-      },
+      // {
+      //   "type": "language_focus",
+      //   "value": "Modal verbs can/can't, could/couldn't, may, should, must/mustn't:"
+      // },
       {
         "type": "paragraph",
         "value": "Can you tell me something about Cairo? Yes, I can. / No, I can't."
@@ -3735,7 +3735,7 @@ const chapter26Data = {
     },
     {
       type: blockTypes.IMAGE_WITH_SELECT_OPTIONS,
-      options: [
+      values: [
         "trousers",
         "jacket",
         "saree",
@@ -3783,7 +3783,7 @@ const chapter26Data = {
       "value": "C. Read the conversation between Imran and the shop assistant."
     },
     {
-      "type": "CONVERSATION",
+      "type": blockTypes.CONVERSATION,
       "dialogues": [
         {
           "speaker": "Imran",
@@ -3863,41 +3863,56 @@ const chapter26Data = {
         }
       ]
     },    
-    {
-      "type": "fill_in_blanks",
-      "value": "C1 Complete the sentences using the words from the conversation in B.",
-      "blanks": [
-        {
-          "number": 1,
-          "value": "chain"
-        },
-        {
-          "number": 2,
-          "value": "medium"
-        },
-        {
-          "number": 3,
-          "value": "sky blue"
-        },
-        {
-          "number": 4,
-          "value": "try on"
-        },
-        {
-          "number": 5,
-          "value": "sale"
-        }
-      ]
-    },
+    // {
+    //   "type": "fill_in_blanks",
+    //   "value": "C1 Complete the sentences using the words from the conversation in B.",
+    //   "blanks": [
+    //     {
+    //       "number": 1,
+    //       "value": "chain"
+    //     },
+    //     {
+    //       "number": 2,
+    //       "value": "medium"
+    //     },
+    //     {
+    //       "number": 3,
+    //       "value": "sky blue"
+    //     },
+    //     {
+    //       "number": 4,
+    //       "value": "try on"
+    //     },
+    //     {
+    //       "number": 5,
+    //       "value": "sale"
+    //     }
+    //   ]
+    // },
     {
       type: blockTypes.MULTI_FILL_IN_BLANKS,
-      values: [
-          "Imran does not like polo shirts with a ___",
-          "A ___ size shirt fits Imran perfectly.",
-          "The shirt that Imran chose finally is ___ in colour.",
-          "He wants to ___ the polo shirt on before buying it.",
-          "The polo shirt that Imran likes is on ___ this week."
-      ]
+      data: [
+        {
+          sentence: "Imran does not like polo shirts with a ___",
+          labels:[]
+        },
+        {
+          sentence: "A ___ size shirt fits Imran perfectly.",
+          labels:[]
+        },
+        {
+          sentence: "The shirt that Imran chose finally is ___ in colour.",
+          labels:[]
+        },
+        {
+          sentence: "He wants to ___ the polo shirt on before buying it.",
+          labels:[]
+        },
+        {
+          sentence: "The polo shirt that Imran likes is on ___ this week.",
+          labels:[]
+        }
+      ],
     },
     {
       "type": "question_text",

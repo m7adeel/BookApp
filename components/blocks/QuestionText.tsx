@@ -1,5 +1,6 @@
 import { Text, StyleSheet } from 'react-native'
 import React from 'react'
+import TextWithTranslation from './common/TextWithTranslation'
 
 type QuestionTextProps = {
   value: string
@@ -7,7 +8,7 @@ type QuestionTextProps = {
 
 export default function QuestionText({ value }: QuestionTextProps) {
   return (
-    <Text style={styles.text}>{value}</Text>
+    <TextWithTranslation text={value} textStyle={styles.text}/>
   )
 }
 
