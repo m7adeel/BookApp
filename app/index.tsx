@@ -1,15 +1,27 @@
-import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native'
+import { View, Text, FlatList, Pressable, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
-
 import chapters from '@/data/chapters'
+
+import BookImage from '../assets/images/book.png'
+
+import { BlurView } from "expo-blur";
+
+const colors = [
+  '#FF6B6B', // coral red
+  '#4ECDC4', // turquoise
+  '#FFD166', // yellow
+  '#6A0572', // purple
+  '#FF9A8B', // salmon
+  '#6A7FDB', // blue
+  '#06D6A0', // green
+  '#F25F5C', // red
+  '#50B2C0', // teal
+  '#FAC05E', // amber
+]
 
 export default function Index() {
   const router = useRouter()
-  // const chaptersData = Array.from({ length: 30 }, (_, index) => ({
-  //   id: index + 1,
-  //   title: `Chapter ${index + 1}`
-  // }))
 
   const chaptersData = chapters.map((chapter, index) => {
     return {
@@ -24,7 +36,11 @@ export default function Index() {
       style={styles.chapterItem}
       onPress={() => router.push(`/chapters/${item.id}`)}
     >
-      <View>
+      <View style={[styles.chapterNumber]}>
+        <Image source={BookImage} style={[{ width: 50, height: 50 }]} tintColor={colors[item.id % colors.length]} />
+        <View style={[styles.chapaterImageShadow]}></View>
+      </View>
+      <View style={styles.contentContainer}>
         <Text style={styles.chapterTitle}>{item.title}</Text>
         <Text style={styles.chapterDescription}>{item.description}</Text>
       </View>
@@ -38,6 +54,7 @@ export default function Index() {
         renderItem={renderChapter}
         keyExtractor={item => item.id.toString()}
         contentContainerStyle={styles.listContainer}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   )
@@ -46,42 +63,62 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#f7f7f7',
+  },
+  header: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#333',
+    marginVertical: 24,
+    paddingHorizontal: 20,
   },
   listContainer: {
-    padding: 16
+    padding: 16,
+    paddingBottom: 30,
   },
   chapterItem: {
-    padding: 20,
+    flexDirection: 'row',
     backgroundColor: '#ffffff',
     borderRadius: 12,
     marginBottom: 16,
-    elevation: 3,
+    elevation: 2,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 1,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    borderWidth: 1,
-    borderColor: '#f0f0f0',
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    overflow: 'hidden',
   },
   chapterNumber: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 4,
-    fontWeight: '600'
+    alignItems: 'center',
+    justifyContent: 'center',
+    // backgroundColor: '#4A6FA5',
+    paddingVertical: 15,
+    paddingLeft: 10,
+  },
+  chapaterImageShadow: {
+  },
+  numberText: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#ffffff',
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 16,
+    justifyContent: 'center',
   },
   chapterTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: '#333',
-    marginBottom: 6
+    marginBottom: 6,
   },
   chapterDescription: {
     fontSize: 14,
     color: '#666',
-    lineHeight: 20
+    lineHeight: 20,
   }
 })

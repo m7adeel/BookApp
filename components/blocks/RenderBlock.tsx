@@ -30,68 +30,71 @@ import EditableTable from './EditableTable'
 
 type RenderBlockProps = {
   block: any
+  showTranslations: boolean
 }
 
-export default function RenderBlock({ block }: RenderBlockProps) {
+export default function RenderBlock({ block, showTranslations }: RenderBlockProps) {
   switch (block.type) {
     case blockTypes.QUESTION_TEXT:
-      return <QuestionText value={block.value} />
+      return <QuestionText value={block.value} showTranslations={showTranslations}/>
     
     case blockTypes.CONTAINER:
-      return <Container children={block.children} />
+      return <Container children={block.children} showTranslations={showTranslations}/>
 
     case blockTypes.OUTLINED_CONTAINER:
-      return <OutlinedContainer children={block.children} />
+      return <OutlinedContainer children={block.children} showTranslations={showTranslations}/>
     
     case blockTypes.NUMBERED_LIST:
-      return <NumberedList children={block.children} childType={block.childType} />
+      return <NumberedList children={block.children} childType={block.childType} showTranslations={showTranslations}/>
     
     case blockTypes.LIST:
-      return <List children={block.values}/>
+      return <List children={block.values} showTranslations={showTranslations}/>
     
     case blockTypes.FORMATTED_TEXT:
-      return <FormattedText value={block.value} number={block.number} />
+      return <FormattedText value={block.value} number={block.number} showTranslations={showTranslations}/>
 
     case blockTypes.POEM:
-      return <Poem title={block.title} author={block.author} lines={block.lines} />
+      return <Poem title={block.title} author={block.author} lines={block.lines} showTranslations={showTranslations}/>
     
     case blockTypes.FILL_IN_BLANKS:
       return <FillInBlanks 
         value={block.value} 
         labels={block.labels} 
         numeric={block.numeric}
+        showTranslations={showTranslations}
       />
 
     case blockTypes.MULTI_FILL_IN_BLANKS:
-      return <MultiFillInBlanks data={block.data} numeric={block.numeric} />
+      return <MultiFillInBlanks data={block.data} numeric={block.numeric} showTranslations={showTranslations}/>
 
     case blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS:
-      return <FillinBlanksWithOptions values={block.values} options={block.options} showOptions={block.showOptions}/>
+      return <FillinBlanksWithOptions values={block.values} options={block.options} showOptions={block.showOptions} showTranslations={showTranslations}/>
 
     case blockTypes.QUESTION_LIST:
-      return <QuestionList questions={block.values} />
+      return <QuestionList questions={block.values} showTranslations={showTranslations}/>
     
     case blockTypes.IMAGE:
-      return <Image source={block.value} style={block.style} />
+      return <Image source={block.value} style={block.style}/>
     
     case blockTypes.ITALIC_TEXT:
-      return <ItalicText value={block.value} />
+      return <ItalicText value={block.value} showTranslations={showTranslations}/>
     
     case blockTypes.CONVERSATION_WITH_IMAGE:
       return <ConversationWithImage 
         dialogues={block.dialogues}
         imageSource={block.imageSource}
         imagePosition={block.imagePosition}
+        showTranslations={showTranslations}
       />
     
     case blockTypes.CONVERSATION:
-      return <Conversation dialogues={block.dialogues} />
+      return <Conversation dialogues={block.dialogues} showTranslations={showTranslations}/>
     
     case blockTypes.PARAGRAPH:
-      return <Paragraph value={block.value} />
+      return <Paragraph value={block.value} showTranslations={showTranslations}/>
 
     case blockTypes.PARAGRAPH_WITH_IMAGE:
-      return <ParagraphWithImage value={block.value} imagePosition={block.imagePosition} imageSource={block.imageSource}/>
+      return <ParagraphWithImage value={block.value} imagePosition={block.imagePosition} imageSource={block.imageSource} showTranslations={showTranslations}/>
 
     case blockTypes.FREE_ANSWER:
       return <FreeAnswer label={block.label} />
@@ -106,19 +109,19 @@ export default function RenderBlock({ block }: RenderBlockProps) {
       return <ImageWithSelectOptions values={block.values} images={block.images} />
 
     case blockTypes.IMAGE_GRID_WITH_TEXT:
-      return <ImageGridWithText data={block.values} />
+      return <ImageGridWithText data={block.values} showTranslations={showTranslations}/>
 
     case blockTypes.PARAGRAPH_WITH_BLANKS:
-      return <ParagraphWithBlanks text={block.value}/>
+      return <ParagraphWithBlanks text={block.value} showTranslations={showTranslations}/>
 
     case blockTypes.CONVERSATION_WITH_BLANKS:
-      return <FillInTheBlanksConversation dialogues={block.dialogues} />
+      return <FillInTheBlanksConversation dialogues={block.dialogues} showTranslations={showTranslations}/>
 
     case blockTypes.PARAGRAPH_WITH_BLANKS_WITH_OPTIONS:
-      return <ParagraphWithBlanksWithOptions text={block.value} options={block.options} showOptions={block.showOptions}/>
+      return <ParagraphWithBlanksWithOptions text={block.value} options={block.options} showOptions={block.showOptions} showTranslations={showTranslations}/>
 
     case blockTypes.MCQS:
-      return <MCQS options={block.values} />
+      return <MCQS options={block.values} showTranslations={showTranslations}/>
 
     case blockTypes.ADD_ROWS_TABLE: 
       return <EditableTable initialColumns={block.columns} initialData={block.data} canAddRows={true} canAddColumns={false} canEdit={true}/>

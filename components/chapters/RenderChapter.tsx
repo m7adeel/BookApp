@@ -1,5 +1,5 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 import LearningObjectives from '../general/LearningObjectives'
 import RenderBlock from '../blocks/RenderBlock'
 
@@ -8,14 +8,42 @@ type RenderChapterProps = {
 }
 
 export default function RenderChapter({ chapter }: RenderChapterProps) {
+  const [showTranslation, setShowTranslation] = useState(false)
+
+  const toggleTranslation = () => {
+    setShowTranslation(!showTranslation)
+  }
+
+  const readChapter = () => {
+
+  }
 
   const learningObjTitle = "After completing the lesson, students will be able to:"
   return (
     <ScrollView style={styles.container}>
-      <LearningObjectives items={chapter.learningObjectives} title={learningObjTitle}/>
+      <View style={styles.header}>
+      <TouchableOpacity 
+          style={styles.translationButton} 
+          onPress={readChapter}
+        >
+          <Text style={styles.translationButtonText}>
+            Read Chapter
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.translationButton} 
+          onPress={toggleTranslation}
+        >
+          <Text style={styles.translationButtonText}>
+            {showTranslation ? "Hide Translation" : "Show Translation"}
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <LearningObjectives items={chapter.learningObjectives} title={learningObjTitle} showTranslations={showTranslation}/>
       {
         chapter.content.map((block) => {
-          return <RenderBlock block={block}/>
+          return <RenderBlock block={block} showTranslations={showTranslation}/>
         })
       }
     </ScrollView>
@@ -25,6 +53,25 @@ export default function RenderChapter({ chapter }: RenderChapterProps) {
 
 const styles = StyleSheet.create({
   container: { padding: 0, },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+  translationButton: {
+    backgroundColor: '#4A6FA5',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    marginBottom: 10,
+  },
+  translationButtonText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
   lessonTitle: {
     fontSize: 22,
     fontWeight: "bold",

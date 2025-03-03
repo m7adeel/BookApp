@@ -20,12 +20,7 @@ export default function Chapter() {
 
   return (
     <View style={styles.container}>
-      {
-        chapterIndex === 0 ? 
-        <Chapter1 />:
         <RenderChapter chapter={chapterData.data}/>
-      }
-      
     </View>
   )
 }

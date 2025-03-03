@@ -4,7 +4,7 @@
     "slug": "my-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/SplashScreen.png",
+    "icon": "./assets/images/react-logo@3x.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.fireblaze1234.myapp"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "fa91074a-7a5d-47ae-8bdd-d49d87d42dea"
+      }
     }
   }
 }

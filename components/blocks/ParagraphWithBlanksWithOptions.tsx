@@ -1,13 +1,23 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal, FlatList } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  FlatList,
+} from "react-native";
 import HeaderSelectOptions from "./common/HeaderSelectOptions";
 import TextWithTranslation from "./common/TextWithTranslation";
+
+import translate from "translate-google-api";
 
 type ParagraphWithBlanksProps = {
   text: string; // Paragraph with "____" as blank spaces
   options: string[]; // Available choices for the blanks
   showOptions?: boolean; // Toggle to show all options above the paragraph
   onComplete?: (selections: string[]) => void; // Optional callback when all blanks are filled
+  showTranslations: boolean;
 };
 
 export default function ParagraphWithBlanksWithOptions({
@@ -15,24 +25,34 @@ export default function ParagraphWithBlanksWithOptions({
   options,
   showOptions = true,
   onComplete,
+  showTranslations,
 }: ParagraphWithBlanksProps) {
+  const [translatedText, setTranslatedText] = useState("");
+  useEffect(() => {
+    translate(text, { to: "bn" }).then((res) => {
+      setTranslatedText(res);
+    });
+  }, []);
+
   // Split paragraph into parts using "____" as blank markers
   const parts = text.split("____");
   const blankCount = parts.length - 1;
-  
+
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>(
     new Array(blankCount).fill("")
   );
-  const [activePickerIndex, setActivePickerIndex] = useState<number | null>(null);
+  const [activePickerIndex, setActivePickerIndex] = useState<number | null>(
+    null
+  );
 
   const handleSelection = (index: number, value: string) => {
     const newSelections = [...selectedAnswers];
     newSelections[index] = value;
     setSelectedAnswers(newSelections);
     setActivePickerIndex(null);
-    
+
     // Check if all blanks are filled and call onComplete if provided
-    if (onComplete && newSelections.every(answer => answer !== "")) {
+    if (onComplete && newSelections.every((answer) => answer !== "")) {
       onComplete(newSelections);
     }
   };
@@ -62,10 +82,12 @@ export default function ParagraphWithBlanksWithOptions({
                   onPress={() => openOptionSelector(index)}
                   activeOpacity={0.7}
                 >
-                  <Text style={[
-                    styles.inlineBlank,
-                    selectedAnswers[index] ? styles.filledInlineBlank : null
-                  ]}>
+                  <Text
+                    style={[
+                      styles.inlineBlank,
+                      selectedAnswers[index] ? styles.filledInlineBlank : null,
+                    ]}
+                  >
                     {selectedAnswers[index] || " [tap to select] "}
                   </Text>
                 </TouchableOpacity>
@@ -73,6 +95,12 @@ export default function ParagraphWithBlanksWithOptions({
             </React.Fragment>
           ))}
         </Text>
+
+        {showTranslations && (
+          <View style={styles.translationContainer}>
+            <Text style={styles.translationText}>{translatedText}</Text>
+          </View>
+        )}
       </View>
 
       {/* Modal for option selection */}
@@ -86,14 +114,14 @@ export default function ParagraphWithBlanksWithOptions({
           <View style={styles.modalContent}>
             <View style={styles.optionsHeader}>
               <Text style={styles.optionsTitle}>Choose an option</Text>
-              <TouchableOpacity 
+              <TouchableOpacity
                 onPress={() => setActivePickerIndex(null)}
                 style={styles.closeButton}
               >
                 <Text style={styles.closeButtonText}>✕</Text>
               </TouchableOpacity>
             </View>
-            
+
             <FlatList
               data={options}
               keyExtractor={(item, index) => `option-${index}`}
@@ -101,18 +129,23 @@ export default function ParagraphWithBlanksWithOptions({
                 <TouchableOpacity
                   style={[
                     styles.optionItem,
-                    activePickerIndex !== null && 
-                    selectedAnswers[activePickerIndex] === item && 
-                    styles.selectedOptionItem
+                    activePickerIndex !== null &&
+                      selectedAnswers[activePickerIndex] === item &&
+                      styles.selectedOptionItem,
                   ]}
-                  onPress={() => activePickerIndex !== null && handleSelection(activePickerIndex, item)}
+                  onPress={() =>
+                    activePickerIndex !== null &&
+                    handleSelection(activePickerIndex, item)
+                  }
                 >
-                  <Text style={[
-                    styles.optionText,
-                    activePickerIndex !== null && 
-                    selectedAnswers[activePickerIndex] === item && 
-                    styles.selectedOptionText
-                  ]}>
+                  <Text
+                    style={[
+                      styles.optionText,
+                      activePickerIndex !== null &&
+                        selectedAnswers[activePickerIndex] === item &&
+                        styles.selectedOptionText,
+                    ]}
+                  >
                     {item}
                   </Text>
                 </TouchableOpacity>
@@ -129,11 +162,9 @@ export default function ParagraphWithBlanksWithOptions({
 // Enhanced styles
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
     backgroundColor: "#ffffff",
   },
-  optionsContainer: {
-  },
+  optionsContainer: {},
   paragraphContainer: {
     backgroundColor: "#fff",
     borderRadius: 8,
@@ -142,7 +173,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
-    elevation: 2,
   },
   paragraphText: {
     fontSize: 16,
@@ -258,5 +288,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#212529",
     fontWeight: "500",
+  },
+  translationContainer: {
+    backgroundColor: "#F2F7FF",
+    borderLeftWidth: 3,
+    borderLeftColor: "#4A6FA5",
+    padding: 12,
+    marginTop: 8,
+    borderRadius: 5,
+  },
+  translationText: {
+    fontSize: 12,
+    color: "#333",
+    fontStyle: "italic",
   },
 });

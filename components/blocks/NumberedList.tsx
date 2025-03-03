@@ -7,11 +7,13 @@ import { childTypes } from "@/data/chapters";
 type NumberedListProps = {
   children: any[];
   childType: string;
+  showTranslations: boolean;
 };
 
 export default function NumberedList({
   children,
   childType,
+  showTranslations
 }: NumberedListProps) {
   if (childType === childTypes.COMPONENT) {
     return (
@@ -22,7 +24,7 @@ export default function NumberedList({
               {(index + 1).toString() + "."}
             </Text>
             <View style={styles.content}>
-              <RenderBlock block={{ ...child, number: index + 1 }} />
+              <RenderBlock block={{ ...child, number: index + 1 }} showTranslations={showTranslations}/>
             </View>
           </View>
         ))}

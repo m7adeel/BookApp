@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text, StyleSheet, Animated } from "react-native";
 
-const Poem = ({ title, author, lines }) => {
+import translate from "translate-google-api";
+
+const Poem = ({ title, author, lines, showTranslations = false }) => {
   // const fadeAnim = useRef(new Animated.Value(0)).current;
 
   // useEffect(() => {
@@ -24,14 +26,40 @@ const Poem = ({ title, author, lines }) => {
   //   </Animated.View>
   // );
 
+  const [translatedLines, setTranslatedLines] = useState(Array(lines.length));
+
+  useEffect(() => {
+    const translatePoem = async () => {
+      const tr_lines = await Promise.all(
+        lines.map(async (line: string) => {
+          const res = await translate(line, { to: "bn" });
+          return res;
+        })
+      );
+
+      setTranslatedLines(tr_lines);
+    };
+
+    translatePoem();
+  }, []);
+
   return (
     <View style={[styles.container]}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.author}>- by {author}</Text>
       {lines.map((line, index) => (
-        <Text key={index} style={styles.line}>
-          {line}
-        </Text>
+        <>
+          <Text key={index} style={styles.line}>
+            {line}
+          </Text>
+          {showTranslations && (
+            <View key={index} style={styles.translationContainer}>
+              <Text style={styles.translationText}>
+                {translatedLines[index]}
+              </Text>
+            </View>
+          )}
+        </>
       ))}
     </View>
   );
@@ -44,23 +72,35 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
     marginBottom: 5,
   },
   author: {
     fontSize: 12,
-    fontStyle: 'italic',
-    color: '#666',
-    textAlign: 'right',
+    fontStyle: "italic",
+    color: "#666",
+    textAlign: "right",
     marginBottom: 10,
   },
   line: {
     fontSize: 16,
-    textAlign: 'center',
-    color: '#444',
+    textAlign: "center",
+    color: "#444",
     marginBottom: 3,
+  },
+  translationContainer: {
+    backgroundColor: "#F2F7FF",
+    borderLeftWidth: 3,
+    borderLeftColor: "#4A6FA5",
+    padding: 5,
+    borderRadius: 5,
+  },
+  translationText: {
+    fontSize: 12,
+    color: "#333",
+    fontStyle: "italic",
   },
 });
 

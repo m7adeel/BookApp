@@ -4,13 +4,14 @@ import RenderBlock from './RenderBlock'
 
 type ContainerProps = {
   children: any[]
+  showTranslations: boolean
 }
 
-export default function Container({ children }: ContainerProps) {
+export default function Container({ children, showTranslations }: ContainerProps) {
   return (
     <View style={[styles.container]}>
       {children.map((child, index) => (
-        <RenderBlock key={index} block={child} />
+        <RenderBlock key={index} block={child} showTranslations={showTranslations}/>
       ))}
     </View>
   )

@@ -158,16 +158,11 @@ const chaptersData = {
     },
     {
       type: blockTypes.IMAGE,
-      source: "/lesson1/l1-2.png",
+      value: require('../assets/images/lesson1/l1-2.png'),
     },
     {
       type: blockTypes.PARAGRAPH,
-      value: `My first day at the new school was interesting. I was going to school
-        with my father in a rickshaw. We reached school after fifteen minutes.
-        My father said goodbye and left me at the school gate. I went in and
-        found that everyone had gone to class. I walked into my classroom and
-        found a seat. After some time, a teacher came and warmly greeted us. I
-        found the students very friendly in my new class.`,
+      value: `My first day at the new school was interesting. I was going to school with my father in a rickshaw. We reached school after fifteen minutes. My father said goodbye and left me at the school gate. I went in and found that everyone had gone to class. I walked into my classroom and found a seat. After some time, a teacher came and warmly greeted us. I found the students very friendly in my new class.`,
     },
     {
       type: blockTypes.QUESTION_TEXT,
@@ -220,21 +215,26 @@ const chaptersData = {
       value: "Let's Play - Kate Greenaway",
     },
     {
-      type: blockTypes.POEM_WITH_IMAGE,
+      type: blockTypes.IMAGE,
+      value: require('../assets/images/lesson1/l1-3.png')
+    },
+    {
+      type: blockTypes.PARAGRAPH,
       value: `
-        School is over, {"\n"}
-        Oh, what fun! {"\n"}
-        Lessons finished, {"\n"}
-        Play begun. {"\n"}
-        Who'll run fastest, {"\n"}
-        You or I? {"\n"}
-        Who'll laugh loudest? {"\n"}
+        School is over, \n
+        Oh, what fun! \n
+        Lessons finished, \n
+        Play begun. \n
+        Who'll run fastest, \n
+        You or I? \n
+        Who'll laugh loudest? \n
         Let us try.
       `,
-      imageSource: "/lesson1/l1-3.png",
-      imagePosition: positions.RIGHT,
     },
-    {},
+    {
+      type: blockTypes.QUESTION_TEXT,
+      value: 'C1 Notice the use of punctuation marks in the poem. Why are the exclamation marks (!), the question marks (?), and the full stops (.) used in these places?'
+    },
     {
       type: blockTypes.FREE_ANSWER,
       label: "Write your answer...",

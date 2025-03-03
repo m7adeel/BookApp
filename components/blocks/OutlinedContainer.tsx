@@ -4,13 +4,14 @@ import RenderBlock from './RenderBlock'
 
 type OutlinedContainerProps = {
   children: any[]
+  showTranslations: boolean
 }
 
-export default function OutlinedContainer({ children }: OutlinedContainerProps) {
+export default function OutlinedContainer({ children, showTranslations }: OutlinedContainerProps) {
   return (
     <View style={[styles.container]}>
       {children.map((child, index) => (
-        <RenderBlock key={index} block={child} />
+        <RenderBlock key={index} block={child} showTranslations={showTranslations} />
       ))}
     </View>
   )
