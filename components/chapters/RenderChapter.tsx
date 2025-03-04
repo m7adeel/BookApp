@@ -10,39 +10,49 @@ type RenderChapterProps = {
   chapter: Object
 }
 
-const parseAndRead = (content: any[]) => {
+const Speaker = (text: string, setIsSpeaking) => {
+  Speech.speak(text, 
+    {
+      onStart: () => setIsSpeaking(true), // Speech started
+      onDone: () => setIsSpeaking(false),  // Speech finished
+      onStopped: () => setIsSpeaking(false), // Speech manually stopped
+    }
+  )
+}
+
+const parseAndRead = (content: any[], setIsSpeaking) => {
   content.forEach((block) => {
     if(block.type === blockTypes.IMAGE) return
 
     if(block.children) {
-      parseAndRead(block.children)
+      parseAndRead(block.children, setIsSpeaking)
     } else if (block.type === blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS) {
       block.values.forEach(value => {
-        Speech.speak(value.value)
+        Speaker(value.value, setIsSpeaking)
       })
     } else if (block.type === blockTypes.IMAGE_GRID_WITH_TEXT) {
       block.values.forEach(value => {
-        Speech.speak(value.left.word)
-        Speech.speak(value.right.word)
+        Speaker(value.left.word, setIsSpeaking)
+        Speaker(value.right.word, setIsSpeaking)
       })
     } else if (block.type === blockTypes.MULTI_FILL_IN_BLANKS) {
       block.data.forEach(value => {
-        Speech.speak(value.sentence)
+        Speaker(value.sentence, setIsSpeaking)
       })
     } else if(block.value) {
-      Speech.speak(block.value)
+      Speaker(block.value, setIsSpeaking)
     } else if (block.values) {
       block.values.forEach(value => {
-        Speech.speak(value)
+        Speaker(value, setIsSpeaking)
       })
     } else if (block.dialogues) {
       block.dialogues.forEach(dialogue => {
-        Speech.speak(dialogue.speaker)
-        Speech.speak(dialogue.text)
+        Speaker(dialogue.speaker, setIsSpeaking)
+        Speaker(dialogue.text, setIsSpeaking)
       })
     } else if (block.lines) {
       block.lines.forEach(line => {
-        Speech.speak(line)
+        Speaker(line, setIsSpeaking)
       })
     }
   })
@@ -50,19 +60,25 @@ const parseAndRead = (content: any[]) => {
 
 export default function RenderChapter({ chapter }: RenderChapterProps) {
   const [showTranslation, setShowTranslation] = useState(false)
+  const [isSpeaking, setIsSpeaking] = useState(false)
   const learningObjTitle = "After completing the lesson, students will be able to:"
   const toggleTranslation = () => {
     setShowTranslation(!showTranslation)
   }
 
   const readChapter = () => {
-    // Speech.speak(learningObjTitle)
+    if(isSpeaking) {
+      Speech.stop()
+      return
+    }
 
-    // chapter.learningObjectives.forEach((lo: string)=>{
-    //   Speech.speak(lo)
-    // })
+    Speaker(learningObjTitle, setIsSpeaking)
 
-    parseAndRead(chapter.content)
+    chapter.learningObjectives.forEach((lo: string)=>{
+      Speaker(lo, setIsSpeaking)
+    })
+
+    parseAndRead(chapter.content, setIsSpeaking)
   }
 
   return (
@@ -73,7 +89,7 @@ export default function RenderChapter({ chapter }: RenderChapterProps) {
           onPress={readChapter}
         >
           <Text style={styles.translationButtonText}>
-            Read Chapter
+            {isSpeaking ? "Stop" : "Read Chapter"}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity 
