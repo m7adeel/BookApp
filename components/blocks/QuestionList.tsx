@@ -4,6 +4,8 @@ import FreeAnswer from "./FreeAnswer";
 
 import translate from "translate-google-api";
 
+import TextWithTranslation from "./common/TextWithTranslation";
+
 type QuestionListProps = {
   questions: string[];
   showTranslations: boolean;
@@ -35,10 +37,12 @@ export default function QuestionList({
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => (
           <View style={styles.questionItem}>
-            <Text style={styles.questionText}>{item}</Text>
+            <TextWithTranslation text={item} textStyle={styles.questionText} />
             {showTranslations && (
               <View style={styles.translationContainer}>
-                <Text style={styles.translationText}>{translatedTextList[index]}</Text>
+                <Text style={styles.translationText}>
+                  {translatedTextList[index]}
+                </Text>
               </View>
             )}
             <FreeAnswer />
@@ -62,16 +66,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   translationContainer: {
-    backgroundColor: '#F2F7FF',
+    backgroundColor: "#F2F7FF",
     borderLeftWidth: 3,
-    borderLeftColor: '#4A6FA5',
+    borderLeftColor: "#4A6FA5",
     padding: 12,
     marginTop: 8,
     borderRadius: 5,
   },
   translationText: {
     fontSize: 12,
-    color: '#333',
-    fontStyle: 'italic',
-  }
+    color: "#333",
+    fontStyle: "italic",
+  },
 });

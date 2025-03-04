@@ -19,8 +19,9 @@ const { width } = Dimensions.get("window");
 
 const TextWithTranslation = ({ text, textStyle }) => {
   const [selectedWord, setSelectedWord] = useState(null);
-  const [translation, setTranslation] = useState('');
+  const [translation, setTranslation] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isSpeaking, setSpeaking] = useState(false);
 
   const handleWordPress = (word) => {
     setSelectedWord(word);
@@ -40,9 +41,7 @@ const TextWithTranslation = ({ text, textStyle }) => {
 
   const openDetails = () => {
     closeModal();
-    router.push(
-      { pathname: "/WordDetails", params: { word: selectedWord } },
-    );
+    router.push({ pathname: "/WordDetails", params: { word: selectedWord } });
   };
 
   const handleTranslation = async (word) => {
@@ -76,6 +75,18 @@ const TextWithTranslation = ({ text, textStyle }) => {
             </Text>
           </TouchableWithoutFeedback>
         ))}
+        <TouchableOpacity
+          onPress={() => {
+            isSpeaking ? Speech.stop() : Speech.speak(text, {
+              onDone: () => {setSpeaking(false);},
+              onStopped: () => {setSpeaking(false);},
+              onError: () => {setSpeaking(false);},
+            });
+            setSpeaking(!isSpeaking);
+          }}
+        >
+          <Ionicons name={isSpeaking ? "volume-mute" : "volume-medium"} size={19.5} color="#3498db" />
+        </TouchableOpacity>
       </Text>
 
       {/* Bottom Modal */}
@@ -199,9 +210,7 @@ const styles = StyleSheet.create({
   text: {
     flexWrap: "wrap",
   },
-  container: {
-    
-  },
+  container: {},
   word: {},
   selectedWord: {
     color: "#3498db",
