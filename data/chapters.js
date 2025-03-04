@@ -158,7 +158,7 @@ const chaptersData = {
     },
     {
       type: blockTypes.IMAGE,
-      value: require('../assets/images/lesson1/l1-2.png'),
+      value: require("../assets/images/lesson1/l1-2.png"),
     },
     {
       type: blockTypes.PARAGRAPH,
@@ -216,7 +216,7 @@ const chaptersData = {
     },
     {
       type: blockTypes.IMAGE,
-      value: require('../assets/images/lesson1/l1-3.png')
+      value: require("../assets/images/lesson1/l1-3.png"),
     },
     {
       type: blockTypes.PARAGRAPH,
@@ -233,7 +233,8 @@ const chaptersData = {
     },
     {
       type: blockTypes.QUESTION_TEXT,
-      value: 'C1 Notice the use of punctuation marks in the poem. Why are the exclamation marks (!), the question marks (?), and the full stops (.) used in these places?'
+      value:
+        "C1 Notice the use of punctuation marks in the poem. Why are the exclamation marks (!), the question marks (?), and the full stops (.) used in these places?",
     },
     {
       type: blockTypes.FREE_ANSWER,
@@ -1451,7 +1452,7 @@ const chapter8Data = {
       value: require("../assets/images/lesson8/p3.png"),
     },
     {
-      type: "numbered_list",
+      type: "list",
       values: [
         "I want to buy an ice-cream.",
         "Yes, how can I help you?",
@@ -1673,7 +1674,7 @@ const chapter9Data = {
         "B. Look at some health problems. Choose several pieces of good advice for each problem. There are more pieces of advice than problems.",
     },
     {
-      type: "numbered_list",
+      type: "list",
       values: [
         "1. a cough...................",
         "2. a backache..............",
@@ -1782,32 +1783,19 @@ const chapter9Data = {
       value: "Some important rules of good personal health are as follows.",
     },
     {
-      type: "numbered_list",
-      items: [
-        {
-          content:
-            "Balanced diet: Our food should contain correct proportion of carbohydrates, fat, protein, vitamins, minerals and water in it.",
-        },
-        {
-          content:
-            "Personal hygiene: We should follow the personal health practices, such as, Wash your hands before eating, Bathe regularly and wear clean clothes, Brush your teeth twice regularly, Do not let your nails grow long. Cut them regularly, Wash your feet and hands before going to bed.",
-        },
-        {
-          content:
-            "Cleaning household: We should keep our household and environment clean.",
-        },
-        {
-          content:
-            "Taking clean food and water: Our food should be fresh, clean and properly cooked, and water should be pure.",
-        },
-        {
-          content:
-            "Taking regular exercise: We should take part in games and sports and take physical exercise regularly.",
-        },
-        {
-          content:
-            "Taking regular sleep and rest: We should sleep properly and take proper rest.",
-        },
+      type: "list",
+      values: [
+        "Balanced diet: Our food should contain correct proportion of carbohydrates, fat, protein, vitamins, minerals and water in it.",
+        ,
+        "Personal hygiene: We should follow the personal health practices, such as, Wash your hands before eating, Bathe regularly and wear clean clothes, Brush your teeth twice regularly, Do not let your nails grow long. Cut them regularly, Wash your feet and hands before going to bed.",
+        ,
+        "Cleaning household: We should keep our household and environment clean.",
+        ,
+        "Taking clean food and water: Our food should be fresh, clean and properly cooked, and water should be pure.",
+        ,
+        "Taking regular exercise: We should take part in games and sports and take physical exercise regularly.",
+        ,
+        "Taking regular sleep and rest: We should sleep properly and take proper rest.",
       ],
     },
     {
@@ -1949,10 +1937,14 @@ const chapter10Data = {
         "B1. Find out the items for natural cures and chemicals. Write the names of natural cures in column A. In the column B, write the items that are chemicals.",
     },
     {
-      type: "match_columns",
-      headers: ["Column A (Natural cures)", "Column B (Chemicals)"],
-      leftValues: ["honey"],
-      rightValues: ["savlon"],
+      type: blockTypes.ADD_ROWS_TABLE,
+      columns: ["Column A (Natural cures)", "Column B (Chemicals)"],
+      data: [
+        {
+          "Column A (Natural cures)": "honey",
+          "Column B (Chemicals)": "savlon",
+        }
+      ]
     },
     {
       type: "question_text",
@@ -2192,13 +2184,29 @@ const chapter11Data = {
       value: "A3 Practise saying the following words.",
     },
     {
-      type: "list",
-      values: [
-        "west   waste  ",
-        "debt   date  ",
-        "let    late  ",
-        "get    gate  ",
-        "tell   tail  ",
+      type: blockTypes.UNEDITABLE_TABLE,
+      columns: ["A", "B"],
+      data: [
+        {
+          A: "west",
+          B: "waste",
+        },
+        {
+          A: "debt",
+          B: "date",
+        },
+        {
+          A: "let",
+          B: "late",
+        },
+        {
+          A: "get",
+          B: "gate",
+        },
+        {
+          A: "tell",
+          B: "tail",
+        },
       ],
     },
     {
@@ -3063,7 +3071,7 @@ const chapter18Data = {
       value: "How to make",
     },
     {
-      type: "numbered_list",
+      type: "list",
       values: [
         "1. First, take two slices of bread.",
         "2. Spread the butter thinly on one side of each slice.",
@@ -3591,8 +3599,7 @@ const chapter22Data = {
         },
         {
           speaker: "Nira",
-          text:
-            "Mong Pru, you see, most of the time we have access to mobile phones or computers. But perhaps we often do not feel the ___ of these ___.",
+          text: "Mong Pru, you see, most of the time we have access to mobile phones or computers. But perhaps we often do not feel the ___ of these ___.",
         },
         {
           speaker: "Mong Pru",
@@ -3600,8 +3607,7 @@ const chapter22Data = {
         },
         {
           speaker: "Nira",
-          text:
-            "Sometimes I use my parents' laptop. I play games, or watch movies or browse the internet. I must say it is a good way to avoid ___.",
+          text: "Sometimes I use my parents' laptop. I play games, or watch movies or browse the internet. I must say it is a good way to avoid ___.",
         },
         {
           speaker: "Mong Pru",
@@ -3613,8 +3619,7 @@ const chapter22Data = {
         },
         {
           speaker: "Mong Pru",
-          text:
-            "Well, I always ___ how this tiny device works without any cable and do so many things! It’s a ___ surprise for us, isn't it?",
+          text: "Well, I always ___ how this tiny device works without any cable and do so many things! It’s a ___ surprise for us, isn't it?",
         },
         {
           speaker: "Nira",
@@ -3624,7 +3629,7 @@ const chapter22Data = {
           speaker: "Mong Pru",
           text: "After reading the article we must say that it's ___.",
         },
-      ]
+      ],
     },
     {
       type: "question_text",
@@ -5453,7 +5458,7 @@ const SampleQuestionsData = {
         "A. Complete the following table with the information given in the passage.",
     },
     {
-      type: "numbered_list",
+      type: "list",
       values: [
         "Name  | Age  | Food they had in the Pahela Boishakh morning",
         "Bushra | a)  | b)",
@@ -5615,7 +5620,7 @@ const SampleQuestionsData = {
         "6. Rearrange the following sentences in correct order in your answer script. You do not need to reproduce the sentences in your script. Only the corresponding numbers of the sentences need to be written. 0.5X10=5",
     },
     {
-      type: "numbered_list",
+      type: "list",
       values: [
         "a) Suddenly Abira saw a boat on the sea.",
         "b) Ayaan said, “I know you feel bored.”",

@@ -3,22 +3,68 @@ import React, { useState } from 'react'
 import LearningObjectives from '../general/LearningObjectives'
 import RenderBlock from '../blocks/RenderBlock'
 
+import * as Speech from 'expo-speech';
+import { blockTypes } from '@/data/chapters';
+
 type RenderChapterProps = {
   chapter: Object
 }
 
+const parseAndRead = (content: any[]) => {
+  content.forEach((block) => {
+    if(block.type === blockTypes.IMAGE) return
+
+    if(block.children) {
+      parseAndRead(block.children)
+    } else if (block.type === blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS) {
+      block.values.forEach(value => {
+        Speech.speak(value.value)
+      })
+    } else if (block.type === blockTypes.IMAGE_GRID_WITH_TEXT) {
+      block.values.forEach(value => {
+        Speech.speak(value.left.word)
+        Speech.speak(value.right.word)
+      })
+    } else if (block.type === blockTypes.MULTI_FILL_IN_BLANKS) {
+      block.data.forEach(value => {
+        Speech.speak(value.sentence)
+      })
+    } else if(block.value) {
+      Speech.speak(block.value)
+    } else if (block.values) {
+      block.values.forEach(value => {
+        Speech.speak(value)
+      })
+    } else if (block.dialogues) {
+      block.dialogues.forEach(dialogue => {
+        Speech.speak(dialogue.speaker)
+        Speech.speak(dialogue.text)
+      })
+    } else if (block.lines) {
+      block.lines.forEach(line => {
+        Speech.speak(line)
+      })
+    }
+  })
+}
+
 export default function RenderChapter({ chapter }: RenderChapterProps) {
   const [showTranslation, setShowTranslation] = useState(false)
-
+  const learningObjTitle = "After completing the lesson, students will be able to:"
   const toggleTranslation = () => {
     setShowTranslation(!showTranslation)
   }
 
   const readChapter = () => {
+    // Speech.speak(learningObjTitle)
 
+    // chapter.learningObjectives.forEach((lo: string)=>{
+    //   Speech.speak(lo)
+    // })
+
+    parseAndRead(chapter.content)
   }
 
-  const learningObjTitle = "After completing the lesson, students will be able to:"
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
