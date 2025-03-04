@@ -2,6 +2,7 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-nati
 import React, { useState } from 'react'
 import LearningObjectives from '../general/LearningObjectives'
 import RenderBlock from '../blocks/RenderBlock'
+import { Ionicons } from '@expo/vector-icons' // Import Ionicons from Expo
 
 import * as Speech from 'expo-speech';
 import { blockTypes } from '@/data/chapters';
@@ -61,7 +62,10 @@ const parseAndRead = (content: any[], setIsSpeaking) => {
 export default function RenderChapter({ chapter }: RenderChapterProps) {
   const [showTranslation, setShowTranslation] = useState(false)
   const [isSpeaking, setIsSpeaking] = useState(false)
+  const [activeTab, setActiveTab] = useState('chapter') // Track active tab
+  
   const learningObjTitle = "After completing the lesson, students will be able to:"
+  
   const toggleTranslation = () => {
     setShowTranslation(!showTranslation)
   }
@@ -82,57 +86,115 @@ export default function RenderChapter({ chapter }: RenderChapterProps) {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-      <TouchableOpacity 
-          style={styles.translationButton} 
-          onPress={readChapter}
-        >
-          <Text style={styles.translationButtonText}>
-            {isSpeaking ? "Stop" : "Read Chapter"}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          style={styles.translationButton} 
-          onPress={toggleTranslation}
-        >
-          <Text style={styles.translationButtonText}>
-            {showTranslation ? "Hide Translation" : "Show Translation"}
-          </Text>
-        </TouchableOpacity>
-      </View>
+    <View style={styles.pageContainer}>
+      <ScrollView style={styles.container}>
+        <LearningObjectives items={chapter.learningObjectives} title={learningObjTitle} showTranslations={showTranslation}/>
+        {
+          chapter.content.map((block, index) => {
+            return <RenderBlock key={index} block={block} showTranslations={showTranslation}/>
+          })
+        }
+        
+        {/* Add bottom padding to ensure content isn't hidden behind the floating bar */}
+        <View style={styles.bottomSpacer} />
+      </ScrollView>
 
-      <LearningObjectives items={chapter.learningObjectives} title={learningObjTitle} showTranslations={showTranslation}/>
-      {
-        chapter.content.map((block) => {
-          return <RenderBlock block={block} showTranslations={showTranslation}/>
-        })
-      }
-    </ScrollView>
+      {/* Floating Bottom Bar */}
+      <View style={styles.floatingBarContainer}>
+        <View style={styles.floatingBar}>
+          <TouchableOpacity 
+            style={[styles.tabButton, activeTab === 'chapter' && styles.activeTab]} 
+            onPress={() => setActiveTab('chapter')}
+          >
+            <Ionicons name="book-outline" size={24} color="#4A6FA5" />
+            <Text style={styles.tabButtonText}>Chapter</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.tabButton, activeTab === 'read' && styles.activeTab]} 
+            onPress={readChapter}
+          >
+            <Ionicons 
+              name={isSpeaking ? "stop-circle-outline" : "play-outline"} 
+              size={24} 
+              color="#4A6FA5" 
+            />
+            <Text style={styles.tabButtonText}>
+              {isSpeaking ? "Stop" : "Read"}
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.tabButton, activeTab === 'translation' && styles.activeTab]} 
+            onPress={toggleTranslation}
+          >
+            <Ionicons 
+              name="language-outline" 
+              size={24} 
+              color="#4A6FA5" 
+            />
+            <Text style={styles.tabButtonText}>
+              {showTranslation ? "Hide" : "Show"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
   )
 }
 
-
 const styles = StyleSheet.create({
-  container: { padding: 0, },
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
+  pageContainer: {
+    flex: 1,
+    position: 'relative',
+  },
+  container: { 
+    padding: 0,
+    flex: 1,
+  },
+  bottomSpacer: {
+    height: 80, // Add space at the bottom to prevent content being hidden behind floating bar
+  },
+  floatingBarContainer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+    justifyContent: 'center',
+    zIndex: 999,
   },
-  translationButton: {
-    backgroundColor: '#4A6FA5',
+  floatingBar: {
+    flexDirection: 'row',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
     paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-    marginBottom: 10,
+    paddingHorizontal: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
+    width: '85%',
+    height: 60,
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
-  translationButtonText: {
-    color: '#FFFFFF',
+  tabButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 5,
+    borderRadius: 20,
+  },
+  activeTab: {
+    backgroundColor: '#F0F8FF',
+  },
+  tabButtonText: {
+    color: '#4A6FA5',
     fontWeight: '600',
+    fontSize: 12,
+    marginTop: 2,
   },
   lessonTitle: {
     fontSize: 22,
@@ -186,4 +248,3 @@ const styles = StyleSheet.create({
   poemText: { fontSize: 16, fontStyle: 'italic', marginBottom: 20, textAlign: 'center' },
   submitButton: { marginTop: 20 },
 });
-
