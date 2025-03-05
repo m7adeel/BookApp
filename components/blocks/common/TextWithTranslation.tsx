@@ -60,7 +60,7 @@ const TextWithTranslation = ({ text, textStyle }) => {
         {text.split(" ").map((word, index) => (
           <TouchableWithoutFeedback
             key={index}
-            onLongPress={() => handleWordPress(word)}
+            onPress={() => handleWordPress(word)}
           >
             <Text
               style={[
