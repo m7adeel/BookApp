@@ -44,6 +44,11 @@ The application supports multiple types of interactive exercises:
 3. **Fill-in-the-Blanks**: Text completion exercises
 4. **Multiple Choice Questions**: Selection-based questions
 5. **Free Answer Questions**: Open-ended responses
+6. **Poems**: Interactive poems with translations
+7. **Conversations**: Dialogue-based learning exercises
+8. **Language Focus**: Grammar and vocabulary exercises
+... and countless more exciting exercises to discover! ✨
+
 
 ### Word Lookup System
 The app integrates with external APIs for word definitions:
@@ -99,21 +104,3 @@ The app integrates with external APIs for word definitions:
 1. Add new components in the `components` directory
 2. Register new block types in `RenderBlock.tsx`
 3. Update type definitions as needed
-
-## Learn More
-
-- [Expo Documentation](https://docs.expo.dev)
-- [React Native Documentation](https://reactnative.dev)
-- [Expo Router Documentation](https://docs.expo.dev/router/introduction)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
