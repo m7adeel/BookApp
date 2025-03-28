@@ -9,8 +9,36 @@ import {
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+// Define interfaces for props and state
+interface Position {
+  x: number;
+  y: number;
+}
+
+interface Match {
+  leftIndex: number;
+  rightIndex: number;
+}
+
+interface ItemPositions {
+  left: Position[];
+  right: Position[];
+}
+
+interface ArrowProps {
+  startY: number;
+  endY: number;
+}
+
+interface MatchColumnsProps {
+  headers: [string, string]; // Tuple of two strings for column headers
+  leftValues: string[];
+  rightValues: string[];
+  number?: number; // Optional question number
+}
+
 // Component for rendering arrow between matches
-const Arrow = ({ startY, endY }) => {
+const Arrow: React.FC<ArrowProps> = ({ startY, endY }) => {
   // Arrow styles will depend on the distance and direction
   const arrowDirection = startY <= endY ? "down" : "up";
   const height = Math.abs(endY - startY);
@@ -28,21 +56,21 @@ const Arrow = ({ startY, endY }) => {
 };
 
 // Main component
-export default function MatchColumns({ headers, leftValues, rightValues, number }) {
+const MatchColumns: React.FC<MatchColumnsProps> = ({ headers, leftValues, rightValues, number }) => {
   // Use all items from the arrays directly - removed the slice(1)
   const leftItems = leftValues;
   const rightItems = rightValues;
   
   // Track selected items and matches
-  const [selectedLeftIndex, setSelectedLeftIndex] = useState(null);
-  const [matches, setMatches] = useState([]);
+  const [selectedLeftIndex, setSelectedLeftIndex] = useState<number | null>(null);
+  const [matches, setMatches] = useState<Match[]>([]);
   
   // Refs for measuring item positions
-  const leftItemRefs = useRef([]);
-  const rightItemRefs = useRef([]);
+  const leftItemRefs = useRef<(View | null)[]>([]);
+  const rightItemRefs = useRef<(View | null)[]>([]);
   
   // Store positions of items for arrow drawing
-  const [itemPositions, setItemPositions] = useState({
+  const [itemPositions, setItemPositions] = useState<ItemPositions>({
     left: [],
     right: []
   });
@@ -86,11 +114,11 @@ export default function MatchColumns({ headers, leftValues, rightValues, number 
   };
   
   // Handle item selection
-  const handleLeftItemPress = (index) => {
+  const handleLeftItemPress = (index: number): void => {
     setSelectedLeftIndex(index);
   };
   
-  const handleRightItemPress = (index) => {
+  const handleRightItemPress = (index: number): void => {
     if (selectedLeftIndex !== null) {
       // Create new matches array
       const newMatches = [...matches];
@@ -129,7 +157,7 @@ export default function MatchColumns({ headers, leftValues, rightValues, number 
   };
   
   // Check if an item is matched
-  const isItemMatched = (index, column) => {
+  const isItemMatched = (index: number, column: 'left' | 'right'): boolean => {
     if (column === 'left') {
       return matches.some(match => match.leftIndex === index);
     } else {
@@ -138,7 +166,7 @@ export default function MatchColumns({ headers, leftValues, rightValues, number 
   };
   
   // Get matching item index
-  const getMatchingItemIndex = (index, column) => {
+  const getMatchingItemIndex = (index: number, column: 'left' | 'right'): number | null => {
     if (column === 'left') {
       const match = matches.find(match => match.leftIndex === index);
       return match ? match.rightIndex : null;
@@ -149,7 +177,7 @@ export default function MatchColumns({ headers, leftValues, rightValues, number 
   };
   
   // Find match number (1-based index for display)
-  const getMatchNumber = (leftIndex, rightIndex) => {
+  const getMatchNumber = (leftIndex: number, rightIndex: number): number | null => {
     const matchIndex = matches.findIndex(match => 
       match.leftIndex === leftIndex && match.rightIndex === rightIndex);
     
@@ -309,7 +337,9 @@ export default function MatchColumns({ headers, leftValues, rightValues, number 
       </Text>
     </View>
   );
-}
+};
+
+export default MatchColumns;
 
 const styles = StyleSheet.create({
   container: {
