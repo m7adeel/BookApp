@@ -84,7 +84,7 @@ const SplashScreen = () => {
         </Text>
 
         {/* Credit Footer */}
-        <Text style={styles.creatorText}>Brought to you by: Muhammad Yasin</Text>
+        <Text style={styles.creatorText}>Brought to you by: Muhammad Adeel</Text>
       </View>
     </View>
   );
