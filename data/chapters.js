@@ -866,19 +866,19 @@ const chapter5Data = {
       options: ["letters", "restaurant", "streets", "place", "morning"],
       values: [
         {
-          value: "A cleaner cleans our houses, office and ___ etc.",
+          value: "A cleaner cleans our houses, office and __________ etc.",
         },
         {
-          value: "A hawker gives us newspapers every ___ .",
+          value: "A hawker gives us newspapers every __________ .",
         },
         {
-          value: "A postman delivers ___ and other items to us.",
+          value: "A postman delivers __________ and other items to us.",
         },
         {
-          value: "A rickshaw puller takes us from one ___ to another.",
+          value: "A rickshaw puller takes us from one __________ to another.",
         },
         {
-          value: "A waiter serves food at the ___ .",
+          value: "A waiter serves food at the __________ .",
         },
       ],
     },
@@ -1969,11 +1969,11 @@ const chapter10Data = {
       type: blockTypes.FILL_IN_BLANKS_SELECT_OPTIONS,
       options: ["bottle", "box", "can", "package", "tube"],
       values: [
-        { value: "1 a ___ of ointment" },
-        { value: "2 a ___ of aspirin" },
-        { value: "3 a ___ of bandage" },
-        { value: "4 a ___ of foot spray" },
-        { value: "5 a ___ of tissue" },
+        { value: "1 a __________ of ointment" },
+        { value: "2 a __________ of aspirin" },
+        { value: "3 a __________ of bandage" },
+        { value: "4 a __________ of foot spray" },
+        { value: "5 a __________ of tissue" },
       ],
     },
     {
@@ -3008,16 +3008,16 @@ const chapter17Data = {
         "rise",
       ],
       values: [
-        { value: "Mike is a ______ young accountant." },
-        { value: "He works from ______ to ______ in a government office." },
+        { value: "Mike is a __________ young accountant." },
+        { value: "He works from __________ to __________ in a government office." },
         {
           value:
-            "In his free ______ he loves to ______ his ______ along the sea ______.",
+            "In his free __________ he loves to __________ his __________ along the sea __________.",
         },
-        { value: "He often comes to the sea beach at ______." },
+        { value: "He often comes to the sea beach at __________." },
         {
           value:
-            "He loves to watch the moon ______ in the sky and the ______ come in.",
+            "He loves to watch the moon __________ in the sky and the __________ come in.",
         },
       ],
     },
@@ -3927,16 +3927,16 @@ const chapter24Data = {
         "may try",
       ],
       values: [
-        { value: "You ___ to Sonargaon." },
-        { value: "You ___ the capital of ancient Bengal there." },
-        { value: "You ___ the Lalbagh Fort in the old part of Dhaka." },
-        { value: "You ___ a couple of hours at the Baldha Garden." },
-        { value: "You ___ the Ahsan Manzil too." },
-        { value: "You ___ a boat ride on the Buriganga river." },
-        { value: "You ___ the taste of Mughlai Khana once you're in Dhaka." },
-        { value: "You ___ a Tom Tom ride from Sadarghat to Gulistan." },
-        { value: "You ___ Chattpaty or Fuchka on the foot path." },
-        { value: "But you .......... tap water in a restaurant." },
+        { value: "You __________ to Sonargaon." },
+        { value: "You __________ the capital of ancient Bengal there." },
+        { value: "You __________ the Lalbagh Fort in the old part of Dhaka." },
+        { value: "You __________ a couple of hours at the Baldha Garden." },
+        { value: "You __________ the Ahsan Manzil too." },
+        { value: "You __________ a boat ride on the Buriganga river." },
+        { value: "You __________ the taste of Mughlai Khana once you're in Dhaka." },
+        { value: "You __________ a Tom Tom ride from Sadarghat to Gulistan." },
+        { value: "You __________ Chattpaty or Fuchka on the foot path." },
+        { value: "But you __________ tap water in a restaurant." },
       ],
     },
     {
@@ -4517,33 +4517,33 @@ const chapter26Data = {
       values: [
         {
           value:
-            "1. I have gained so much weight. My clothes do not ___..... me any more.",
+            "1. I have gained so much weight. My clothes do not __________ me any more.",
         },
-        { value: "2. I never wear red. It does not ___.... me." },
+        { value: "2. I never wear red. It does not __________ me." },
         {
           value:
-            "3. You have got a nice blue top. You just need a pair of sky jeans to ___.. it.",
-        },
-        {
-          value:
-            "4. A: I'd like to ___... this dress on, please.\n   B: Sure, the trial room is over there.",
+            "3. You have got a nice blue top. You just need a pair of sky jeans to __________ it.",
         },
         {
           value:
-            "5. I like this jacket but it's too small. Have you got it in a bigger ___...?",
-        },
-        { value: "6. What are you ___... to the function tonight?" },
-        {
-          value:
-            "7. These heels are too high. I am looking for some ___...... shoes.",
+            "4. A: I'd like to __________ this dress on, please.\n   B: Sure, the trial room is over there.",
         },
         {
           value:
-            "8. I like that dress, but it's too expensive. I want something like that but ___... .",
+            "5. I like this jacket but it's too small. Have you got it in a bigger __________?",
+        },
+        { value: "6. What are you __________ to the function tonight?" },
+        {
+          value:
+            "7. These heels are too high. I am looking for some __________ shoes.",
         },
         {
           value:
-            "9. I think I need a pair of ___...... for my trip to Cox'sbazar. They are always good for going to the beach.",
+            "8. I like that dress, but it's too expensive. I want something like that but __________ .",
+        },
+        {
+          value:
+            "9. I think I need a pair of __________ for my trip to Cox'sbazar. They are always good for going to the beach.",
         },
       ],
     },
@@ -4753,20 +4753,20 @@ const chapter29Data = {
       values: [
         {
           value:
-            "b. Teacher sees books and papers on students' desks. She tells them, ___ all books and papers from your desks.",
+            "b. Teacher sees books and papers on students' desks. She tells them, __________ all books and papers from your desks.",
         },
         {
           value:
-            "c. She gives scripts to the students and says, ___ your name, class, section, roll number, subject and date.",
+            "c. She gives scripts to the students and says, __________ your name, class, section, roll number, subject and date.",
         },
         {
           value:
-            "d. She gives the question papers and tells them, ___ the questions carefully.",
+            "d. She gives the question papers and tells them, __________ the questions carefully.",
         },
-        { value: "e. ___ from someone else's script." },
-        { value: "f. ___ with others." },
-        { value: "g. You ___ out before one hour is over." },
-        { value: "h. ___ writing." },
+        { value: "e. __________ from someone else's script." },
+        { value: "f. __________ with others." },
+        { value: "g. You __________ out before one hour is over." },
+        { value: "h. __________ writing." },
       ],
     },
     {
