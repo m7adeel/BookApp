@@ -8,7 +8,6 @@ import {
   FlatList,
 } from "react-native";
 import HeaderSelectOptions from "./common/HeaderSelectOptions";
-import TextWithTranslation from "./common/TextWithTranslation";
 
 import translate from "translate-google-api";
 

@@ -17,7 +17,6 @@ type ConversationWithImageProps = {
   showTranslations: boolean
 };
 
-// TODO: MAKE THIS LINEAR -> IMAGE ON TOP OR BOTTOM
 export default function ConversationWithImage({
   dialogues,
   imageSource,
@@ -88,10 +87,7 @@ export default function ConversationWithImage({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    padding: 15,
     alignItems: "flex-start",
-    gap: 15,
   },
   conversationContainer: {
     flex: 1,
@@ -111,7 +107,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   imageContainer: {
-    width: "30%",
+    width: "100%",
   },
   image: {
     width: "100%",

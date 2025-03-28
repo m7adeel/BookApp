@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  FlatList,
+} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import HeaderSelectOptions from "./common/HeaderSelectOptions";
 
@@ -43,11 +50,13 @@ export default function FillinBlanksWithOptions({
   const [selectedAnswers, setSelectedAnswers] = useState<string[]>(
     Array(values.length).fill("")
   );
+  const [activePickerIndex, setActivePickerIndex] = useState<number | null>(null);
 
   const handleSelection = (index: number, value: string) => {
     const newSelections = [...selectedAnswers];
     newSelections[index] = value;
     setSelectedAnswers(newSelections);
+    setActivePickerIndex(null);
   };
 
   return (
@@ -57,34 +66,99 @@ export default function FillinBlanksWithOptions({
 
       {/* Fill-in-the-Blanks Section */}
       <View style={styles.blanksContainer}>
-        {values.map((item, index) => (
-          <View key={index} style={styles.blankItem}>
-            <Text style={styles.text}>
-              {item.value} {/* Before Blank */}
-            </Text>
-            {showTranslations && (
-              <View key={index} style={styles.translationContainer}>
-                <Text style={styles.translationText}>
-                  {translatedTextList[index]}
-                </Text>
-              </View>
-            )}
-            <Picker
-              selectedValue={selectedAnswers[index]}
-              onValueChange={(itemValue) => handleSelection(index, itemValue)}
-              style={styles.picker}
-            >
-              <Picker.Item
-                label={item.labels?.[0] || "Select Option"}
-                value=""
-              />
-              {options.map((option, i) => (
-                <Picker.Item key={i} label={option} value={option} />
-              ))}
-            </Picker>
-          </View>
-        ))}
+        {values.map((item, index) => {
+          // Split the sentence at "____" to get parts
+          const parts = item.value.split("__________");
+          
+          return (
+            <View key={index} style={styles.blankItem}>
+              <Text style={styles.text}>
+                {parts.map((part, partIndex) => (
+                  <React.Fragment key={partIndex}>
+                    {part}
+                    {partIndex < parts.length - 1 && (
+                      <TouchableOpacity
+                        onPress={() => setActivePickerIndex(index)}
+                        activeOpacity={0.7}
+                      >
+                        <Text
+                          style={[
+                            styles.inlineBlank,
+                            selectedAnswers[index] ? styles.filledInlineBlank : null,
+                          ]}
+                        >
+                          {selectedAnswers[index] || " [tap to select] "}
+                        </Text>
+                      </TouchableOpacity>
+                    )}
+                  </React.Fragment>
+                ))}
+              </Text>
+              
+              {showTranslations && (
+                <View style={styles.translationContainer}>
+                  <Text style={styles.translationText}>
+                    {translatedTextList[index]}
+                  </Text>
+                </View>
+              )}
+            </View>
+          );
+        })}
       </View>
+
+      {/* Modal for option selection */}
+      <Modal
+        visible={activePickerIndex !== null}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setActivePickerIndex(null)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.optionsHeader}>
+              <Text style={styles.optionsTitle}>Choose an option</Text>
+              <TouchableOpacity
+                onPress={() => setActivePickerIndex(null)}
+                style={styles.closeButton}
+              >
+                <Text style={styles.closeButtonText}>✕</Text>
+              </TouchableOpacity>
+            </View>
+
+            <FlatList
+              data={options}
+              keyExtractor={(item, index) => `option-${index}`}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={[
+                    styles.optionItem,
+                    activePickerIndex !== null &&
+                      selectedAnswers[activePickerIndex] === item &&
+                    styles.selectedOptionItem,
+                  ]}
+                  onPress={() =>
+                    activePickerIndex !== null &&
+                    handleSelection(activePickerIndex, item)
+                  }
+                >
+                  <Text
+                    style={[
+                      styles.optionText,
+                      activePickerIndex !== null &&
+                        selectedAnswers[activePickerIndex] === item &&
+                        styles.selectedOptionText,
+                    ]}
+                  >
+                    {item}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              style={styles.optionsList}
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -97,18 +171,20 @@ const styles = StyleSheet.create({
   },
   blankItem: {
     backgroundColor: "#fff",
-    paddingTop: 5,
-    paddingHorizontal: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     marginBottom: 5,
-    borderRadius: 5,
+    borderRadius: 8,
     shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
-    shadowRadius: 5,
+    shadowRadius: 3,
     elevation: 2,
   },
   text: {
     fontSize: 16,
-    fontWeight: "500",
+    lineHeight: 30,
+    color: "#212529",
   },
   picker: {
     width: "100%",
@@ -125,5 +201,87 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#333",
     fontStyle: "italic",
-  }
+  },
+  inlineBlank: {
+    backgroundColor: "#f1f3f5",
+    borderRadius: 4,
+    paddingHorizontal: 8,
+    marginHorizontal: 2,
+    borderWidth: 1,
+    borderColor: "#dee2e6",
+    color: "#6c757d",
+    fontWeight: "500",
+    overflow: "hidden",
+  },
+  filledInlineBlank: {
+    backgroundColor: "#e7f5ff",
+    borderColor: "#4dabf7",
+    color: "#1971c2",
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    width: "80%",
+    maxHeight: "60%",
+    backgroundColor: "#ffffff",
+    borderRadius: 12,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 10,
+  },
+  optionsHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "#e9ecef",
+    backgroundColor: "#f8f9fa",
+  },
+  optionsTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#343a40",
+  },
+  closeButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: "#e9ecef",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  closeButtonText: {
+    fontSize: 14,
+    color: "#495057",
+    fontWeight: "bold",
+  },
+  optionsList: {
+    flexGrow: 0,
+    maxHeight: 300,
+  },
+  optionItem: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#e9ecef",
+  },
+  selectedOptionItem: {
+    backgroundColor: "#e7f5ff",
+  },
+  optionText: {
+    fontSize: 16,
+    color: "#495057",
+  },
+  selectedOptionText: {
+    color: "#1c7ed6",
+    fontWeight: "500",
+  },
 });
