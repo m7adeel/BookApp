@@ -6,31 +6,49 @@ import {
   TouchableOpacity, 
   StyleSheet, 
   ScrollView, 
-  KeyboardAvoidingView, 
-  Platform,
   Alert
 } from 'react-native';
 import TextWithTranslation from './common/TextWithTranslation';
 
-const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, initialData = [] }) => {
+// Define interfaces for our data structures
+interface TableRow {
+  [key: string]: string;
+}
+
+interface EditableTableProps {
+  canEdit: boolean;
+  canAddRows: boolean;
+  canAddColumns: boolean;
+  initialColumns: string[];
+  initialData?: TableRow[];
+}
+
+const EditableTable: React.FC<EditableTableProps> = ({ 
+  canEdit, 
+  canAddRows, 
+  canAddColumns, 
+  initialColumns, 
+  initialData = [] 
+}) => {
   // State for table data and form inputs
-  const [columns, setColumns] = useState(initialColumns);
-  const [data, setData] = useState([]);
-  const [newRow, setNewRow] = useState(initialColumns.reduce((acc, col) => ({...acc, [col]: ''}), {}));
-  const [newColumnName, setNewColumnName] = useState('');
+  const [columns, setColumns] = useState<string[]>(initialColumns);
+  const [data, setData] = useState<TableRow[]>([]);
+  const [newRow, setNewRow] = useState<TableRow>(
+    initialColumns.reduce((acc: TableRow, col: string) => ({...acc, [col]: ''}), {})
+  );
+  const [newColumnName, setNewColumnName] = useState<string>('');
   
   // Edit mode state
-  const [editMode, setEditMode] = useState(false);
-  const [editRowIndex, setEditRowIndex] = useState(null);
-  const [editRowData, setEditRowData] = useState({});
+  const [editMode, setEditMode] = useState<boolean>(false);
+  const [editRowIndex, setEditRowIndex] = useState<number | null>(null);
+  const [editRowData, setEditRowData] = useState<TableRow>({});
 
   // Initialize with initial data
   useEffect(() => {
     if (initialData && initialData.length > 0) {
-      // Make sure all initialData rows have all columns (even if empty)
       const formattedData = initialData.map(row => {
-        const formattedRow = {...row};
-        columns.forEach(col => {
+        const formattedRow: TableRow = {...row};
+        columns.forEach((col: string) => {
           if (formattedRow[col] === undefined) {
             formattedRow[col] = '';
           }
@@ -39,22 +57,17 @@ const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, ini
       });
       setData(formattedData);
     }
-  }, [initialData]);
+  }, [initialData, columns]);
 
   // Add a new row to the table
-  const addRow = () => {
-    // Check if at least one field has data
-    // const hasData = Object.values(newRow).some(value => value.trim() !== '');
-    
-    // if (hasData) {
-      setData([...data, {...newRow}]);
-      // Reset form
-      setNewRow(columns.reduce((acc, col) => ({...acc, [col]: ''}), {}));
-    // }
+  const addRow = (): void => {
+    setData([...data, {...newRow}]);
+    // Reset form
+    setNewRow(columns.reduce((acc: TableRow, col: string) => ({...acc, [col]: ''}), {}));
   };
 
   // Add a new column to the table
-  const addColumn = () => {
+  const addColumn = (): void => {
     if (newColumnName.trim() !== '' && !columns.includes(newColumnName)) {
       const updatedColumns = [...columns, newColumnName];
       setColumns(updatedColumns);
@@ -68,39 +81,41 @@ const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, ini
   };
 
   // Handle input change for new row
-  const handleInputChange = (column, value) => {
+  const handleInputChange = (column: string, value: string): void => {
     setNewRow({...newRow, [column]: value});
   };
   
   // Handle edit row click
-  const handleEditRow = (rowIndex) => {
+  const handleEditRow = (rowIndex: number): void => {
     setEditMode(true);
     setEditRowIndex(rowIndex);
     setEditRowData({...data[rowIndex]});
   };
   
   // Handle edit input change
-  const handleEditInputChange = (column, value) => {
+  const handleEditInputChange = (column: string, value: string): void => {
     setEditRowData({...editRowData, [column]: value});
   };
   
   // Save edited row
-  const saveEditedRow = () => {
-    const newData = [...data];
-    newData[editRowIndex] = editRowData;
-    setData(newData);
-    cancelEdit();
+  const saveEditedRow = (): void => {
+    if (editRowIndex !== null) {
+      const newData = [...data];
+      newData[editRowIndex] = editRowData;
+      setData(newData);
+      cancelEdit();
+    }
   };
   
   // Cancel edit
-  const cancelEdit = () => {
+  const cancelEdit = (): void => {
     setEditMode(false);
     setEditRowIndex(null);
     setEditRowData({});
   };
   
   // Delete row
-  const deleteRow = (rowIndex) => {
+  const deleteRow = (rowIndex: number): void => {
     Alert.alert(
       "Delete Row",
       "Are you sure you want to delete this row?",
@@ -126,10 +141,7 @@ const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, ini
   };
 
   return (
-    <KeyboardAvoidingView 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
-    >
+    <>
       <ScrollView>        
         {/* Table Header */}
         <ScrollView horizontal>
@@ -158,7 +170,7 @@ const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, ini
                         onChangeText={(text) => handleEditInputChange(column, text)}
                       />
                     ) : (
-                        <TextWithTranslation text={row[column] || ''}/>
+                        <TextWithTranslation text={row[column] || ''} textStyle={styles.cellText}/>
                     )}
                   </View>
                 ))}
@@ -223,7 +235,7 @@ const EditableTable = ({ canEdit, canAddRows, canAddColumns, initialColumns, ini
           </TouchableOpacity>
         </View>}
       </ScrollView>
-    </KeyboardAvoidingView>
+    </>
   );
 };
 
@@ -341,6 +353,9 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+  },
+  cellText: {
+    fontSize: 14,
   },
 });
 
